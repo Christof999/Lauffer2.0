@@ -7,8 +7,8 @@ function Footer() {
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-section">
-            <h3>Lauffer Gartenbau</h3>
-            <p>Ihr Partner für professionelle Gartengestaltung, Erdbau und Natursteinhandel seit 2018.</p>
+            <h3>Lauffer Bau</h3>
+            <p>Ihr Partner für professionelle Gartengestaltung, Erdbau und Natursteinhandel aus Wolframs-Eschenbach.</p>
           </div>
 
           <div className="footer-section">
@@ -27,10 +27,10 @@ function Footer() {
           <div className="footer-section">
             <h4>Kontakt</h4>
             <ul>
-              <li>📍 Musterstraße 123</li>
-              <li>12345 Musterstadt</li>
-              <li>📞 +49 (0) 123 456789</li>
-              <li>✉️ info@lauffer-gartenbau.de</li>
+              <li>📍 Waizendorfer Str. 6</li>
+              <li>91639 Wolframs-Eschenbach</li>
+              <li>📞 09875/8129006</li>
+              <li>✉️ info@lauffer-bau.de</li>
             </ul>
           </div>
 
@@ -45,7 +45,7 @@ function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Lauffer Gartenbau · Erdbau · Natursteinhandel. Alle Rechte vorbehalten.</p>
+          <p>&copy; {new Date().getFullYear()} Lauffer Bau · Erdbau · Natursteinhandel. Alle Rechte vorbehalten.</p>
         </div>
       </div>
     </footer>

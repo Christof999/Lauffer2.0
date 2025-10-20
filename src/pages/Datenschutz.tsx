@@ -66,12 +66,12 @@ function Datenschutz() {
             <h3>Hinweis zur verantwortlichen Stelle</h3>
             <p>
               Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br /><br />
-              <strong>Lauffer Gartenbau</strong><br />
+              <strong>Lauffer Bau</strong><br />
               Paul Lauffer<br />
-              Musterstraße 123<br />
-              12345 Musterstadt<br /><br />
-              Telefon: +49 (0) 123 456789<br />
-              E-Mail: info@lauffer-gartenbau.de
+              Waizendorfer Str. 6<br />
+              91639 Wolframs-Eschenbach<br /><br />
+              Telefon: 09875/8129006<br />
+              E-Mail: info@lauffer-bau.de
             </p>
 
             <h2>4. Datenerfassung auf dieser Website</h2>

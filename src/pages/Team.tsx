@@ -17,10 +17,10 @@ function Team() {
     {
       name: 'Paul',
       position: 'Geschäftsführer',
-      description: 'Als Gründer und Geschäftsführer leitet Paul das Unternehmen seit 2018 mit Leidenschaft und Weitblick. Seine Erfahrung im Gartenbau und sein Auge fürs Detail machen ihn zum Garanten für höchste Qualität bei jedem Projekt.',
+      description: 'Als Gründer und Geschäftsführer leitet Paul das Unternehmen mit Leidenschaft und Weitblick. Seine Erfahrung im Gartenbau und sein Auge fürs Detail machen ihn zum Garanten für höchste Qualität bei jedem Projekt.',
       image: '/api/placeholder/400/400',
-      email: 'info@lauffer-gartenbau.de',
-      phone: '+49 (0) 123 456789'
+      email: 'info@lauffer-bau.de',
+      phone: '09875/8129006'
     },
     {
       name: 'Martin',

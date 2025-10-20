@@ -23,7 +23,7 @@ function Navigation() {
     >
       <div className="nav-container">
         <Link to="/" className="logo-link">
-          <img src="/Logo_Lauffer_RGB.png" alt="Lauffer Gartenbau Logo" className="logo" />
+          <img src="/Logo_Lauffer_RGB.png" alt="Lauffer Bau Logo" className="logo" />
         </Link>
         
         <ul className="nav-links">

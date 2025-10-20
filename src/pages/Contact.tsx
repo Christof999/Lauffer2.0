@@ -23,22 +23,22 @@ function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2>Lauffer Gartenbau</h2>
+            <h2>Lauffer Bau</h2>
             <h3>Erdbau · Natursteinhandel</h3>
             
             <div className="info-item">
               <h4>Adresse</h4>
-              <p>Musterstraße 123<br />12345 Musterstadt</p>
+              <p>Waizendorfer Str. 6<br />91639 Wolframs-Eschenbach</p>
             </div>
 
             <div className="info-item">
               <h4>Telefon</h4>
-              <p>+49 (0) 123 456789</p>
+              <p>09875/8129006</p>
             </div>
 
             <div className="info-item">
               <h4>E-Mail</h4>
-              <p>info@lauffer-gartenbau.de</p>
+              <p>info@lauffer-bau.de</p>
             </div>
 
             <div className="info-item">

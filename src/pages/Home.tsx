@@ -83,7 +83,7 @@ function Home() {
             animate={{ scale: 1, rotate: 0 }}
             transition={{ duration: 0.8, delay: 0.1, type: "spring" }}
           >
-            Seit 2018
+            Wolframs-Eschenbach
           </motion.div>
           
           <motion.h1
@@ -91,7 +91,7 @@ function Home() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <span className="highlight-text">Lauffer</span> Gartenbau
+            <span className="highlight-text">Lauffer</span> Bau
           </motion.h1>
           
           <motion.h2
@@ -111,7 +111,7 @@ function Home() {
             transition={{ duration: 0.6, delay: 0.7 }}
           >
             Ihr kompetenter Partner für professionelle Gartengestaltung, zuverlässige Erdbauarbeiten 
-            und hochwertigen Natursteinhandel. Seit 2018 verwirklichen wir mit Leidenschaft und 
+            und hochwertigen Natursteinhandel. Aus Wolframs-Eschenbach verwirklichen wir mit Leidenschaft und 
             Fachkompetenz Ihre Träume von der perfekten Außenanlage.
           </motion.p>
           

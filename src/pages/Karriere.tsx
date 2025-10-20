@@ -108,9 +108,9 @@ function Karriere() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2>Warum Lauffer Gartenbau?</h2>
+            <h2>Warum Lauffer Bau?</h2>
             <p>
-              Seit 2018 schaffen wir grüne Oasen und beeindruckende Außenanlagen. Als wachsendes 
+              Wir schaffen grüne Oasen und beeindruckende Außenanlagen. Als wachsendes 
               Unternehmen bieten wir dir nicht nur einen Job, sondern eine echte Perspektive. 
               Bei uns arbeitest du in einem motivierten Team, an spannenden Projekten und mit 
               modernster Technik. Kurze Entscheidungswege und ein familiäres Arbeitsklima sind 
@@ -223,7 +223,7 @@ function Karriere() {
 
               <div className="form-group">
                 <label htmlFor="message">Deine Nachricht *</label>
-                <textarea id="message" rows={6} required placeholder="Erzähl uns etwas über dich und warum du zu Lauffer Gartenbau möchtest..."></textarea>
+                <textarea id="message" rows={6} required placeholder="Erzähl uns etwas über dich und warum du zu Lauffer Bau möchtest..."></textarea>
               </div>
 
               <div className="form-group">
@@ -261,8 +261,8 @@ function Karriere() {
             transition={{ duration: 0.6 }}
           >
             <h3>Oder schick uns deine Bewerbung per E-Mail:</h3>
-            <a href="mailto:jobs@lauffer-gartenbau.de" className="email-link">
-              jobs@lauffer-gartenbau.de
+            <a href="mailto:info@lauffer-bau.de" className="email-link">
+              info@lauffer-bau.de
             </a>
           </motion.div>
         </div>

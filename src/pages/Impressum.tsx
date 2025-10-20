@@ -22,16 +22,16 @@ function Impressum() {
           >
             <h2>Angaben gemäß § 5 TMG</h2>
             <p>
-              <strong>Lauffer Gartenbau · Erdbau · Natursteinhandel</strong><br />
+              <strong>Lauffer Bau · Erdbau · Natursteinhandel</strong><br />
               Paul Lauffer<br />
-              Musterstraße 123<br />
-              12345 Musterstadt
+              Waizendorfer Str. 6<br />
+              91639 Wolframs-Eschenbach
             </p>
 
             <h2>Kontakt</h2>
             <p>
-              Telefon: +49 (0) 123 456789<br />
-              E-Mail: info@lauffer-gartenbau.de
+              Telefon: 09875/8129006<br />
+              E-Mail: info@lauffer-bau.de
             </p>
 
             <h2>Umsatzsteuer-ID</h2>
@@ -50,8 +50,8 @@ function Impressum() {
             <h2>Redaktionell verantwortlich</h2>
             <p>
               Paul Lauffer<br />
-              Musterstraße 123<br />
-              12345 Musterstadt
+              Waizendorfer Str. 6<br />
+              91639 Wolframs-Eschenbach
             </p>
 
             <h2>EU-Streitschlichtung</h2>

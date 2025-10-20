@@ -24,11 +24,11 @@ function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2>Willkommen bei Lauffer Gartenbau</h2>
+            <h2>Willkommen bei Lauffer Bau</h2>
             <p>
-              Seit 2018 steht der Name Lauffer für Qualität, Zuverlässigkeit und 
+              Seit Jahren steht der Name Lauffer für Qualität, Zuverlässigkeit und 
               Kompetenz im Bereich Gartenbau, Erdbau und Natursteinhandel. Mit frischem Elan und 
-              modernster Technik haben wir uns in der Region als zuverlässiger Partner etabliert.
+              modernster Technik haben wir uns in der Region Mittelfranken als zuverlässiger Partner etabliert.
             </p>
             <p>
               Unser Erfolgsrezept ist einfach: Leidenschaft für unsere Arbeit, höchste Qualitätsansprüche 
@@ -53,7 +53,7 @@ function About() {
               </div>
               <div className="value-item">
                 <h3>Innovation</h3>
-                <p>Moderne Technik und frische Ideen seit 2018</p>
+                <p>Moderne Technik und frische Ideen für jeden Auftrag</p>
               </div>
               <div className="value-item">
                 <h3>Zuverlässigkeit</h3>
