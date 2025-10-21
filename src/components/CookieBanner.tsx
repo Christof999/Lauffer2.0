@@ -5,6 +5,7 @@ import './CookieBanner.css'
 function CookieBanner() {
   const [isVisible, setIsVisible] = useState(false)
   const [showSettings, setShowSettings] = useState(false)
+  const [, setLocationPermission] = useState<boolean | null>(null)
 
   useEffect(() => {
     const cookieConsent = localStorage.getItem('cookieConsent')
@@ -13,8 +14,32 @@ function CookieBanner() {
     }
   }, [])
 
-  const handleAcceptAll = () => {
+  const handleAcceptAll = async () => {
     localStorage.setItem('cookieConsent', 'all')
+    
+    // Request location permission
+    try {
+      const permission = await navigator.permissions.query({ name: 'geolocation' as PermissionName })
+      if (permission.state === 'granted') {
+        setLocationPermission(true)
+        localStorage.setItem('locationPermission', 'granted')
+      } else {
+        // Fallback for browsers that don't support permissions API
+        navigator.geolocation.getCurrentPosition(
+          () => {
+            setLocationPermission(true)
+            localStorage.setItem('locationPermission', 'granted')
+          },
+          () => {
+            setLocationPermission(false)
+            localStorage.setItem('locationPermission', 'denied')
+          }
+        )
+      }
+    } catch (error) {
+      console.log('Location permission not supported')
+    }
+    
     setIsVisible(false)
   }
 
@@ -49,6 +74,11 @@ function CookieBanner() {
                   Wir verwenden Cookies, um Ihnen ein optimales Website-Erlebnis zu bieten. 
                   Dazu gehören notwendige Cookies für den Betrieb der Website sowie optionale 
                   Cookies für statistische Zwecke und zur Verbesserung unserer Dienste.
+                </p>
+                <p className="location-notice">
+                  📍 <strong>Standort-Berechtigung:</strong> Für eine personalisierte Route zu unserem Standort 
+                  benötigen wir Ihre Erlaubnis, Ihren aktuellen Standort zu ermitteln. Dies hilft uns, 
+                  Ihnen die beste Anfahrtsroute zu zeigen.
                 </p>
                 <div className="cookie-buttons">
                   <button 

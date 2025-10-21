@@ -7,6 +7,8 @@ import About from './pages/About'
 import Projects from './pages/Projects'
 import Team from './pages/Team'
 import Gallery from './pages/Gallery'
+import MapDemo from './pages/MapDemo'
+import MapTest from './pages/MapTest'
 import Contact from './pages/Contact'
 import Karriere from './pages/Karriere'
 import Impressum from './pages/Impressum'
@@ -24,6 +26,8 @@ function App() {
           <Route path="/projekte" element={<Projects />} />
           <Route path="/team" element={<Team />} />
           <Route path="/galerie" element={<Gallery />} />
+          <Route path="/map-demo" element={<MapDemo />} />
+          <Route path="/map-test" element={<MapTest />} />
           <Route path="/kontakt" element={<Contact />} />
           <Route path="/karriere" element={<Karriere />} />
           <Route path="/impressum" element={<Impressum />} />

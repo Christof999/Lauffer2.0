@@ -29,6 +29,20 @@
   font-size: 0.95rem;
 }
 
+.location-notice {
+  background: rgba(122, 181, 29, 0.1);
+  border: 1px solid rgba(122, 181, 29, 0.3);
+  border-radius: 8px;
+  padding: 12px;
+  margin: 15px 0;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.location-notice strong {
+  color: #7AB51D;
+}
+
 .cookie-buttons {
   display: flex;
   gap: 1rem;

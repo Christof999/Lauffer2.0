@@ -11,6 +11,7 @@ function Navigation() {
     { path: '/projekte', label: 'Unsere Projekte' },
     { path: '/team', label: 'Unser Team' },
     { path: '/galerie', label: 'Galerie' },
+    { path: '/map-demo', label: 'Standort' },
     { path: '/kontakt', label: 'Kontakt' },
   ]
 
