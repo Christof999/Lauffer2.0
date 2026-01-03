@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Max Mustermann",
+    "position": "Geschäftsführer",
+    "description": "Mit über 20 Jahren Erfahrung im Gartenbau leitet Max unser Team mit Leidenschaft und Fachkompetenz.",
+    "image": "/images/team/max-mustermann.jpg",
+    "email": "max@lauffer-bau.de",
+    "phone": "09875/8129006"
+  },
+  {
+    "id": 2,
+    "name": "Anna Schmidt",
+    "position": "Projektleiterin Gartenbau",
+    "description": "Anna ist unsere Expertin für Gartenplanung und Bepflanzung. Sie verwirklicht Ihre Gartenträume.",
+    "image": "/images/team/anna-schmidt.jpg",
+    "email": "anna@lauffer-bau.de",
+    "phone": "09875/8129006"
+  },
+  {
+    "id": 3,
+    "name": "Thomas Weber",
+    "position": "Leiter Erdbau",
+    "description": "Thomas koordiniert alle Erdbauarbeiten und sorgt für reibungslose Abläufe auf der Baustelle.",
+    "image": "/images/team/thomas-weber.jpg",
+    "email": "thomas@lauffer-bau.de",
+    "phone": "09875/8129006"
+  }
+]
+

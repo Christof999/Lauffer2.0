@@ -32,10 +32,6 @@ function Navigation() {
       transition={{ duration: 0.5 }}
     >
       <div className="nav-container">
-        <Link to="/" className="logo-link" onClick={closeMobileMenu}>
-          <img src="/Logo_Lauffer_RGB.png" alt="Lauffer Bau Logo" className="logo" />
-        </Link>
-        
         {/* Desktop Navigation */}
         <ul className="nav-links desktop-nav">
           {navItems.map((item) => (
@@ -57,37 +53,44 @@ function Navigation() {
           ))}
         </ul>
 
-        {/* Mobile Burger Button */}
-        <motion.button
-          className="burger-button"
-          onClick={toggleMobileMenu}
-          whileTap={{ scale: 0.95 }}
-          aria-label="Toggle mobile menu"
-        >
-          <motion.span
-            className="burger-line"
-            animate={{
-              rotate: isMobileMenuOpen ? 45 : 0,
-              y: isMobileMenuOpen ? 8 : 0,
-            }}
-            transition={{ duration: 0.3 }}
-          />
-          <motion.span
-            className="burger-line"
-            animate={{
-              opacity: isMobileMenuOpen ? 0 : 1,
-            }}
-            transition={{ duration: 0.3 }}
-          />
-          <motion.span
-            className="burger-line"
-            animate={{
-              rotate: isMobileMenuOpen ? -45 : 0,
-              y: isMobileMenuOpen ? -8 : 0,
-            }}
-            transition={{ duration: 0.3 }}
-          />
-        </motion.button>
+        <div className="nav-right">
+          {/* Logo oben rechts - nur auf Desktop */}
+          <Link to="/" className="logo-link-right desktop-only" onClick={closeMobileMenu}>
+            <img src="/Logo_Lauffer_RGB.png" alt="Lauffer Bau Logo" className="logo-right" />
+          </Link>
+
+          {/* Mobile Burger Button */}
+          <motion.button
+            className="burger-button"
+            onClick={toggleMobileMenu}
+            whileTap={{ scale: 0.95 }}
+            aria-label="Toggle mobile menu"
+          >
+            <motion.span
+              className="burger-line"
+              animate={{
+                rotate: isMobileMenuOpen ? 45 : 0,
+                y: isMobileMenuOpen ? 8 : 0,
+              }}
+              transition={{ duration: 0.3 }}
+            />
+            <motion.span
+              className="burger-line"
+              animate={{
+                opacity: isMobileMenuOpen ? 0 : 1,
+              }}
+              transition={{ duration: 0.3 }}
+            />
+            <motion.span
+              className="burger-line"
+              animate={{
+                rotate: isMobileMenuOpen ? -45 : 0,
+                y: isMobileMenuOpen ? -8 : 0,
+              }}
+              transition={{ duration: 0.3 }}
+            />
+          </motion.button>
+        </div>
       </div>
 
       {/* Mobile Menu Overlay */}
@@ -115,15 +118,9 @@ function Navigation() {
               }}
             >
               <div className="mobile-menu-header">
-                <img src="/Logo_Lauffer_RGB.png" alt="Lauffer Bau Logo" className="mobile-logo" />
-                <motion.button
-                  className="close-button"
-                  onClick={closeMobileMenu}
-                  whileTap={{ scale: 0.95 }}
-                  aria-label="Close mobile menu"
-                >
-                  ✕
-                </motion.button>
+                <Link to="/" onClick={closeMobileMenu}>
+                  <img src="/Logo_Lauffer_RGB.png" alt="Lauffer Bau Logo" className="mobile-logo" />
+                </Link>
               </div>
 
               <ul className="mobile-nav-links">

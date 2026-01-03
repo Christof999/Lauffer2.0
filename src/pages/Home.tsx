@@ -1,10 +1,38 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import CounterBox from '../components/CounterBox'
 import AnimatedBlueprint from '../components/AnimatedBlueprint'
+import ProjectModal from '../components/ProjectModal'
+import projectsData from '../data/projectsData.json'
 import './Home.css'
 
+interface Project {
+  id: number
+  title: string
+  subtitle?: string
+  description: string
+  category: string
+  location: string
+  date: string
+  features: string[]
+  images: string[]
+}
+
 function Home() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const handleProjectClick = (project: Project) => {
+    setSelectedProject(project)
+    setIsModalOpen(true)
+  }
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false)
+    setTimeout(() => setSelectedProject(null), 300)
+  }
+
   return (
     <div className="home">
       {/* Hero Section */}
@@ -99,6 +127,8 @@ function Home() {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
+            <span className="separator-line">Gartenbau</span>
+            <span className="separator-dot">·</span>
             <span className="separator-line">Erdbau</span>
             <span className="separator-dot">·</span>
             <span className="separator-line">Natursteinhandel</span>
@@ -172,18 +202,19 @@ function Home() {
           <div className="stats-grid">
             <CounterBox 
               title="Gesamte Leistung" 
-              targetValue={4600} 
+              targetValue={3746} 
               unit="PS"
               delay={200}
             />
             <CounterBox 
-              title="Zufriedene Kunden" 
-              targetValue={75}
+              title="Teamerfahrung gesamt" 
+              targetValue={76}
+              unit="Jahre"
               delay={400}
             />
             <CounterBox 
               title="Realisierte Projekte" 
-              targetValue={120}
+              targetValue={124}
               delay={600}
             />
           </div>
@@ -275,18 +306,28 @@ function Home() {
           </motion.p>
 
           <div className="gallery-preview-grid">
-            {[1, 2, 3, 4, 5, 6].map((item, index) => (
+            {projectsData.slice(0, 6).map((project, index) => (
               <motion.div
-                key={item}
+                key={project.id}
                 className="gallery-preview-item"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
+                onClick={() => handleProjectClick(project as Project)}
+                style={{ cursor: 'pointer' }}
               >
-                <div className="gallery-preview-placeholder">
-                  <span>Projekt {item}</span>
+                {project.images && project.images.length > 0 ? (
+                  <img src={project.images[0]} alt={project.title} />
+                ) : (
+                  <div className="gallery-preview-placeholder">
+                    <span>{project.title}</span>
+                  </div>
+                )}
+                <div className="gallery-preview-overlay">
+                  <h4>{project.title}</h4>
+                  <p>{project.category}</p>
                 </div>
               </motion.div>
             ))}
@@ -311,6 +352,13 @@ function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* Project Modal */}
+      <ProjectModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        project={selectedProject}
+      />
     </div>
   )
 }
