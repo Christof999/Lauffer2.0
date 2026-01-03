@@ -78,6 +78,168 @@
   line-height: 1.8;
 }
 
+/* Team Leaders Section */
+.team-leaders {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 3rem;
+  margin-bottom: 5rem;
+}
+
+.leader-card {
+  background-color: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.leader-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+}
+
+.leader-image {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--grey-light) 0%, #e0e0e0 100%);
+}
+
+.leader-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.3s ease;
+}
+
+/* Spezielle Position für Paul */
+.leader-card:first-child .leader-image img {
+  object-position: center 20%;
+}
+
+.leader-card:hover .leader-image img {
+  transform: scale(1.05);
+}
+
+.placeholder-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(122, 181, 29, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.leader-info {
+  padding: 2.5rem;
+}
+
+.leader-info h3 {
+  color: var(--grey-primary);
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.leader-position {
+  color: var(--green-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--grey-light);
+}
+
+.leader-info p {
+  color: var(--grey-primary);
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+.leader-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--grey-light);
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--green-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.contact-link:hover {
+  background-color: var(--grey-light);
+  transform: translateX(5px);
+}
+
+.contact-icon {
+  font-size: 1.2rem;
+}
+
+.contact-note {
+  color: var(--grey-primary);
+  font-style: italic;
+  padding: 0.8rem;
+  background-color: rgba(122, 181, 29, 0.1);
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Team Photo Section */
+.team-photo-section {
+  margin-bottom: 5rem;
+  text-align: center;
+}
+
+.team-photo-section h2 {
+  color: var(--green-primary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.team-photo-subtitle {
+  color: var(--grey-primary);
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+}
+
+.team-photo {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.team-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -261,6 +423,35 @@
     font-size: 2rem;
   }
 
+  .team-leaders {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .leader-image {
+    height: 400px;
+  }
+
+  .leader-info {
+    padding: 2rem;
+  }
+
+  .leader-info h3 {
+    font-size: 1.8rem;
+  }
+
+  .leader-position {
+    font-size: 1rem;
+  }
+
+  .team-photo-section h2 {
+    font-size: 2rem;
+  }
+
+  .team-photo-subtitle {
+    font-size: 1rem;
+  }
+
   .team-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -289,6 +480,28 @@
 
   .team-cta p {
     font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-leaders {
+    grid-template-columns: 1fr;
+  }
+
+  .leader-image {
+    height: 300px;
+  }
+
+  .leader-info {
+    padding: 1.5rem;
+  }
+
+  .leader-info h3 {
+    font-size: 1.6rem;
+  }
+
+  .team-photo {
+    border-radius: 12px;
   }
 }
 

@@ -3,51 +3,7 @@ import { Link } from 'react-router-dom'
 import TeamBlueprint from '../components/TeamBlueprint'
 import './Team.css'
 
-interface TeamMember {
-  name: string
-  position: string
-  description: string
-  image: string
-  email?: string
-  phone?: string
-}
-
 function Team() {
-  const teamMembers: TeamMember[] = [
-    {
-      name: 'Paul',
-      position: 'Geschäftsführer',
-      description: 'Als Gründer und Geschäftsführer leitet Paul das Unternehmen mit Leidenschaft und Weitblick. Seine Erfahrung im Gartenbau und sein Auge fürs Detail machen ihn zum Garanten für höchste Qualität bei jedem Projekt.',
-      image: '/api/placeholder/400/400',
-      email: 'info@lauffer-bau.de',
-      phone: '09875/8129006'
-    },
-    {
-      name: 'Martin',
-      position: 'Facharbeiter Gartenbau',
-      description: 'Martin ist unser erfahrener Facharbeiter im Gartenbau. Mit seinem technischen Know-how und handwerklichem Geschick setzt er alle Projekte vom ersten Spatenstich bis zur finalen Bepflanzung präzise um.',
-      image: '/api/placeholder/400/400'
-    },
-    {
-      name: 'Michael',
-      position: 'Facharbeiter Gartenbau',
-      description: 'Michael bringt Kreativität und Präzision in jedes Projekt ein. Seine Expertise im Gartenbau und sein Einsatz für perfekte Ergebnisse machen jeden Garten zu etwas Besonderem.',
-      image: '/api/placeholder/400/400'
-    },
-    {
-      name: 'Franky',
-      position: 'Bauhelfer',
-      description: 'Franky ist unser zuverlässiger Bauhelfer, der mit Tatkraft und Motivation bei jedem Projekt mit anpackt. Seine Unterstützung ist für das Team unverzichtbar.',
-      image: '/api/placeholder/400/400'
-    },
-    {
-      name: 'Bailey',
-      position: 'Chief Happiness Officer 🐕',
-      description: 'Bailey ist der vierbeinige Liebling des Teams und offiziell zuständig für Kundenanfragen, Reklamationen und gute Laune auf der Baustelle. Mit seinem Charme wickelt er jeden Kunden um die Pfote - Leckerlis werden als Bestechung akzeptiert!',
-      image: '/api/placeholder/400/400'
-    }
-  ]
-
   return (
     <div className="team">
       <motion.section
@@ -92,46 +48,92 @@ function Team() {
             <p>
               Unser engagiertes Team arbeitet mit Leidenschaft und Kompetenz an jedem Projekt. 
               Durch kurze Kommunikationswege und persönliche Betreuung garantieren wir höchste Qualität. 
-              Vom ersten Beratungsgespräch bis zur finalen Umsetzung sind wir Ihr direkter Ansprechpartner. 
-              Und ja - Bailey ist wirklich Teil des Teams! 🐾
+              Vom ersten Beratungsgespräch bis zur finalen Umsetzung sind wir Ihr direkter Ansprechpartner.
             </p>
           </motion.div>
 
-          <div className="team-grid">
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={index}
-                className="team-card"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-              >
-                <div className="team-image">
-                  <img src={member.image} alt={member.name} />
-                  <div className="team-overlay">
-                    {member.email && (
-                      <a href={`mailto:${member.email}`} className="contact-icon">
-                        ✉
-                      </a>
-                    )}
-                    {member.phone && (
-                      <a href={`tel:${member.phone}`} className="contact-icon">
-                        ☎
-                      </a>
-                    )}
+          {/* Hauptpersonen - Paul und Baily */}
+          <div className="team-leaders">
+            {/* Paul */}
+            <motion.div
+              className="leader-card"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="leader-image">
+                <img src="/images/team/Paul_Headshot.JPG" alt="Paul - Geschäftsführer" />
+              </div>
+              <div className="leader-info">
+                <h3>Paul</h3>
+                <div className="leader-position">Geschäftsführer</div>
+                <p>
+                  Als Gründer und Geschäftsführer leitet Paul das Unternehmen mit Leidenschaft und Weitblick. 
+                  Seine jahrelange Erfahrung im Gartenbau und sein Auge fürs Detail machen ihn zum Garanten 
+                  für höchste Qualität bei jedem Projekt. Paul ist Ihr direkter Ansprechpartner für alle 
+                  Fragen rund um Planung und Umsetzung.
+                </p>
+                <div className="leader-contact">
+                  <a href="mailto:info@lauffer-bau.de" className="contact-link">
+                    <span className="contact-icon">✉️</span>
+                    info@lauffer-bau.de
+                  </a>
+                  <a href="tel:098758129006" className="contact-link">
+                    <span className="contact-icon">📞</span>
+                    09875/8129006
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Baily */}
+            <motion.div
+              className="leader-card"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="leader-image">
+                <img src="/images/team/Baily_Headshot.PNG" alt="Bailey - Chief Happiness Officer" />
+              </div>
+              <div className="leader-info">
+                <h3>Bailey</h3>
+                <div className="leader-position">Chief Happiness Officer 🐕</div>
+                <p>
+                  Bailey ist der vierbeinige Liebling des Teams und offiziell zuständig für gute Laune 
+                  auf der Baustelle. Mit seinem Charme wickelt er jeden Kunden um die Pfote und sorgt 
+                  dafür, dass die Arbeitsatmosphäre immer perfekt ist. Leckerlis werden als Bestechung 
+                  gerne akzeptiert! 🐾
+                </p>
+                <div className="leader-contact">
+                  <div className="contact-note">
+                    💚 Zuständig für Kundenanfragen und Reklamationen
                   </div>
                 </div>
-                <div className="team-info">
-                  <h3>{member.name}</h3>
-                  <div className="team-position">{member.position}</div>
-                  <p>{member.description}</p>
-                </div>
-              </motion.div>
-            ))}
+              </div>
+            </motion.div>
           </div>
 
+          {/* Teambild */}
+          <motion.div
+            className="team-photo-section"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2>Unser gesamtes Team</h2>
+            <p className="team-photo-subtitle">
+              Gemeinsam stark - Unser eingespieltes Team bei der Arbeit
+            </p>
+            <div className="team-photo">
+              <img src="/images/team/Team_fav.JPG" alt="Das gesamte Lauffer Bau Team" />
+            </div>
+          </motion.div>
+
+          {/* Call to Action */}
           <motion.div
             className="team-cta"
             initial={{ opacity: 0, y: 30 }}

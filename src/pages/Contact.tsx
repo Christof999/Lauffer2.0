@@ -1,9 +1,68 @@
 import { motion } from 'framer-motion'
-import AnimatedMap from '../components/AnimatedMap'
-import { MAPBOX_CONFIG, LOCATIONS } from '../config/mapbox'
+import { useState, FormEvent } from 'react'
+import emailjs from '@emailjs/browser'
 import './Contact.css'
 
 function Contact() {
+  const [formStatus, setFormStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+  const [formData, setFormData] = useState({
+    from_name: '',
+    reply_to: '',
+    phone: '',
+    subject: '',
+    message: ''
+  })
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setFormStatus('sending')
+
+    try {
+      // EmailJS Konfiguration aus Umgebungsvariablen
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+
+      // Template Parameter mit aktueller Zeit
+      const templateParams = {
+        ...formData,
+        time: new Date().toLocaleString('de-DE', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit'
+        })
+      }
+
+      await emailjs.send(serviceId, templateId, templateParams, publicKey)
+      
+      setFormStatus('success')
+      // Formular zurücksetzen nach 3 Sekunden
+      setTimeout(() => {
+        setFormData({
+          from_name: '',
+          reply_to: '',
+          phone: '',
+          subject: '',
+          message: ''
+        })
+        setFormStatus('idle')
+      }, 3000)
+    } catch (error) {
+      console.error('EmailJS Error:', error)
+      setFormStatus('error')
+      // Fehler nach 5 Sekunden zurücksetzen
+      setTimeout(() => setFormStatus('idle'), 5000)
+    }
+  }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
   return (
     <div className="contact">
       <motion.section
@@ -87,7 +146,7 @@ function Contact() {
             </div>
             <div className="stat-divider"></div>
             <div className="stat-item">
-              <div className="stat-number">15+</div>
+              <div className="stat-number">8+</div>
               <div className="stat-label">Jahre Erfahrung</div>
             </div>
           </motion.div>
@@ -107,7 +166,7 @@ function Contact() {
               <div className="info-header">
                 <div className="info-icon">🏢</div>
                 <h2>Lauffer Bau</h2>
-                <p className="info-subtitle">Erdbau · Natursteinhandel</p>
+                <p className="info-subtitle">Gartenbau · Erdbau · Natursteinhandel</p>
               </div>
               
               <div className="contact-methods">
@@ -116,10 +175,10 @@ function Contact() {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="method-icon">📍</div>
+                  <div className="method-icon">✉️</div>
                   <div className="method-content">
-                    <h4>Adresse</h4>
-                    <p>Waizendorfer Str. 6<br />91639 Wolframs-Eschenbach</p>
+                    <h4>E-Mail</h4>
+                    <p><a href="mailto:info@lauffer-bau.de">info@lauffer-bau.de</a></p>
                   </div>
                 </motion.div>
 
@@ -132,18 +191,6 @@ function Contact() {
                   <div className="method-content">
                     <h4>Telefon</h4>
                     <p><a href="tel:098758129006">09875/8129006</a></p>
-                  </div>
-                </motion.div>
-
-                <motion.div 
-                  className="contact-method"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="method-icon">✉️</div>
-                  <div className="method-content">
-                    <h4>E-Mail</h4>
-                    <p><a href="mailto:info@lauffer-bau.de">info@lauffer-bau.de</a></p>
                   </div>
                 </motion.div>
               </div>
@@ -181,33 +228,62 @@ function Contact() {
                 <p>Senden Sie uns eine Nachricht und wir melden uns schnellstmöglich bei Ihnen zurück.</p>
               </div>
               
-              <form className="contact-form">
+              <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="form-row">
                   <div className="form-group">
                     <label>Ihr Name *</label>
-                    <input type="text" placeholder="Max Mustermann" required />
+                    <input 
+                      type="text" 
+                      name="from_name"
+                      placeholder="Max Mustermann" 
+                      value={formData.from_name}
+                      onChange={handleChange}
+                      required 
+                      disabled={formStatus === 'sending'}
+                    />
                   </div>
                   <div className="form-group">
                     <label>E-Mail Adresse *</label>
-                    <input type="email" placeholder="max@example.com" required />
+                    <input 
+                      type="email" 
+                      name="reply_to"
+                      placeholder="max@example.com" 
+                      value={formData.reply_to}
+                      onChange={handleChange}
+                      required 
+                      disabled={formStatus === 'sending'}
+                    />
                   </div>
                 </div>
                 
                 <div className="form-row">
                   <div className="form-group">
                     <label>Telefonnummer</label>
-                    <input type="tel" placeholder="+49 123 456789" />
+                    <input 
+                      type="tel" 
+                      name="phone"
+                      placeholder="+49 123 456789" 
+                      value={formData.phone}
+                      onChange={handleChange}
+                      disabled={formStatus === 'sending'}
+                    />
                   </div>
                   <div className="form-group">
                     <label>Betreff *</label>
-                    <select required>
+                    <select 
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      required
+                      disabled={formStatus === 'sending'}
+                    >
                       <option value="">Bitte wählen</option>
-                      <option value="gartenbau">🌱 Gartenbau</option>
-                      <option value="erdbau">🚜 Erdbau</option>
-                      <option value="naturstein">🪨 Natursteinhandel</option>
-                      <option value="beratung">💡 Beratung</option>
-                      <option value="angebot">💰 Angebot anfordern</option>
-                      <option value="sonstiges">❓ Sonstiges</option>
+                      <option value="🌱 Gartenbau">🌱 Gartenbau</option>
+                      <option value="🚜 Erdbau">🚜 Erdbau</option>
+                      <option value="🪨 Natursteinhandel">🪨 Natursteinhandel</option>
+                      <option value="💡 Beratung">💡 Beratung</option>
+                      <option value="💰 Angebot anfordern">💰 Angebot anfordern</option>
+                      <option value="❓ Sonstiges">❓ Sonstiges</option>
                     </select>
                   </div>
                 </div>
@@ -215,67 +291,54 @@ function Contact() {
                 <div className="form-group">
                   <label>Ihre Nachricht *</label>
                   <textarea 
+                    name="message"
                     placeholder="Beschreiben Sie Ihr Projekt oder Ihre Anfrage..." 
-                    rows={5} 
+                    rows={5}
+                    value={formData.message}
+                    onChange={handleChange}
                     required
+                    disabled={formStatus === 'sending'}
                   ></textarea>
                 </div>
+                
+                {/* Status Messages */}
+                {formStatus === 'success' && (
+                  <motion.div 
+                    className="form-message success"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                  >
+                    ✅ Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns schnellstmöglich bei Ihnen.
+                  </motion.div>
+                )}
+                
+                {formStatus === 'error' && (
+                  <motion.div 
+                    className="form-message error"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                  >
+                    ❌ Entschuldigung, es gab einen Fehler beim Senden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns telefonisch.
+                  </motion.div>
+                )}
                 
                 <motion.button
                   type="submit"
                   className="submit-btn"
                   whileHover={{ 
-                    scale: 1.02,
-                    boxShadow: "0 8px 25px rgba(122, 181, 29, 0.3)"
+                    scale: formStatus === 'sending' ? 1 : 1.02,
+                    boxShadow: formStatus === 'sending' ? undefined : "0 8px 25px rgba(122, 181, 29, 0.3)"
                   }}
-                  whileTap={{ scale: 0.98 }}
+                  whileTap={{ scale: formStatus === 'sending' ? 1 : 0.98 }}
+                  disabled={formStatus === 'sending'}
                 >
-                  <span>📤 Nachricht senden</span>
-                  <div className="btn-arrow">→</div>
+                  <span>
+                    {formStatus === 'sending' ? '⏳ Wird gesendet...' : '📤 Nachricht senden'}
+                  </span>
+                  {formStatus === 'idle' && <div className="btn-arrow">→</div>}
                 </motion.button>
               </form>
             </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Map Section */}
-      <section className="contact-map-section">
-        <div className="contact-map-wrapper">
-          <motion.div
-            className="contact-map-container"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <AnimatedMap
-              mapboxToken={MAPBOX_CONFIG.token}
-              startLocation={LOCATIONS.start.coordinates}
-              endLocation={LOCATIONS.destination.coordinates}
-              companyName={LOCATIONS.destination.name}
-              containerRef={{ current: null }}
-            />
-            
-            {/* Map overlay info */}
-            <motion.div
-              className="map-overlay"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              <div className="overlay-content">
-                <h3>Unser Standort</h3>
-                <p><strong>Lauffer Bau</strong><br />
-                Waizendorfer Str. 6<br />
-                91639 Wolframs-Eschenbach</p>
-                <div className="contact-info">
-                  <p>📞 {LOCATIONS.destination.phone}</p>
-                  <p>✉️ {LOCATIONS.destination.email}</p>
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
         </div>
       </section>
