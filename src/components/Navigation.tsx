@@ -54,8 +54,8 @@ function Navigation() {
         </ul>
 
         <div className="nav-right">
-          {/* Logo oben rechts - nur auf Desktop */}
-          <Link to="/" className="logo-link-right desktop-only" onClick={closeMobileMenu}>
+          {/* Logo (Desktop + Mobile) */}
+          <Link to="/" className="logo-link-right" onClick={closeMobileMenu}>
             <img src="/Logo_Lauffer_RGB.png" alt="Lauffer Bau Logo" className="logo-right" />
           </Link>
 

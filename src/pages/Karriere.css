@@ -3,7 +3,7 @@
 }
 
 .karriere-hero {
-  background: linear-gradient(135deg, var(--green-primary) 0%, #5a9016 50%, var(--grey-primary) 100%);
+  background: linear-gradient(135deg, var(--coal-grey) 0%, var(--coal-grey-dark) 50%, var(--grey-primary) 100%);
   padding: 8rem 2rem 6rem;
   text-align: center;
   color: var(--white);
@@ -54,7 +54,7 @@
 }
 
 .karriere-intro h2 {
-  color: var(--green-primary);
+  color: var(--coal-grey);
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
@@ -106,7 +106,7 @@
 }
 
 .benefit-card h3 {
-  color: var(--green-primary);
+  color: var(--coal-grey);
   font-size: 1.4rem;
   font-weight: 700;
   margin-bottom: 0.8rem;
@@ -142,7 +142,7 @@
   padding: 2.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border-left: 4px solid var(--green-primary);
+  border-left: 4px solid var(--coal-grey);
 }
 
 .job-header {
@@ -161,7 +161,7 @@
 }
 
 .job-type {
-  background-color: var(--green-primary);
+  background-color: var(--coal-grey);
   color: var(--white);
   padding: 0.4rem 1rem;
   border-radius: 20px;
@@ -200,7 +200,7 @@
   content: '✓';
   position: absolute;
   left: 0;
-  color: var(--green-primary);
+  color: var(--coal-grey);
   font-weight: 700;
   font-size: 1.2rem;
 }
@@ -215,7 +215,7 @@
 }
 
 .application-section h2 {
-  color: var(--green-primary);
+  color: var(--coal-grey);
   font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
@@ -269,7 +269,7 @@
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--green-primary);
+  border-color: var(--coal-grey);
 }
 
 .form-group textarea {
@@ -288,8 +288,8 @@
 }
 
 .file-label:hover {
-  border-color: var(--green-primary);
-  background-color: rgba(122, 181, 29, 0.05);
+  border-color: var(--coal-grey);
+  background-color: rgba(44, 44, 44, 0.05);
 }
 
 .file-label input[type="file"] {
@@ -316,7 +316,7 @@
 }
 
 .checkbox-group a {
-  color: var(--green-primary);
+  color: var(--coal-grey);
   text-decoration: none;
 }
 
@@ -326,7 +326,7 @@
 
 .submit-button {
   width: 100%;
-  background-color: var(--green-primary);
+  background-color: var(--coal-grey);
   color: var(--white);
   border: none;
   padding: 1.2rem 2rem;
@@ -359,7 +359,7 @@
 }
 
 .email-link {
-  color: var(--green-primary);
+  color: var(--coal-grey);
   font-size: 1.5rem;
   font-weight: 600;
   text-decoration: none;

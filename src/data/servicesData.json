@@ -1,0 +1,44 @@
+[
+  {
+    "id": "gartenbau",
+    "title": "Gartenbau",
+    "subtitle": "Planung, Gestaltung & Pflege",
+    "description": "Von der ersten Idee bis zur fertigen Außenanlage: Wir planen und realisieren Gartenprojekte mit einem hohen Anspruch an Ästhetik, Funktion und Langlebigkeit. Dabei verbinden wir Gestaltung, Materialauswahl und handwerkliche Präzision zu einem stimmigen Gesamtkonzept.",
+    "scope": [
+      "Gartenplanung & Konzeptentwicklung",
+      "Pflanzarbeiten & Rasenflächen",
+      "Terrassen, Wege & Einfassungen",
+      "Bewässerung & Entwässerung",
+      "Pflege- und Instandhaltungskonzepte"
+    ],
+    "images": []
+  },
+  {
+    "id": "erdbau",
+    "title": "Erdbau",
+    "subtitle": "Aushub, Modellierung & Fundament",
+    "description": "Erdbau ist die Basis für jedes Projekt. Mit moderner Technik und eingespielten Abläufen schaffen wir präzise Höhen, stabile Untergründe und eine saubere Vorbereitung für die weitere Ausführung – effizient, zuverlässig und termintreu.",
+    "scope": [
+      "Aushub- und Erdbewegungsarbeiten",
+      "Planierung & Modellierung",
+      "Unterbau für Wege, Terrassen und Einfahrten",
+      "Drainage / Versickerung",
+      "Abtransport & Materiallogistik"
+    ],
+    "images": []
+  },
+  {
+    "id": "naturstein",
+    "title": "Natursteinhandel",
+    "subtitle": "Auswahl, Beratung & Verarbeitung",
+    "description": "Naturstein bringt Charakter und Beständigkeit in jede Außenanlage. Wir beraten bei Auswahl und Einsatz – und setzen Naturstein fachgerecht ein, damit Optik und Funktion dauerhaft überzeugen.",
+    "scope": [
+      "Beratung & Materialauswahl",
+      "Lieferung & Logistik",
+      "Natursteinmauern & Stufenanlagen",
+      "Pflaster- und Plattenbeläge",
+      "Sonderlösungen nach Maß"
+    ],
+    "images": []
+  }
+]

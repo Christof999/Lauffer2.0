@@ -22,7 +22,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at center, rgba(122, 181, 29, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(44, 44, 44, 0.1) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -37,7 +37,7 @@
   font-size: 4rem;
   font-weight: 700;
   margin-bottom: 20px;
-  background: linear-gradient(135deg, #7AB51D 0%, #5A8A15 100%);
+  background: linear-gradient(135deg, var(--coal-grey) 0%, var(--coal-grey-dark) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -82,7 +82,7 @@
 }
 
 .overlay-content h3 {
-  color: #7AB51D;
+  color: var(--coal-grey);
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 15px;
@@ -132,7 +132,7 @@
   font-size: 2.5rem;
   font-weight: 600;
   margin-bottom: 20px;
-  color: #7AB51D;
+  color: var(--coal-grey);
 }
 
 .content-card p {

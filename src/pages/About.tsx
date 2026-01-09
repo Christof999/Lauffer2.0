@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import AboutBlueprint from '../components/AboutBlueprint'
 import './About.css'
 
 function About() {
@@ -11,20 +10,46 @@ function About() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <AboutBlueprint />
-        <h1>Über Uns</h1>
+        <div className="about-container">
+          <motion.p
+            className="about-kicker"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            Über uns
+          </motion.p>
+
+          <motion.h1
+            className="about-title"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Lauffer <span className="about-title-accent">Bau</span>
+          </motion.h1>
+
+          <motion.p
+            className="about-lead"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+          >
+            Qualität, Zuverlässigkeit und ein Auge fürs Detail – von der Planung bis zur Umsetzung.
+          </motion.p>
+        </div>
       </motion.section>
 
       <section className="about-content">
-        <div className="content-container">
+        <div className="about-container">
           <motion.div
-            className="about-text"
+            className="about-section"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2>Willkommen bei Lauffer Bau</h2>
+            <h2 className="about-section-title">Willkommen bei Lauffer Bau</h2>
             <p>
               Seit Jahren steht der Name Lauffer für Qualität, Zuverlässigkeit und 
               Kompetenz im Bereich Gartenbau, Erdbau und Natursteinhandel. Mit frischem Elan und 
@@ -39,13 +64,13 @@ function About() {
           </motion.div>
 
           <motion.div
-            className="about-values"
+            className="about-section"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h2>Unsere Werte</h2>
+            <h2 className="about-section-title">Unsere Werte</h2>
             <div className="values-grid">
               <div className="value-item">
                 <h3>Qualität</h3>

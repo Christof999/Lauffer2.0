@@ -71,85 +71,31 @@ function Contact() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="hero-background">
-          <div className="hero-shapes">
-            <motion.div 
-              className="hero-shape hero-shape-1"
-              animate={{ 
-                y: [0, -20, 0],
-                rotate: [0, 5, 0]
-              }}
-              transition={{ 
-                duration: 8,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-            <motion.div 
-              className="hero-shape hero-shape-2"
-              animate={{ 
-                y: [0, 30, 0],
-                rotate: [0, -10, 0]
-              }}
-              transition={{ 
-                duration: 10,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-          </div>
-        </div>
-        
-        <div className="hero-content">
-          <motion.div
-            className="hero-badge"
-            initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, type: "spring" }}
-          >
-            📞 Direkter Kontakt
-          </motion.div>
-          
-          <motion.h1
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            <span className="highlight-text">Lassen Sie uns</span><br />
-            zusammenarbeiten
-          </motion.h1>
-          
+        <div className="contact-hero-inner">
           <motion.p
-            className="hero-text"
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            className="contact-kicker"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Haben Sie Fragen zu unseren Leistungen oder möchten Sie ein Projekt besprechen? 
-            Wir freuen uns auf Ihre Nachricht und beraten Sie gerne persönlich.
+            Kontakt
           </motion.p>
-          
-          <motion.div
-            className="hero-stats"
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
+          <motion.h1
+            className="contact-title"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="stat-item">
-              <div className="stat-number">24h</div>
-              <div className="stat-label">Antwortzeit</div>
-            </div>
-            <div className="stat-divider"></div>
-            <div className="stat-item">
-              <div className="stat-number">100%</div>
-              <div className="stat-label">Kundenzufriedenheit</div>
-            </div>
-            <div className="stat-divider"></div>
-            <div className="stat-item">
-              <div className="stat-number">8+</div>
-              <div className="stat-label">Jahre Erfahrung</div>
-            </div>
-          </motion.div>
+            Lassen Sie uns <span className="contact-title-accent">sprechen</span>
+          </motion.h1>
+          <motion.p
+            className="contact-lead"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+          >
+            Schreiben Sie uns – wir melden uns zeitnah und beraten Sie persönlich zu Ihrem Vorhaben.
+          </motion.p>
         </div>
       </motion.section>
 
