@@ -14,8 +14,32 @@ function Gallery() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <h1>Galerie</h1>
-        <p>Impressionen unserer Arbeit</p>
+        <div className="gallery-hero-inner">
+          <motion.p
+            className="gallery-kicker"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            Galerie
+          </motion.p>
+          <motion.h1
+            className="gallery-title"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Impressionen <span className="gallery-title-accent">unserer Arbeit</span>
+          </motion.h1>
+          <motion.p
+            className="gallery-lead"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+          >
+            Von weitläufigen Gartenanlagen bis zu präzisen Erdbauarbeiten – lassen Sie sich inspirieren.
+          </motion.p>
+        </div>
       </motion.section>
 
       <section className="gallery-content">
@@ -27,11 +51,8 @@ function Gallery() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2>Einblicke in unsere Arbeit</h2>
-            <p>
-              Von weitläufigen Gartenanlagen über präzise Erdbauarbeiten bis hin zu kunstvoll verlegten 
-              Natursteinen – lassen Sie sich von unserer Arbeit inspirieren.
-            </p>
+            <h2>Einblicke</h2>
+            <p>Eine kleine Auswahl – klicken Sie auf ein Bild, um es vergrößert zu betrachten.</p>
           </motion.div>
 
           <div className="gallery-grid">

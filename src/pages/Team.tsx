@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import TeamBlueprint from '../components/TeamBlueprint'
 import './Team.css'
 
 function Team() {
@@ -12,27 +11,32 @@ function Team() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <TeamBlueprint />
-        <motion.div 
-          className="hero-decoration"
-          initial={{ scale: 0, rotate: 0 }}
-          animate={{ scale: 1, rotate: 360 }}
-          transition={{ duration: 1.5, delay: 0.3 }}
-        />
-        <motion.h1
-          initial={{ y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          Unser Team
-        </motion.h1>
-        <motion.p
-          initial={{ y: 30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          Die Menschen hinter unserem Erfolg
-        </motion.p>
+        <div className="team-hero-inner">
+          <motion.p
+            className="team-kicker"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            Team
+          </motion.p>
+          <motion.h1
+            className="team-title"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Menschen, die <span className="team-title-accent">Qualität</span> möglich machen
+          </motion.h1>
+          <motion.p
+            className="team-lead"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+          >
+            Kurze Wege, klare Kommunikation und Liebe zum Detail – von der Beratung bis zur Umsetzung.
+          </motion.p>
+        </div>
       </motion.section>
 
       <section className="team-content">

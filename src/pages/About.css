@@ -1,107 +1,142 @@
 .about {
   flex: 1;
+  background: var(--bg-dark);
 }
 
-.about-hero {
-  background: linear-gradient(135deg, var(--grey-primary) 0%, var(--brown-primary) 100%);
-  padding: 6rem 2rem 4rem;
-  text-align: center;
-  color: var(--white);
-  position: relative;
-  overflow: hidden;
-}
-
-.about-hero h1 {
-  font-size: 3.5rem;
-  font-weight: 700;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  position: relative;
-  z-index: 1;
-}
-
-.about-content {
-  padding: 6rem 2rem;
-  background-color: var(--white);
-}
-
-.content-container {
+.about-container {
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 2rem;
 }
 
-.about-text,
-.about-values {
-  margin-bottom: 5rem;
+/* Hero */
+.about-hero {
+  padding: 7rem 0 5rem;
+  border-bottom: 1px solid var(--border-light);
 }
 
-.about-text h2,
-.about-values h2 {
-  color: var(--green-primary);
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  font-weight: 700;
+.about-kicker {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--accent);
+  margin: 0 0 1rem 0;
 }
 
-.about-text p {
-  color: var(--grey-primary);
-  font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
+.about-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  margin: 0;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
 }
 
+.about-title-accent {
+  color: var(--primary);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.about-lead {
+  margin: 1.5rem 0 0 0;
+  max-width: 70ch;
+  font-family: 'Manrope', sans-serif;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.9;
+  font-weight: 300;
+}
+
+/* Content */
+.about-content {
+  padding: 6rem 0 8rem;
+}
+
+.about-section {
+  padding: 0 0 4rem 0;
+}
+
+.about-section + .about-section {
+  border-top: 1px solid var(--border-light);
+  padding-top: 4rem;
+}
+
+.about-section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 300;
+  margin: 0 0 1.5rem 0;
+  color: var(--text-main);
+}
+
+.about-section p {
+  font-family: 'Manrope', sans-serif;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.9;
+  font-weight: 300;
+  margin: 0 0 1.25rem 0;
+  max-width: 80ch;
+}
+
+/* Values */
 .values-grid {
+  margin-top: 2.5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
 }
 
 .value-item {
-  padding: 2rem;
-  background-color: var(--grey-light);
-  border-radius: 8px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  grid-column: span 6;
+  padding: 2rem 2rem;
+  border: 1px solid var(--border-light);
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
 }
 
 .value-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-color: rgba(125, 160, 115, 0.35);
+  background: rgba(255, 255, 255, 0.03);
+  transform: translateY(-2px);
 }
 
 .value-item h3 {
-  color: var(--green-primary);
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  font-weight: 700;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--text-main);
+  margin: 0 0 0.75rem 0;
 }
 
 .value-item p {
-  color: var(--grey-primary);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-family: 'Manrope', sans-serif;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .value-item {
+    grid-column: span 12;
+  }
 }
 
 @media (max-width: 768px) {
-  .about-hero {
-    padding: 4rem 1.5rem 3rem;
+  .about-container {
+    padding: 0 1.5rem;
   }
 
-  .about-hero h1 {
-    font-size: 2.5rem;
+  .about-hero {
+    padding: 6rem 0 4rem;
   }
 
   .about-content {
-    padding: 4rem 1.5rem;
-  }
-
-  .about-text h2,
-  .about-values h2 {
-    font-size: 2rem;
-  }
-
-  .values-grid {
-    grid-template-columns: 1fr;
+    padding: 5rem 0 6rem;
   }
 }
 

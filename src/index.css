@@ -1,5 +1,10 @@
 :root {
-  --green-primary: #7ab51d;
+  --coal-grey: #2c2c2c;
+  --coal-grey-dark: #1f1f1f;
+  --coal-grey-light: #3a3a3a;
+  --forest-green: #3d6b1f;
+  --forest-green-dark: #2d5016;
+  --forest-green-light: #4a7c2a;
   --grey-primary: #6d7378;
   --brown-primary: #6b3e2e;
   --white: #ffffff;

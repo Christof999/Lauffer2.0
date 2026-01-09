@@ -60,9 +60,14 @@ Siehe [DEPLOYMENT.md](./DEPLOYMENT.md) für detaillierte Anweisungen.
 
 ## 🎨 Farbschema
 
-- Primär-Grün: `#7ab51d`
-- Primär-Grau: `#6d7378`
-- Primär-Braun: `#6b3e2e`
+- **Kohle-Grau** (Hauptfarbe): `#2c2c2c`
+- **Kohle-Grau Dunkel**: `#1f1f1f`
+- **Kohle-Grau Hell**: `#3a3a3a`
+- **Waldgrün** (Akzent): `#3d6b1f`
+- **Waldgrün Dunkel**: `#2d5016`
+- **Waldgrün Hell**: `#4a7c2a`
+- **Primär-Grau**: `#6d7378`
+- **Primär-Braun**: `#6b3e2e`
 
 ## 📁 Projekt-Struktur
 

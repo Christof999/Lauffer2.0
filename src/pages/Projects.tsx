@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import ProjectModal from '../components/ProjectModal'
-import ProjectsBlueprint from '../components/ProjectsBlueprint'
 import projectsData from '../data/projectsData.json'
 import './Projects.css'
 
@@ -39,9 +38,34 @@ function Projects() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <ProjectsBlueprint />
-        <h1>Unsere Projekte</h1>
-        <p>Eine Auswahl unserer erfolgreich realisierten Projekte</p>
+        <div className="projects-hero-inner">
+          <motion.p
+            className="projects-kicker"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            Portfolio
+          </motion.p>
+
+          <motion.h1
+            className="projects-title"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Unsere <span className="projects-title-accent">Projekte</span>
+          </motion.h1>
+
+          <motion.p
+            className="projects-lead"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.35 }}
+          >
+            Eine Auswahl unserer erfolgreich realisierten Projekte – präzise, hochwertig und zeitlos.
+          </motion.p>
+        </div>
       </motion.section>
 
       <section className="projects-content">
