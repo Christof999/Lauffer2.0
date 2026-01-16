@@ -157,6 +157,18 @@
   letter-spacing: 0.2em;
   color: var(--accent);
   margin-bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Dezente, aber sichtbare Lauffer-Akzentlinie */
+.section-label::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(to right, var(--primary), transparent);
+  opacity: 0.9;
 }
 
 .section-title {
@@ -175,6 +187,10 @@
 }
 
 .service-item {
+  /* Default Akzent (Gartenbau/Naturstein) */
+  --service-accent: var(--primary);
+  --service-accent-rgb: var(--primary-rgb);
+
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -182,6 +198,18 @@
   border-top: 1px solid var(--border-light);
   transition: all 0.4s ease;
   cursor: default;
+}
+
+.service-item--erdbau {
+  /* Erdbau = Braun */
+  --service-accent: var(--lauffer-brown);
+  --service-accent-rgb: var(--brown-rgb);
+}
+
+.service-item--naturstein {
+  /* Natursteinhandel = kühles Grau */
+  --service-accent: var(--lauffer-stone-grey);
+  --service-accent-rgb: var(--stone-rgb);
 }
 
 .service-item-clickable {
@@ -214,13 +242,13 @@
 }
 
 .service-item:hover {
-  background-color: rgba(255,255,255,0.02);
+  background-color: rgba(var(--service-accent-rgb), 0.03);
   padding-left: 2rem;
 }
 
 .service-item-clickable:hover .service-item-arrow {
   transform: translateX(6px);
-  color: var(--primary-light);
+  color: var(--service-accent);
 }
 
 .service-item h3 {

@@ -1,8 +1,14 @@
 .footer {
-  background-color: var(--coal-grey);
-  color: var(--white);
+  /* Subtile Farbigkeit (Grün/Braun) ohne "laut" zu werden */
+  background-color: #0f1110; /* Fallback, falls Variablen/Gradienten aus irgendeinem Grund nicht greifen */
+  background:
+    radial-gradient(900px circle at 15% 0%, rgba(var(--primary-rgb), 0.10), transparent 55%),
+    radial-gradient(700px circle at 85% 110%, rgba(var(--brown-rgb), 0.10), transparent 60%),
+    var(--bg-dark, #0f1110);
+  color: var(--text-main, rgba(240, 242, 240, 0.92));
   padding: 4rem 2rem 2rem;
   margin-top: auto;
+  border-top: 1px solid var(--border-light, rgba(240, 242, 240, 0.14));
 }
 
 .footer-container {
@@ -18,14 +24,14 @@
 }
 
 .footer-section h3 {
-  color: var(--white);
+  color: var(--text-main, rgba(240, 242, 240, 0.92));
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
 }
 
 .footer-section h4 {
-  color: var(--white);
+  color: var(--text-main, rgba(240, 242, 240, 0.92));
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 1rem;
@@ -34,7 +40,7 @@
 }
 
 .footer-section p {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-muted, rgba(240, 242, 240, 0.72));
   line-height: 1.6;
   font-size: 0.95rem;
 }
@@ -46,25 +52,25 @@
 
 .footer-section ul li {
   margin-bottom: 0.8rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-muted, rgba(240, 242, 240, 0.72));
   font-size: 0.95rem;
 }
 
 .footer-section a {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-muted, rgba(240, 242, 240, 0.72));
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer-section a:hover {
-  color: var(--forest-green-light);
+  color: var(--primary, #8cc63f);
   opacity: 1;
 }
 
 .cookie-settings-btn {
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-muted, rgba(240, 242, 240, 0.72));
   cursor: pointer;
   padding: 0;
   font-size: 0.95rem;
@@ -74,18 +80,18 @@
 }
 
 .cookie-settings-btn:hover {
-  color: var(--white);
+  color: var(--primary, #8cc63f);
   opacity: 1;
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(240, 242, 240, 0.14);
   padding-top: 2rem;
   text-align: center;
 }
 
 .footer-bottom p {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(240, 242, 240, 0.55);
   font-size: 0.9rem;
 }
 

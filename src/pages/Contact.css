@@ -258,9 +258,9 @@
 .form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: rgba(125, 160, 115, 0.45);
+  border-color: rgba(var(--primary-rgb), 0.45);
   background: rgba(255, 255, 255, 0.04);
-  box-shadow: 0 0 0 3px rgba(93, 117, 70, 0.22);
+  box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.22);
 }
 
 .form-group textarea {
@@ -279,8 +279,8 @@
 }
 
 .form-message.success {
-  background-color: rgba(93, 117, 70, 0.12);
-  border: 1px solid rgba(93, 117, 70, 0.35);
+  background-color: rgba(var(--primary-rgb), 0.12);
+  border: 1px solid rgba(var(--primary-rgb), 0.35);
   color: var(--text-main);
 }
 
@@ -317,7 +317,7 @@
 .submit-btn:hover {
   transform: translateY(-2px);
   background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(125, 160, 115, 0.35);
+  border-color: rgba(var(--primary-rgb), 0.35);
   box-shadow: 0 16px 50px rgba(0, 0, 0, 0.35);
 }
 

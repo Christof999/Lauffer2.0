@@ -97,9 +97,14 @@ function Home() {
 
         <div className="services-list">
           {(servicesData as Service[]).map((service) => (
+            (() => {
+              const isErdbau = service.id === 'erdbau' || /erdbau/i.test(service.title)
+              const isNaturstein = service.id === 'naturstein' || /naturstein/i.test(service.title)
+              const accentClass = isErdbau ? ' service-item--erdbau' : isNaturstein ? ' service-item--naturstein' : ''
+              return (
             <div
               key={service.id}
-              className="service-item service-item-clickable"
+              className={`service-item service-item-clickable${accentClass}`}
               role="button"
               tabIndex={0}
               onClick={() => handleServiceClick(service)}
@@ -115,6 +120,8 @@ function Home() {
                 <span className="service-item-arrow">→</span>
               </div>
             </div>
+              )
+            })()
           ))}
         </div>
       </section>

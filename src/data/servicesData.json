@@ -11,7 +11,9 @@
       "Bewässerung & Entwässerung",
       "Pflege- und Instandhaltungskonzepte"
     ],
-    "images": []
+    "images": [
+      "/images/projects/Siebentritt/5a091afe-2e11-41ae-9537-7c2f423a7ee7.JPG"
+    ]
   },
   {
     "id": "erdbau",
@@ -25,7 +27,9 @@
       "Drainage / Versickerung",
       "Abtransport & Materiallogistik"
     ],
-    "images": []
+    "images": [
+      "/images/gallery/Erdbau.jpg"
+    ]
   },
   {
     "id": "naturstein",
@@ -39,6 +43,8 @@
       "Pflaster- und Plattenbeläge",
       "Sonderlösungen nach Maß"
     ],
-    "images": []
+    "images": [
+      "/images/gallery/Natursteinhandel.jpg"
+    ]
   }
 ]
