@@ -99,7 +99,7 @@
 }
 
 .value-item:hover {
-  border-color: rgba(125, 160, 115, 0.35);
+  border-color: rgba(var(--primary-rgb), 0.35);
   background: rgba(255, 255, 255, 0.03);
   transform: translateY(-2px);
 }

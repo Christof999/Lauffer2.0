@@ -21,6 +21,8 @@ export default function ServiceModal({ isOpen, onClose, service }: Props) {
   const images = useMemo(() => service?.images ?? [], [service])
   const hasImages = images.length > 0
   const [activeIndex, setActiveIndex] = useState(0)
+  const isErdbau = service?.id === 'erdbau' || (service?.title ? /erdbau/i.test(service.title) : false)
+  const isNaturstein = service?.id === 'naturstein' || (service?.title ? /naturstein/i.test(service.title) : false)
 
   useEffect(() => {
     if (!isOpen) return
@@ -55,7 +57,7 @@ export default function ServiceModal({ isOpen, onClose, service }: Props) {
           />
 
           <motion.div
-            className="service-modal"
+            className={`service-modal${isErdbau ? ' service-modal--erdbau' : isNaturstein ? ' service-modal--naturstein' : ''}`}
             role="dialog"
             aria-modal="true"
             aria-label={service.title}

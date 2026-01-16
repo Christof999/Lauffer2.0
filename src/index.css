@@ -1,14 +1,49 @@
 :root {
+  /* --- Lauffer Brandfarben --- */
+  --lauffer-green: #8cc63f;
+  --lauffer-grey: #707173;
+  --lauffer-stone-grey: #79868b;
+  --lauffer-brown: #7b4833;
+
+  /* RGB helper (für rgba()) */
+
+  /* RGB helper (für rgba()) */
+  --primary-rgb: 140, 198, 63;
+  --stone-rgb: 121, 134, 139;
+  --brown-rgb: 123, 72, 51;
+
+  /* --- Semantische Tokens (Dark-first UI) --- */
+  --primary: var(--lauffer-green);
+  --primary-light: #a6d86a;
+  --primary-dark: #6aa427;
+
+  --accent: rgba(var(--primary-rgb), 0.85);
+
+  --bg-dark: #0f1110;
+  --bg-surface: #131614;
+
+  --text-main: rgba(240, 242, 240, 0.92);
+  --text-muted: rgba(240, 242, 240, 0.66);
+
+  --border-light: rgba(240, 242, 240, 0.14);
+  --focus-ring: rgba(var(--primary-rgb), 0.28);
+
+  /* --- Legacy/Kompatibilität (nicht überall anfassen müssen) --- */
   --coal-grey: #2c2c2c;
   --coal-grey-dark: #1f1f1f;
   --coal-grey-light: #3a3a3a;
-  --forest-green: #3d6b1f;
-  --forest-green-dark: #2d5016;
-  --forest-green-light: #4a7c2a;
-  --grey-primary: #6d7378;
-  --brown-primary: #6b3e2e;
+
+  /* Diese Variablen werden in Light-Komponenten/Modals genutzt */
+  --grey-primary: var(--lauffer-grey);
+  --brown-primary: var(--lauffer-brown);
+
+  /* "Forest green" bleibt als dunklere Akzent-Variante für Badges/Chips */
+  --forest-green: var(--primary-dark);
+  --forest-green-dark: #4f7a10;
+  --forest-green-light: var(--primary);
+
   --white: #ffffff;
-  --black: #1a1a1a;
+  --black: #0f1110;
   --grey-light: #f5f5f5;
 }
 
@@ -24,11 +59,22 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--black);
-  background-color: var(--white);
+  color: var(--text-main);
+  background-color: var(--bg-dark);
+  /* Native Controls (Inputs/Scrollbars) an Dark-UI anlehnen */
+  color-scheme: dark;
 }
 
 #root {
   min-height: 100vh;
 }
 
+/* Dezente Brand-Akzente */
+::selection {
+  background: rgba(var(--primary-rgb), 0.25);
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}

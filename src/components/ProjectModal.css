@@ -238,7 +238,7 @@
 
 .thumbnail.active {
   border-color: var(--forest-green);
-  box-shadow: 0 0 0 2px rgba(61, 107, 31, 0.3);
+  box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.3);
 }
 
 .thumbnail img {
@@ -329,7 +329,7 @@
 }
 
 .feature-tag {
-  background-color: rgba(61, 107, 31, 0.1);
+  background-color: rgba(var(--primary-rgb), 0.1);
   color: var(--forest-green);
   padding: 0.6rem 1.2rem;
   border-radius: 20px;
