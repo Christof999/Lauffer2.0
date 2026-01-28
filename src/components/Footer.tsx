@@ -12,19 +12,6 @@ function Footer() {
           </div>
 
           <div className="footer-section">
-            <h4>Navigation</h4>
-            <ul>
-              <li><Link to="/">Startseite</Link></li>
-              <li><Link to="/uber-uns">Über Uns</Link></li>
-              <li><Link to="/projekte">Unsere Projekte</Link></li>
-              <li><Link to="/team">Unser Team</Link></li>
-              <li><Link to="/galerie">Galerie</Link></li>
-              <li><Link to="/karriere">Karriere</Link></li>
-              <li><Link to="/kontakt">Kontakt</Link></li>
-            </ul>
-          </div>
-
-          <div className="footer-section">
             <h4>Kontakt</h4>
             <ul>
               <li>📍 Waizendorfer Str. 6</li>
