@@ -36,7 +36,7 @@ function CookieBanner() {
           }
         )
       }
-    } catch (error) {
+    } catch {
       console.log('Location permission not supported')
     }
     
