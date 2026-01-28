@@ -14,10 +14,8 @@ function Footer() {
           <div className="footer-section">
             <h4>Kontakt</h4>
             <ul>
-              <li>📍 Waizendorfer Str. 6</li>
-              <li>91639 Wolframs-Eschenbach</li>
               <li>📞 09875/8129006</li>
-              <li>✉️ info@lauffer-bau.de</li>
+              <li>✉️ info(@)lauffer-bau.de</li>
             </ul>
           </div>
 
