@@ -51,7 +51,26 @@ function Datenschutz() {
             <h2>2. Hosting</h2>
             <p>
               Wir hosten die Inhalte unserer Website bei folgendem Anbieter:<br />
-              [Hosting-Anbieter eintragen]
+              <strong>Vercel Inc.</strong> (USA)
+            </p>
+            <p>
+              Beim Aufruf unserer Website verarbeitet Vercel technisch erforderliche Verbindungsdaten
+              (z.B. IP-Adresse, Datum und Uhrzeit des Abrufs, aufgerufene Seite, Browser-/Geräteinformationen),
+              um die Website bereitzustellen und die Sicherheit/Stabilität zu gewährleisten (Server-Logfiles).
+            </p>
+            <p>
+              Es kann dabei auch zu einer Verarbeitung in Drittländern (insbesondere USA) kommen.
+              Vercel stützt die Datenübermittlung nach eigenen Angaben auf geeignete Garantien
+              (insbesondere EU-Standardvertragsklauseln).
+              Weitere Informationen finden Sie in der Datenschutzerklärung von Vercel:
+              <a
+                href="https://vercel.com/legal/privacy-policy"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                https://vercel.com/legal/privacy-policy
+              </a>
+              .
             </p>
 
             <h2>3. Allgemeine Hinweise und Pflichtinformationen</h2>
