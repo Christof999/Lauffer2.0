@@ -51,25 +51,7 @@ function Datenschutz() {
             <h2>2. Hosting</h2>
             <p>
               Wir hosten die Inhalte unserer Website bei folgendem Anbieter:<br />
-              <strong>Vercel Inc.</strong>, 440 N Barranca Ave #4133, Covina, CA 91723, USA
-            </p>
-            <p>
-              Wenn Sie unsere Website besuchen, verarbeitet der Hosting-Anbieter insbesondere technische
-              Daten (z.B. IP-Adresse, Datum und Uhrzeit des Abrufs, Informationen zum verwendeten Browser)
-              in sogenannten Server-Logfiles, um die Website sicher und stabil bereitzustellen.
-              Die Nutzung des Hosting-Anbieters erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO
-              (berechtigtes Interesse an einer sicheren, schnellen und effizienten Bereitstellung unseres
-              Onlineangebotes). Wir haben mit dem Anbieter einen Vertrag über Auftragsverarbeitung
-              abgeschlossen.
-            </p>
-            <p>
-              Eine Verarbeitung von Daten in den USA kann nicht ausgeschlossen werden. Der Anbieter stützt
-              sich hierfür auf geeignete Garantien (insbesondere EU-Standardvertragsklauseln).
-              Weitere Informationen finden Sie in der Datenschutzerklärung von Vercel unter{' '}
-              <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noreferrer">
-                https://vercel.com/legal/privacy-policy
-              </a>
-              .
+              [Hosting-Anbieter eintragen]
             </p>
 
             <h2>3. Allgemeine Hinweise und Pflichtinformationen</h2>
