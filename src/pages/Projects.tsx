@@ -81,6 +81,15 @@ function Projects() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
                 onClick={() => handleProjectClick(project as Project)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    handleProjectClick(project as Project)
+                  }
+                }}
+                aria-label={`${project.title} - ${project.category} - Klicken für Details`}
               >
                 <div className="project-image">
                   {project.images && project.images.length > 0 ? (
@@ -95,10 +104,10 @@ function Projects() {
                   {project.subtitle && <h4>{project.subtitle}</h4>}
                   <p>{project.description}</p>
                   <div className="project-meta">
-                    <span>📍 {project.location}</span>
-                    <span>📅 {project.date}</span>
+                    <span><span aria-hidden="true">📍</span> {project.location}</span>
+                    <span><span aria-hidden="true">📅</span> {project.date}</span>
                   </div>
-                  <span className="project-link">Mehr erfahren →</span>
+                  <span className="project-link">Mehr erfahren <span aria-hidden="true">→</span></span>
                 </div>
               </motion.div>
             ))}

@@ -112,9 +112,9 @@ function Karriere() {
             <p>
               Wir schaffen grüne Oasen und beeindruckende Außenanlagen. Als wachsendes 
               Unternehmen bieten wir dir nicht nur einen Job, sondern eine echte Perspektive. 
-              Bei uns arbeitest du in einem motivierten Team, an spannenden Projekten und mit 
-              modernster Technik. Kurze Entscheidungswege und ein familiäres Arbeitsklima sind 
-              bei uns selbstverständlich – auch Bailey freut sich auf dich! 🐕
+              Bei uns arbeitest du in einem motivierten Team, an spannenden Projekten und mit
+              modernster Technik. Kurze Entscheidungswege und ein familiäres Arbeitsklima sind
+              bei uns selbstverständlich – auch Bailey freut sich auf dich! <span aria-hidden="true">🐕</span>
             </p>
           </motion.div>
 
@@ -132,7 +132,7 @@ function Karriere() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ y: -5 }}
                 >
-                  <div className="benefit-icon">{benefit.icon}</div>
+                  <div className="benefit-icon" aria-hidden="true">{benefit.icon}</div>
                   <h3>{benefit.title}</h3>
                   <p>{benefit.description}</p>
                 </motion.div>
@@ -228,7 +228,7 @@ function Karriere() {
 
               <div className="form-group">
                 <label htmlFor="cv" className="file-label">
-                  <span>📎 Lebenslauf & Zeugnisse hochladen</span>
+                  <span><span aria-hidden="true">📎</span> Lebenslauf & Zeugnisse hochladen</span>
                   <input type="file" id="cv" multiple accept=".pdf,.doc,.docx" />
                 </label>
                 <small>Erlaubte Formate: PDF, DOC, DOCX (max. 10 MB pro Datei)</small>
