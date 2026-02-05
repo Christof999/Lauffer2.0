@@ -67,7 +67,7 @@ export default function ServiceModal({ isOpen, onClose, service }: Props) {
             transition={{ duration: 0.25 }}
           >
             <button className="service-modal-close" onClick={onClose} aria-label="Schließen">
-              ✕
+              <span aria-hidden="true">✕</span>
             </button>
 
             <div className="service-modal-header">
@@ -101,14 +101,14 @@ export default function ServiceModal({ isOpen, onClose, service }: Props) {
                             onClick={() => setActiveIndex((i) => (i - 1 + images.length) % images.length)}
                             aria-label="Vorheriges Bild"
                           >
-                            ‹
+                            <span aria-hidden="true">‹</span>
                           </button>
                           <button
                             className="service-modal-nav service-modal-next"
                             onClick={() => setActiveIndex((i) => (i + 1) % images.length)}
                             aria-label="Nächstes Bild"
                           >
-                            ›
+                            <span aria-hidden="true">›</span>
                           </button>
                         </>
                       )}

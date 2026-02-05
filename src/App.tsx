@@ -11,7 +11,11 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <main>
+        {/* Skip-Link für Barrierefreiheit (WCAG 2.4.1) */}
+        <a href="#main-content" className="skip-link">
+          Zum Hauptinhalt springen
+        </a>
+        <main id="main-content">
           <Routes>
             <Route path="/kontakt" element={<Contact />} />
             <Route path="/impressum" element={<Impressum />} />
