@@ -85,8 +85,8 @@ function Gallery() {
                 className="gallery-item"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, margin: "100px" }}
+                transition={{ duration: 0.4, delay: Math.min(index * 0.05, 0.3) }}
                 whileHover={{ y: -10 }}
                 onClick={() => setSelectedImage(image.src)}
                 role="button"
@@ -100,7 +100,12 @@ function Gallery() {
                 aria-label={`${image.alt} - Klicken zum Vergrößern`}
               >
                 <div className="gallery-image">
-                  <img src={image.src} alt={image.alt} />
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
               </motion.div>
             ))}
