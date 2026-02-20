@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Rechtliche Seiten nicht indexieren
+Disallow: /impressum
+Disallow: /datenschutz
+
+# Sitemap
+Sitemap: https://lauffer-bau.de/sitemap.xml
