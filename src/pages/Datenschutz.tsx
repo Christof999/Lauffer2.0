@@ -1,9 +1,16 @@
 import { motion } from 'framer-motion'
+import { Helmet } from 'react-helmet-async'
 import './Legal.css'
 
 function Datenschutz() {
   return (
     <div className="legal">
+      <Helmet>
+        <title>Datenschutzerklärung – Lauffer Bau</title>
+        <meta name="description" content="Datenschutzerklärung von Lauffer Bau. Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO." />
+        <meta name="robots" content="noindex,follow" />
+        <link rel="canonical" href="https://lauffer-bau.de/datenschutz" />
+      </Helmet>
       <motion.section
         className="legal-hero"
         initial={{ opacity: 0 }}

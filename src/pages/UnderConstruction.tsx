@@ -1,10 +1,18 @@
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
+import { Helmet } from 'react-helmet-async'
 import './UnderConstruction.css'
 
 function UnderConstruction() {
   return (
     <div className="under-construction">
+      <Helmet>
+        <title>Lauffer Bau – Gartenbau, Erdbau &amp; Natursteinhandel | Webseite im Aufbau</title>
+        <meta name="description" content="Die neue Website von Lauffer Bau aus Wolframs-Eschenbach ist bald verfügbar. Ihr Spezialist für Gartenbau, Erdbau und Natursteinhandel in Mittelfranken." />
+        <meta property="og:title" content="Lauffer Bau – Webseite im Aufbau" />
+        <meta property="og:description" content="Die neue Website von Lauffer Bau ist bald verfügbar. In der Zwischenzeit sind wir weiterhin für Sie erreichbar." />
+        <link rel="canonical" href="https://lauffer-bau.de/" />
+      </Helmet>
       <motion.section
         className="under-construction-hero"
         initial={{ opacity: 0 }}
