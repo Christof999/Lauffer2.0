@@ -2,17 +2,206 @@
   {
     "id": 1,
     "src": "/images/gallery/Paul_Werner_Bagger.JPG",
-    "alt": "Galerie-Bild 1"
+    "alt": "Lauffer Bau Baggerfahrer bei Erdbauarbeiten auf einer Baustelle in Mittelfranken"
   },
   {
     "id": 2,
     "src": "/images/gallery/Paul_Werner_hinten.JPG",
-    "alt": "Galerie-Bild 2"
+    "alt": "Lauffer Bau Mitarbeiter bei der Arbeit auf einer Gartenbau-Baustelle"
   },
   {
     "id": 3,
     "src": "/images/gallery/1b1a083e-8cd0-4a9a-9c90-78a917610d7d.JPG",
-    "alt": "Galerie-Bild 3"
+    "alt": "Abgeschlossenes Gartenbau-Projekt von Lauffer Bau mit Natursteingestaltung"
+  },
+  {
+    "id": 4,
+    "src": "/images/gallery/IMG_5367.jpeg",
+    "alt": "Runder Naturstein-Pflasterbereich mit Feuerschale und Sitzgruppe – Gartengestaltung von Lauffer Bau"
+  },
+  {
+    "id": 5,
+    "src": "/images/gallery/IMG_5388.jpeg",
+    "alt": "Runder Mosaikpflaster-Sitzbereich aus Naturstein mit Gartenmöbeln – Lauffer Bau Natursteinhandel"
+  },
+  {
+    "id": 6,
+    "src": "/images/gallery/IMG_5394.jpeg",
+    "alt": "Natursteinmauer mit gepflegter Rasenfläche, Bepflanzung und Pflastereinfassung – Lauffer Bau Gartenbau"
+  },
+  {
+    "id": 7,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-13-17AM.jpeg",
+    "alt": "Gepflasterte Terrasse mit Natursteinmauer und Bepflanzung – Lauffer Bau Projekt 2021"
+  },
+  {
+    "id": 8,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-13-18AM.jpeg",
+    "alt": "Gartengestaltung mit Pflasterfläche und Natursteinelementen – Lauffer Bau Gartenbau"
+  },
+  {
+    "id": 9,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-13-44AM.jpeg",
+    "alt": "Professionelle Gartenanlage mit Terrasse und Bepflanzung durch Lauffer Bau"
+  },
+  {
+    "id": 10,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-13-45AM.jpeg",
+    "alt": "Gartengestaltung mit Pflasterfläche, Rasen und Natursteinen – Lauffer Bau Wolframs-Eschenbach"
+  },
+  {
+    "id": 11,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-14-10AM.jpeg",
+    "alt": "Natursteinpflaster-Einfahrt mit hochwertiger Verarbeitung – Lauffer Bau Erdbau"
+  },
+  {
+    "id": 12,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-14-11AM.jpeg",
+    "alt": "Pflasterprojekt mit Natursteinbelag – Qualitätsarbeit von Lauffer Bau"
+  },
+  {
+    "id": 13,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-14-37AM.jpeg",
+    "alt": "Lauffer Bau LKW bei Erdarbeiten auf einer Baustelle in Mittelfranken"
+  },
+  {
+    "id": 14,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-14-38AM.jpeg",
+    "alt": "Erdbauarbeiten mit Lauffer Bau Fahrzeug – professionelle Baustellenabwicklung"
+  },
+  {
+    "id": 15,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-15-32AM.jpeg",
+    "alt": "Gartenbau-Projekt von Lauffer Bau – Gartengestaltung in Mittelfranken"
+  },
+  {
+    "id": 16,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-15-33AM.jpeg",
+    "alt": "Professionelle Gartenanlage mit Natursteinelementen durch Lauffer Bau"
+  },
+  {
+    "id": 17,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-16-14AM.jpeg",
+    "alt": "Granittreppe vor Hauseingang mit Pflasterfläche – Natursteinarbeit von Lauffer Bau"
+  },
+  {
+    "id": 18,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-16-15AM.jpeg",
+    "alt": "Naturstein-Eingangsbereich mit Granitplatten und Pflaster – Lauffer Bau Natursteinhandel"
+  },
+  {
+    "id": 19,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-16-35AM.jpeg",
+    "alt": "Gartengestaltung mit Natursteinpflaster durch Lauffer Bau"
+  },
+  {
+    "id": 20,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-16-36AM.jpeg",
+    "alt": "Pflasterarbeiten und Gartengestaltung – Lauffer Bau Projekt in Mittelfranken"
+  },
+  {
+    "id": 21,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-17-18AM.jpeg",
+    "alt": "Gartenbau-Projekt mit Terrasse und Bepflanzung – Lauffer Bau Wolframs-Eschenbach"
+  },
+  {
+    "id": 22,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-17-22AM.jpeg",
+    "alt": "Hochwertige Gartengestaltung mit Natursteinarbeiten durch Lauffer Bau"
+  },
+  {
+    "id": 23,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-17-23AM.jpeg",
+    "alt": "Lauffer Bau Gartengestaltung – Terrasse und Bepflanzung in Mittelfranken"
+  },
+  {
+    "id": 24,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-18-28AM.jpeg",
+    "alt": "Rohbauzustand Eingangstreppe vor Natursteinverlegung – Lauffer Bau Projekt"
+  },
+  {
+    "id": 25,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-18-30AM.jpeg",
+    "alt": "Fertiggestellte Eingangstreppe mit Natursteinbelag – Lauffer Bau Natursteinhandel"
+  },
+  {
+    "id": 26,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-18-31AM.jpeg",
+    "alt": "Naturstein-Eingangsbereich nach Fertigstellung – Qualitätsarbeit von Lauffer Bau"
+  },
+  {
+    "id": 27,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-21-43AM.jpeg",
+    "alt": "Lauffer Bau Mitarbeiter bei Rollrasenverlegung im Garten – Gartenbau Mittelfranken"
+  },
+  {
+    "id": 28,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-21-52AM.jpeg",
+    "alt": "Gartenbauarbeiten mit Rollrasen und Bepflanzung durch Lauffer Bau"
+  },
+  {
+    "id": 29,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-22-23AM.jpeg",
+    "alt": "Gartengestaltung mit Rasenfläche und Bepflanzung – Lauffer Bau Projekt 2021"
+  },
+  {
+    "id": 30,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-22-34AM.jpeg",
+    "alt": "Professionelle Gartenanlage mit Rasen und Bepflanzung – Lauffer Bau Gartenbau"
+  },
+  {
+    "id": 31,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-22-43AM.jpeg",
+    "alt": "Garten-Gestaltungsprojekt mit Natursteinelementen und Bepflanzung – Lauffer Bau"
+  },
+  {
+    "id": 32,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-24-15AM.jpeg",
+    "alt": "Steingarten mit Schiefer-Stelen und Natursteinkies – Lauffer Bau Natursteinhandel"
+  },
+  {
+    "id": 33,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-24-28AM.jpeg",
+    "alt": "Natursteingestaltung mit Schiefer und Bepflanzung – Lauffer Bau Gartengestaltung"
+  },
+  {
+    "id": 34,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-24-43AM.jpeg",
+    "alt": "Gartengestaltung mit Natursteinelementen und Pflanzgefäßen – Lauffer Bau"
+  },
+  {
+    "id": 35,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-24-56AM.jpeg",
+    "alt": "Hochwertige Gartenanlage mit Natursteinpflaster und Bepflanzung – Lauffer Bau"
+  },
+  {
+    "id": 36,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-26-46AM.jpeg",
+    "alt": "Lauffer Bau Gartenbau-Projekt – gepflegte Gartenanlage in Mittelfranken"
+  },
+  {
+    "id": 37,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-27-23AM.jpeg",
+    "alt": "Gartengestaltung mit Terrasse und Natursteinelementen – Lauffer Bau Wolframs-Eschenbach"
+  },
+  {
+    "id": 38,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-27-55AM.jpeg",
+    "alt": "Pflasterprojekt mit hochwertigen Natursteinen – Lauffer Bau Natursteinhandel"
+  },
+  {
+    "id": 39,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-28-45AM.jpeg",
+    "alt": "Gartenbau-Projekt mit Pflasterfläche und Bepflanzung – Lauffer Bau Mittelfranken"
+  },
+  {
+    "id": 40,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-29-25AM.jpeg",
+    "alt": "Abgeschlossenes Gartengestaltungs-Projekt durch Lauffer Bau"
+  },
+  {
+    "id": 41,
+    "src": "/images/gallery/eZy Watermark_20-12-2021_08-33-28AM.jpeg",
+    "alt": "Professionelle Gartenanlage mit Naturstein und Rasen – Lauffer Bau Gartenbau"
   }
 ]
-

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState, FormEvent } from 'react'
+import { Helmet } from 'react-helmet-async'
 import emailjs from '@emailjs/browser'
 import './Contact.css'
 
@@ -65,6 +66,13 @@ function Contact() {
   }
   return (
     <div className="contact">
+      <Helmet>
+        <title>Kontakt – Lauffer Bau | Gartenbau, Erdbau &amp; Natursteinhandel</title>
+        <meta name="description" content="Kontaktieren Sie Lauffer Bau aus Wolframs-Eschenbach. Wir beraten Sie persönlich zu Gartenbau, Erdbau und Natursteinhandel. Tel: 09875/8129006 · info@lauffer-bau.de" />
+        <meta property="og:title" content="Kontakt – Lauffer Bau" />
+        <meta property="og:description" content="Nehmen Sie Kontakt auf – wir beraten Sie persönlich zu Ihrem Gartenbau-, Erdbau- oder Natursteinprojekt." />
+        <link rel="canonical" href="https://lauffer-bau.de/kontakt" />
+      </Helmet>
       <motion.section
         className="contact-hero"
         initial={{ opacity: 0 }}
