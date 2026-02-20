@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 import CookieBanner from './components/CookieBanner'
+import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import About from './pages/About'
 import Projects from './pages/Projects'
@@ -16,6 +17,7 @@ import './App.css'
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="app">
         {/* Skip-Link für Barrierefreiheit (WCAG 2.4.1) */}
         <a href="#main-content" className="skip-link">
