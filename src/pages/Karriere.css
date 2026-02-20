@@ -131,78 +131,21 @@
   margin-bottom: 3rem;
 }
 
-.jobs-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.job-card {
+.jobs-coming-soon {
   background-color: var(--white);
-  padding: 2.5rem;
   border-radius: 12px;
+  padding: 3rem 2rem;
+  text-align: center;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  border-left: 4px solid var(--coal-grey);
+  border-left: 4px solid var(--lauffer-green);
 }
 
-.job-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.job-card h3 {
+.jobs-coming-soon-text {
   color: var(--grey-primary);
-  font-size: 1.8rem;
-  font-weight: 700;
-}
-
-.job-type {
-  background-color: var(--coal-grey);
-  color: var(--white);
-  padding: 0.4rem 1rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-
-.job-description {
-  color: var(--grey-primary);
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-  font-size: 1.05rem;
-}
-
-.job-requirements strong {
-  color: var(--grey-primary);
-  font-weight: 600;
-  display: block;
-  margin-bottom: 0.8rem;
-}
-
-.job-requirements ul {
-  list-style: none;
-  padding: 0;
-}
-
-.job-requirements li {
-  color: var(--grey-primary);
-  padding: 0.6rem 0;
-  padding-left: 2rem;
-  position: relative;
-  line-height: 1.6;
-}
-
-.job-requirements li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: var(--coal-grey);
-  font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  max-width: 680px;
+  margin: 0 auto;
 }
 
 /* Application Section */
@@ -212,163 +155,50 @@
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   margin-bottom: 3rem;
+  text-align: center;
 }
 
 .application-section h2 {
   color: var(--coal-grey);
   font-size: 2.5rem;
   font-weight: 700;
-  text-align: center;
   margin-bottom: 1rem;
 }
 
 .application-intro {
-  text-align: center;
   color: var(--grey-primary);
   font-size: 1.1rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
   line-height: 1.7;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.application-form {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-group label {
-  display: block;
-  color: var(--grey-primary);
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 0.9rem;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-family: inherit;
-  transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--coal-grey);
-}
-
-.form-group textarea {
-  resize: vertical;
-}
-
-.file-label {
-  display: block;
-  padding: 1rem;
-  background-color: var(--grey-light);
-  border: 2px dashed #ccc;
-  border-radius: 8px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.file-label:hover {
-  border-color: var(--coal-grey);
-  background-color: rgba(44, 44, 44, 0.05);
-}
-
-.file-label input[type="file"] {
-  display: none;
-}
-
-.form-group small {
-  display: block;
-  color: rgba(109, 115, 120, 0.7);
-  font-size: 0.85rem;
-  margin-top: 0.5rem;
-}
-
-.checkbox-group label {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.8rem;
-  cursor: pointer;
-}
-
-.checkbox-group input[type="checkbox"] {
-  width: auto;
-  margin-top: 0.2rem;
-}
-
-.checkbox-group a {
-  color: var(--coal-grey);
+.email-apply-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: var(--lauffer-green);
+  color: var(--black);
   text-decoration: none;
+  padding: 1rem 2.2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: background-color 0.2s ease;
 }
 
-.checkbox-group a:hover {
-  text-decoration: underline;
-}
-
-.submit-button {
-  width: 100%;
-  background-color: var(--coal-grey);
+.email-apply-btn:hover {
+  background-color: var(--primary-dark);
   color: var(--white);
-  border: none;
-  padding: 1.2rem 2rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-family: inherit;
-  margin-top: 1rem;
 }
 
-.submit-button:hover {
-  background-color: var(--brown-primary);
-}
-
-/* Alternative Contact */
-.alternative-contact {
-  text-align: center;
-  padding: 2rem;
-  background-color: var(--white);
-  border-radius: 12px;
-}
-
-.alternative-contact h3 {
+.application-hint {
   color: var(--grey-primary);
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-}
-
-.email-link {
-  color: var(--coal-grey);
-  font-size: 1.5rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.email-link:hover {
-  color: var(--brown-primary);
-  text-decoration: underline;
+  font-size: 0.95rem;
+  margin-top: 1.2rem;
+  opacity: 0.8;
 }
 
 /* Responsive */
@@ -400,18 +230,8 @@
     grid-template-columns: 1fr;
   }
 
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
   .application-section {
     padding: 2rem 1.5rem;
-  }
-
-  .job-header {
-    flex-direction: column;
-    align-items: flex-start;
   }
 }
 
