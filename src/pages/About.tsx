@@ -1,9 +1,15 @@
 import { motion } from 'framer-motion'
+import { Helmet } from 'react-helmet-async'
 import './About.css'
 
 function About() {
   return (
     <div className="about">
+      <Helmet>
+        <title>Über uns – Lauffer Bau | Gartenbau &amp; Erdbau Mittelfranken</title>
+        <meta name="description" content="Lernen Sie Lauffer Bau kennen: Unser Team aus Wolframs-Eschenbach steht für Qualität, Zuverlässigkeit und Leidenschaft bei Gartenbau, Erdbau und Natursteinhandel." />
+        <link rel="canonical" href="https://lauffer-bau.de/uber-uns" />
+      </Helmet>
       <motion.section
         className="about-hero"
         initial={{ opacity: 0 }}

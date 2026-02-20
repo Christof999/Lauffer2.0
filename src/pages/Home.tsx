@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 import CounterBox from '../components/CounterBox'
 import ProjectModal from '../components/ProjectModal'
 import projectsData from '../data/projectsData.json'
@@ -48,6 +49,13 @@ function Home() {
 
   return (
     <div className="home">
+      <Helmet>
+        <title>Lauffer Bau – Gartenbau, Erdbau &amp; Natursteinhandel in Mittelfranken</title>
+        <meta name="description" content="Lauffer Bau aus Wolframs-Eschenbach: Ihr Spezialist für professionelle Gartengestaltung, Erdbauarbeiten und hochwertigen Natursteinhandel in Mittelfranken." />
+        <meta property="og:title" content="Lauffer Bau – Gartenbau, Erdbau &amp; Natursteinhandel" />
+        <meta property="og:description" content="Ihr Spezialist für Gartengestaltung, Erdbau und Natursteinhandel in Wolframs-Eschenbach, Mittelfranken." />
+        <link rel="canonical" href="https://lauffer-bau.de/" />
+      </Helmet>
       {/* Hero Section */}
       <motion.section className="hero" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }}>
         <div className="hero-content">

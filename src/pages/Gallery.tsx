@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect, useCallback } from 'react'
+import { Helmet } from 'react-helmet-async'
 import galleryData from '../data/galleryData.json'
 import './Gallery.css'
 
@@ -25,6 +26,11 @@ function Gallery() {
 
   return (
     <div className="gallery">
+      <Helmet>
+        <title>Galerie – Lauffer Bau | Gartenbau &amp; Natursteinarbeiten</title>
+        <meta name="description" content="Bildergalerie von Lauffer Bau: Gartengestaltung, Pflasterarbeiten, Natursteinprojekte und Erdbau in Mittelfranken. Hochwertige Arbeit aus Wolframs-Eschenbach." />
+        <link rel="canonical" href="https://lauffer-bau.de/galerie" />
+      </Helmet>
       <motion.section
         className="gallery-hero"
         initial={{ opacity: 0 }}
