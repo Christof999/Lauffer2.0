@@ -83,7 +83,7 @@ function Home() {
       <section className="stats-section">
         <div className="stats-grid">
           <CounterBox title="Leistung" targetValue={3746} unit="PS" delay={200} />
-          <CounterBox title="Erfahrung" targetValue={76} unit="Jahre" delay={400} />
+          <CounterBox title="Team-Erfahrung" targetValue={84} unit="Jahre" delay={400} />
           <CounterBox title="Projekte" targetValue={124} delay={600} />
         </div>
       </section>
