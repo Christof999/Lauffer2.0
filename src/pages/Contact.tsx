@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState, FormEvent } from 'react'
+import { Helmet } from 'react-helmet-async'
 import emailjs from '@emailjs/browser'
 import './Contact.css'
 
@@ -65,6 +66,13 @@ function Contact() {
   }
   return (
     <div className="contact">
+      <Helmet>
+        <title>Kontakt – Lauffer Bau | Gartenbau, Erdbau &amp; Natursteinhandel</title>
+        <meta name="description" content="Kontaktieren Sie Lauffer Bau aus Wolframs-Eschenbach. Wir beraten Sie persönlich zu Gartenbau, Erdbau und Natursteinhandel. Tel: 09875/8129006 · info@lauffer-bau.de" />
+        <meta property="og:title" content="Kontakt – Lauffer Bau" />
+        <meta property="og:description" content="Nehmen Sie Kontakt auf – wir beraten Sie persönlich zu Ihrem Gartenbau-, Erdbau- oder Natursteinprojekt." />
+        <link rel="canonical" href="https://lauffer-bau.de/kontakt" />
+      </Helmet>
       <motion.section
         className="contact-hero"
         initial={{ opacity: 0 }}
@@ -110,39 +118,39 @@ function Contact() {
           >
             <div className="info-card">
               <div className="info-header">
-                <div className="info-icon">🏢</div>
+                <div className="info-icon" aria-hidden="true">🏢</div>
                 <h2>Lauffer Bau</h2>
                 <p className="info-subtitle">Gartenbau · Erdbau · Natursteinhandel</p>
               </div>
-              
+
               <div className="contact-methods">
-                <motion.div 
+                <motion.div
                   className="contact-method"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="method-icon">✉️</div>
+                  <div className="method-icon" aria-hidden="true">✉️</div>
                   <div className="method-content">
                     <h4>E-Mail</h4>
                     <p><a href="mailto:info@lauffer-bau.de">info@lauffer-bau.de</a></p>
                   </div>
                 </motion.div>
 
-                <motion.div 
+                <motion.div
                   className="contact-method"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="method-icon">📞</div>
+                  <div className="method-icon" aria-hidden="true">📞</div>
                   <div className="method-content">
                     <h4>Telefon</h4>
                     <p><a href="tel:098758129006">09875/8129006</a></p>
                   </div>
                 </motion.div>
               </div>
-              
+
               <div className="contact-hours">
-                <h4>📅 Öffnungszeiten</h4>
+                <h4><span aria-hidden="true">📅</span> Öffnungszeiten</h4>
                 <div className="hours-list">
                   <div className="hours-item">
                     <span>Mo - Fr:</span>
@@ -170,7 +178,7 @@ function Contact() {
           >
             <div className="form-card">
               <div className="form-header">
-                <h2>💬 Nachricht senden</h2>
+                <h2><span aria-hidden="true">💬</span> Nachricht senden</h2>
                 <p>Senden Sie uns eine Nachricht und wir melden uns schnellstmöglich bei Ihnen zurück.</p>
               </div>
               
@@ -247,41 +255,50 @@ function Contact() {
                   ></textarea>
                 </div>
                 
-                {/* Status Messages */}
-                {formStatus === 'success' && (
-                  <motion.div 
-                    className="form-message success"
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                  >
-                    ✅ Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns schnellstmöglich bei Ihnen.
-                  </motion.div>
-                )}
-                
-                {formStatus === 'error' && (
-                  <motion.div 
-                    className="form-message error"
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                  >
-                    ❌ Entschuldigung, es gab einen Fehler beim Senden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns telefonisch.
-                  </motion.div>
-                )}
+                {/* Status Messages mit aria-live für Screenreader (WCAG 4.1.3) */}
+                <div aria-live="polite" aria-atomic="true">
+                  {formStatus === 'success' && (
+                    <motion.div
+                      className="form-message success"
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      role="status"
+                    >
+                      <span aria-hidden="true">✅</span> Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns schnellstmöglich bei Ihnen.
+                    </motion.div>
+                  )}
+
+                  {formStatus === 'error' && (
+                    <motion.div
+                      className="form-message error"
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      role="alert"
+                    >
+                      <span aria-hidden="true">❌</span> Entschuldigung, es gab einen Fehler beim Senden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns telefonisch.
+                    </motion.div>
+                  )}
+                </div>
                 
                 <motion.button
                   type="submit"
                   className="submit-btn"
-                  whileHover={{ 
+                  whileHover={{
                     scale: formStatus === 'sending' ? 1 : 1.02,
                     boxShadow: formStatus === 'sending' ? undefined : "0 8px 25px rgba(122, 181, 29, 0.3)"
                   }}
                   whileTap={{ scale: formStatus === 'sending' ? 1 : 0.98 }}
                   disabled={formStatus === 'sending'}
+                  aria-busy={formStatus === 'sending'}
                 >
                   <span>
-                    {formStatus === 'sending' ? '⏳ Wird gesendet...' : '📤 Nachricht senden'}
+                    {formStatus === 'sending' ? (
+                      <><span aria-hidden="true">⏳</span> Wird gesendet...</>
+                    ) : (
+                      <><span aria-hidden="true">📤</span> Nachricht senden</>
+                    )}
                   </span>
-                  {formStatus === 'idle' && <div className="btn-arrow">→</div>}
+                  {formStatus === 'idle' && <div className="btn-arrow" aria-hidden="true">→</div>}
                 </motion.button>
               </form>
             </div>
