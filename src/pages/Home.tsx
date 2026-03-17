@@ -142,17 +142,14 @@ function Home() {
         </div>
         <div className="why-grid">
           <div className="why-item">
-            <div className="why-icon" aria-hidden="true">🚜</div>
             <h3>Eigener Maschinenpark</h3>
             <p>Moderne Technik und eigene Fahrzeuge – keine Wartezeiten, maximale Flexibilität für Ihr Projekt.</p>
           </div>
           <div className="why-item">
-            <div className="why-icon" aria-hidden="true">📍</div>
             <h3>Regionale Nähe</h3>
             <p>Aus Wolframs-Eschenbach – Ihr Partner in Mittelfranken. Kurze Wege, persönliche Betreuung.</p>
           </div>
           <div className="why-item">
-            <div className="why-icon" aria-hidden="true">✓</div>
             <h3>Alles aus einer Hand</h3>
             <p>Gartenbau, Erdbau und Natursteinhandel – eine Ansprechperson, eine Rechnung, keine Koordinationsprobleme.</p>
           </div>

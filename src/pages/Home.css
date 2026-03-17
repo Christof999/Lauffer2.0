@@ -318,12 +318,6 @@
   border-color: rgba(var(--primary-rgb), 0.25);
 }
 
-.why-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1.25rem;
-  opacity: 0.9;
-}
-
 .why-item h3 {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.75rem;
