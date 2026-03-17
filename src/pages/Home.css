@@ -99,6 +99,29 @@
   width: 100%;
 }
 
+/* Hero CTA Button */
+.hero-cta-btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: var(--primary);
+  color: var(--black);
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(var(--primary-rgb), 0.25);
+}
+
+.hero-cta-btn:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(var(--primary-rgb), 0.4);
+}
+
 .scroll-indicator {
   position: absolute;
   bottom: 3rem;
@@ -268,10 +291,111 @@
   font-weight: 300;
 }
 
+/* --- WHY LAUFFER BAU --- */
+.why-section {
+  padding: 10rem 2rem;
+  background-color: var(--bg-dark);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.why-item {
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.why-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(var(--primary-rgb), 0.25);
+}
+
+.why-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1.25rem;
+  opacity: 0.9;
+}
+
+.why-item h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--text-main);
+  margin: 0 0 0.75rem 0;
+}
+
+.why-item p {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0;
+  font-weight: 300;
+}
+
+/* --- CONTACT TEASER --- */
+.contact-teaser-section {
+  padding: 6rem 2rem;
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.08), transparent);
+  border-top: 1px solid var(--border-light);
+}
+
+.contact-teaser-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-teaser-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: var(--text-main);
+  margin: 0 0 1rem 0;
+}
+
+.contact-teaser-text {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin: 0 0 2rem 0;
+}
+
+.contact-teaser-btn {
+  display: inline-block;
+  padding: 0.9rem 1.75rem;
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.contact-teaser-btn:hover {
+  background: var(--primary);
+  color: var(--black);
+  transform: translateY(-2px);
+}
+
 /* --- GALLERY PREVIEW --- */
 .gallery-preview-section {
   padding: 10rem 2rem;
-  background-color: var(--bg-dark);
+  background-color: var(--bg-surface);
 }
 
 .gallery-grid {
@@ -332,6 +456,15 @@
 
   .service-item-right {
     margin-left: 0;
+  }
+  
+  .why-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .why-item {
+    padding: 1.75rem;
   }
   
   .gallery-grid {

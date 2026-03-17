@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import './ServiceModal.css'
 
 export interface Service {
@@ -87,6 +88,13 @@ export default function ServiceModal({ isOpen, onClose, service }: Props) {
                     <li key={item}>{item}</li>
                   ))}
                 </ul>
+
+                <div className="service-modal-cta">
+                  <p>Planen Sie ein ähnliches Projekt?</p>
+                  <Link to="/kontakt" className="service-modal-cta-btn" onClick={onClose}>
+                    Jetzt unverbindlich anfragen
+                  </Link>
+                </div>
               </div>
 
               <div className="service-modal-right">

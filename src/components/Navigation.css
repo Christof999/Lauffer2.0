@@ -95,6 +95,28 @@
   background-color: var(--primary);
 }
 
+/* CTA Button in Navigation */
+.nav-cta-btn {
+  display: inline-block;
+  padding: 0.6rem 1.25rem;
+  background: var(--primary);
+  color: var(--black) !important;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.nav-cta-btn:hover {
+  background: var(--primary-light);
+  color: var(--black) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(var(--primary-rgb), 0.35);
+}
+
 /* Burger Button */
 .burger-button {
   display: none;
@@ -234,6 +256,36 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+
+.mobile-menu-footer a {
+  color: var(--primary-light);
+  text-decoration: none;
+}
+
+.mobile-menu-footer a:hover {
+  text-decoration: underline;
+}
+
+.mobile-menu-cta {
+  display: block;
+  margin-top: 1.5rem;
+  padding: 1rem 1.5rem;
+  background: var(--primary);
+  color: var(--black);
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-cta:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(var(--primary-rgb), 0.4);
 }
 
 /* Adresse im mobilen Menü ausblenden (3. Zeile) */
