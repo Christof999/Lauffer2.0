@@ -10,6 +10,7 @@ function Contact() {
     from_name: '',
     reply_to: '',
     phone: '',
+    project_location: '',
     subject: '',
     message: ''
   })
@@ -45,6 +46,7 @@ function Contact() {
           from_name: '',
           reply_to: '',
           phone: '',
+          project_location: '',
           subject: '',
           message: ''
         })
@@ -197,7 +199,22 @@ function Contact() {
                     />
                   </div>
                   <div className="form-group">
-                    <label>E-Mail Adresse *</label>
+                    <label>Ort des Bauvorhabens *</label>
+                    <input 
+                      type="text" 
+                      name="project_location"
+                      placeholder="z.B. Wolframs-Eschenbach" 
+                      value={formData.project_location}
+                      onChange={handleChange}
+                      required 
+                      disabled={formStatus === 'sending'}
+                    />
+                  </div>
+                </div>
+                
+                <div className="form-row">
+                  <div className="form-group">
+                    <label>E-Mail *</label>
                     <input 
                       type="email" 
                       name="reply_to"
@@ -208,22 +225,23 @@ function Contact() {
                       disabled={formStatus === 'sending'}
                     />
                   </div>
-                </div>
-                
-                <div className="form-row">
                   <div className="form-group">
-                    <label>Telefonnummer</label>
+                    <label>Telefonnummer *</label>
                     <input 
                       type="tel" 
                       name="phone"
                       placeholder="+49 123 456789" 
                       value={formData.phone}
                       onChange={handleChange}
+                      required 
                       disabled={formStatus === 'sending'}
                     />
                   </div>
+                </div>
+                
+                <div className="form-row">
                   <div className="form-group">
-                    <label>Betreff *</label>
+                    <label>Gewerk / Anliegen *</label>
                     <select 
                       name="subject"
                       value={formData.subject}
@@ -232,12 +250,12 @@ function Contact() {
                       disabled={formStatus === 'sending'}
                     >
                       <option value="">Bitte wählen</option>
-                      <option value="🌱 Gartenbau">🌱 Gartenbau</option>
-                      <option value="🚜 Erdbau">🚜 Erdbau</option>
-                      <option value="🪨 Natursteinhandel">🪨 Natursteinhandel</option>
-                      <option value="💡 Beratung">💡 Beratung</option>
-                      <option value="💰 Angebot anfordern">💰 Angebot anfordern</option>
-                      <option value="❓ Sonstiges">❓ Sonstiges</option>
+                      <option value="Gartenbau">Gartenbau</option>
+                      <option value="Erdbau">Erdbau</option>
+                      <option value="Natursteinhandel">Natursteinhandel</option>
+                      <option value="Beratung">Beratung</option>
+                      <option value="Angebot anfordern">Angebot anfordern</option>
+                      <option value="Sonstiges">Sonstiges</option>
                     </select>
                   </div>
                 </div>

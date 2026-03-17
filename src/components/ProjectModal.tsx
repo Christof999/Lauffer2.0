@@ -137,7 +137,7 @@ function ProjectModal({ isOpen, onClose, project }: ProjectModalProps) {
                       <motion.img
                         key={currentMedia}
                         src={currentMedia}
-                        alt={`${project.title} - Bild ${currentImageIndex + 1}`}
+                        alt={`${project.title} - ${project.category} ${project.location} - Lauffer Bau Projekt`}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}

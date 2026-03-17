@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect, useCallback } from 'react'
+import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import galleryData from '../data/galleryData.json'
 import './Gallery.css'
@@ -60,7 +61,7 @@ function Gallery() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35 }}
           >
-            Von weitläufigen Gartenanlagen bis zu präzisen Erdbauarbeiten – lassen Sie sich inspirieren.
+            Reines visuelles Portfolio – Impressionen unserer Arbeiten. Für detaillierte Fallstudien besuchen Sie unsere <Link to="/projekte">Projekte</Link>.
           </motion.p>
         </div>
       </motion.section>

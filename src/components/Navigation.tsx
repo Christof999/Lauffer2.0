@@ -51,6 +51,11 @@ function Navigation() {
               </Link>
             </li>
           ))}
+          <li>
+            <Link to="/kontakt" className="nav-cta-btn">
+              Jetzt Angebot anfragen
+            </Link>
+          </li>
         </ul>
 
         <div className="nav-right">
@@ -153,9 +158,12 @@ function Navigation() {
               </ul>
 
               <div className="mobile-menu-footer">
-                <p><span aria-hidden="true">📞</span> 09875/8129006</p>
-                <p><span aria-hidden="true">✉️</span> info@lauffer-bau.de</p>
+                <p><span aria-hidden="true">📞</span> <a href="tel:+4998758129006">09875/8129006</a></p>
+                <p><span aria-hidden="true">✉️</span> <a href="mailto:info@lauffer-bau.de">info@lauffer-bau.de</a></p>
                 <p><span aria-hidden="true">📍</span> Wolframs-Eschenbach</p>
+                <Link to="/kontakt" className="mobile-menu-cta" onClick={closeMobileMenu}>
+                  Jetzt Angebot anfragen
+                </Link>
               </div>
             </motion.div>
           </>

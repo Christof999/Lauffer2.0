@@ -73,11 +73,11 @@ function Home() {
           </motion.p>
 
           <motion.div className="hero-actions" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.5 }}>
+            <Link to="/kontakt" className="hero-cta-btn">
+              Kostenlose Erstberatung vereinbaren
+            </Link>
             <Link to="/projekte" className="hero-link">
               Unsere Arbeiten
-            </Link>
-            <Link to="/kontakt" className="hero-link">
-              Kontakt
             </Link>
           </motion.div>
         </div>
@@ -100,7 +100,7 @@ function Home() {
       <section className="services-section">
         <div className="section-header">
           <span className="section-label">Was wir tun</span>
-          <h2 className="section-title">Unsere Expertise</h2>
+          <h2 className="section-title">Wir verwirklichen Ihre Träume im Außenbereich – professionell &amp; zuverlässig.</h2>
         </div>
 
         <div className="services-list">
@@ -134,11 +134,47 @@ function Home() {
         </div>
       </section>
 
+      {/* Warum Lauffer Bau Section */}
+      <section className="why-section">
+        <div className="section-header">
+          <span className="section-label">Ihre Vorteile</span>
+          <h2 className="section-title">Warum Lauffer Bau?</h2>
+        </div>
+        <div className="why-grid">
+          <div className="why-item">
+            <div className="why-icon" aria-hidden="true">🚜</div>
+            <h3>Eigener Maschinenpark</h3>
+            <p>Moderne Technik und eigene Fahrzeuge – keine Wartezeiten, maximale Flexibilität für Ihr Projekt.</p>
+          </div>
+          <div className="why-item">
+            <div className="why-icon" aria-hidden="true">📍</div>
+            <h3>Regionale Nähe</h3>
+            <p>Aus Wolframs-Eschenbach – Ihr Partner in Mittelfranken. Kurze Wege, persönliche Betreuung.</p>
+          </div>
+          <div className="why-item">
+            <div className="why-icon" aria-hidden="true">✓</div>
+            <h3>Alles aus einer Hand</h3>
+            <p>Gartenbau, Erdbau und Natursteinhandel – eine Ansprechperson, eine Rechnung, keine Koordinationsprobleme.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Kontakt-Teaser Section */}
+      <section className="contact-teaser-section">
+        <div className="contact-teaser-inner">
+          <h2 className="contact-teaser-title">Bereit für Ihr Projekt?</h2>
+          <p className="contact-teaser-text">Kontaktieren Sie uns – wir beraten Sie unverbindlich zu Gartenbau, Erdbau und Naturstein.</p>
+          <Link to="/kontakt" className="contact-teaser-btn">
+            Zum Kontaktformular
+          </Link>
+        </div>
+      </section>
+
       {/* Gallery Preview Section */}
       <section className="gallery-preview-section">
         <div className="section-header">
           <span className="section-label">Portfolio</span>
-          <h2 className="section-title">Ausgewählte Arbeiten</h2>
+          <h2 className="section-title">Impressionen unserer Arbeit</h2>
         </div>
 
         <div className="gallery-grid">
@@ -154,7 +190,7 @@ function Home() {
               }}
               style={{ cursor: 'pointer' }}
             >
-              {project.images && project.images.length > 0 ? <img src={project.images[0]} alt={project.title} /> : null}
+              {project.images && project.images.length > 0 ? <img src={project.images[0]} alt={`${project.title} - ${project.category} ${project.location}`} loading="lazy" /> : null}
             </div>
           ))}
         </div>

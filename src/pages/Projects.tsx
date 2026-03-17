@@ -99,7 +99,7 @@ function Projects() {
               >
                 <div className="project-image">
                   {project.images && project.images.length > 0 ? (
-                    <img src={project.images[0]} alt={project.title} />
+                    <img src={project.images[0]} alt={`${project.title} - ${project.category} ${project.location}`} loading="lazy" />
                   ) : (
                     <div className="project-placeholder">Bilder folgen</div>
                   )}
