@@ -110,8 +110,8 @@ function Projects() {
                   {project.subtitle && <h4>{project.subtitle}</h4>}
                   <p>{project.description}</p>
                   <div className="project-meta">
-                    <span><span aria-hidden="true">📍</span> {project.location}</span>
-                    <span><span aria-hidden="true">📅</span> {project.date}</span>
+                    <span>{project.location}</span>
+                    <span>{project.date}</span>
                   </div>
                   <span className="project-link">Mehr erfahren <span aria-hidden="true">→</span></span>
                 </div>
