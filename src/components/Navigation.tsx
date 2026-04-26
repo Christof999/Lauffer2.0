@@ -153,9 +153,9 @@ function Navigation() {
               </ul>
 
               <div className="mobile-menu-footer">
-                <p><span aria-hidden="true">📞</span> 09875/8129006</p>
-                <p><span aria-hidden="true">✉️</span> info@lauffer-bau.de</p>
-                <p><span aria-hidden="true">📍</span> Wolframs-Eschenbach</p>
+                <p>09875/8129006</p>
+                <p>info@lauffer-bau.de</p>
+                <p>Wolframs-Eschenbach</p>
               </div>
             </motion.div>
           </>

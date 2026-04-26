@@ -110,8 +110,14 @@ function ProjectModal({ isOpen, onClose, project }: ProjectModalProps) {
                 <h2 id="modal-title">{project.title}</h2>
                 {project.subtitle && <h3 className="modal-subtitle">{project.subtitle}</h3>}
                 <div className="modal-meta">
-                  <span><span aria-hidden="true">📍</span> {project.location}</span>
-                  <span><span aria-hidden="true">📅</span> {project.date}</span>
+                  <span>
+                    <span className="modal-meta-label">Ort</span>
+                    {project.location}
+                  </span>
+                  <span>
+                    <span className="modal-meta-label">Zeitraum</span>
+                    {project.date}
+                  </span>
                 </div>
               </div>
 

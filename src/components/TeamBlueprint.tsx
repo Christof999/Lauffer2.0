@@ -364,7 +364,7 @@ function TeamBlueprint() {
           animate={{ opacity: 0.3 }}
           transition={{ duration: 1, delay: 2.4 }}
         >
-          ...und Bailey 🐾
+          ...und Bailey
         </motion.text>
       </svg>
     </div>

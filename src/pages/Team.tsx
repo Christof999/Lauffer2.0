@@ -86,11 +86,9 @@ function Team() {
                 </p>
                 <div className="leader-contact">
                   <a href="mailto:info@lauffer-bau.de" className="contact-link">
-                    <span className="contact-icon" aria-hidden="true">✉️</span>
                     info@lauffer-bau.de
                   </a>
                   <a href="tel:098758129006" className="contact-link">
-                    <span className="contact-icon" aria-hidden="true">📞</span>
                     09875/8129006
                   </a>
                 </div>
@@ -110,16 +108,15 @@ function Team() {
               </div>
               <div className="leader-info">
                 <h3>Bailey</h3>
-                <div className="leader-position">Chief Happiness Officer <span aria-hidden="true">🐕</span></div>
+                <div className="leader-position">Chief Happiness Officer</div>
                 <p>
                   Bailey ist der vierbeinige Liebling des Teams und offiziell zuständig für gute Laune
-                  auf der Baustelle. Mit seinem Charme wickelt er jeden Kunden um die Pfote und sorgt
-                  dafür, dass die Arbeitsatmosphäre immer perfekt ist. Leckerlis werden als Bestechung
-                  gerne akzeptiert! <span aria-hidden="true">🐾</span>
+                  auf der Baustelle. Mit seinem Charme sorgt er für eine angenehme Arbeitsatmosphäre.
+                  Leckerlis werden gerne akzeptiert.
                 </p>
                 <div className="leader-contact">
                   <div className="contact-note">
-                    <span aria-hidden="true">💚</span> Zuständig für Kundenanfragen und Reklamationen
+                    Offiziell für Moral und Baustellen-Stimmung zuständig.
                   </div>
                 </div>
               </div>

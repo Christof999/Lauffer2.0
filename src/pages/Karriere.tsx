@@ -1,39 +1,93 @@
+import type { FC } from 'react'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import './Karriere.css'
 
+const IconPayment: FC = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <rect x="2" y="5" width="20" height="14" rx="2" />
+    <path d="M2 10h20" />
+  </svg>
+)
+
+const IconVehicle: FC = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <path d="M5 17h14v-5l-2-4H7L5 12v5z" />
+    <circle cx="7.5" cy="17" r="1.5" />
+    <circle cx="16.5" cy="17" r="1.5" />
+  </svg>
+)
+
+const IconEducation: FC = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+  </svg>
+)
+
+const IconTeam: FC = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+    <circle cx="9" cy="7" r="4" />
+    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+  </svg>
+)
+
+const IconCalendar: FC = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <rect x="3" y="4" width="18" height="18" rx="2" />
+    <path d="M16 2v4M8 2v4M3 10h18" />
+  </svg>
+)
+
+const IconVariety: FC = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <circle cx="12" cy="12" r="10" />
+    <circle cx="12" cy="12" r="3" />
+    <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
+  </svg>
+)
+
+const IconMail: FC = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+    <polyline points="22,6 12,13 2,6" />
+  </svg>
+)
+
 function Karriere() {
-  const benefits = [
+  const benefits: { title: string; description: string; Icon: FC }[] = [
     {
-      icon: '💰',
+      Icon: IconPayment,
       title: 'Faire Bezahlung',
-      description: 'Leistungsgerechte Vergütung und pünktliche Gehaltszahlungen'
+      description: 'Leistungsgerechte Vergütung und pünktliche Gehaltszahlungen',
     },
     {
-      icon: '🚗',
+      Icon: IconVehicle,
       title: 'Firmenwagen',
-      description: 'Moderne Fahrzeugflotte und hochwertige Arbeitsgeräte'
+      description: 'Moderne Fahrzeugflotte und hochwertige Arbeitsgeräte',
     },
     {
-      icon: '📚',
+      Icon: IconEducation,
       title: 'Weiterbildung',
-      description: 'Regelmäßige Schulungen und Fortbildungsmöglichkeiten'
+      description: 'Regelmäßige Schulungen und Fortbildungsmöglichkeiten',
     },
     {
-      icon: '👥',
+      Icon: IconTeam,
       title: 'Starkes Team',
-      description: 'Kollegiales Miteinander und flache Hierarchien'
+      description: 'Kollegiales Miteinander und flache Hierarchien',
     },
     {
-      icon: '🌴',
+      Icon: IconCalendar,
       title: 'Urlaubsgeld',
-      description: 'Attraktive Zusatzleistungen und Urlaubsregelungen'
+      description: 'Attraktive Zusatzleistungen und Urlaubsregelungen',
     },
     {
-      icon: '🎯',
+      Icon: IconVariety,
       title: 'Abwechslung',
-      description: 'Vielseitige Projekte von Privatgärten bis Gewerbe'
-    }
+      description: 'Vielseitige Projekte von Privatgärten bis Gewerbe',
+    },
   ]
 
   return (
@@ -51,19 +105,27 @@ function Karriere() {
         transition={{ duration: 0.8 }}
       >
         <div className="karriere-hero-content">
-          <motion.h1
-            initial={{ y: 50, opacity: 0 }}
+          <motion.p
+            className="karriere-kicker"
+            initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Karriere bei Lauffer
+            Karriere
+          </motion.p>
+          <motion.h1
+            initial={{ y: 24, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+          >
+            Karriere bei Lauffer Bau
           </motion.h1>
           <motion.p
-            initial={{ y: 30, opacity: 0 }}
+            initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
-            Werde Teil unseres Teams und gestalte die Zukunft mit uns!
+            Werden Sie Teil unseres Teams und gestalten Sie mit uns hochwertige Außenanlagen in Mittelfranken.
           </motion.p>
         </div>
       </motion.section>
@@ -71,10 +133,9 @@ function Karriere() {
       <section className="karriere-content">
         <div className="karriere-container">
 
-          {/* Warum Lauffer Bau */}
           <motion.div
             className="karriere-intro"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
@@ -82,39 +143,42 @@ function Karriere() {
             <h2>Warum Lauffer Bau?</h2>
             <p>
               Wir schaffen grüne Oasen und beeindruckende Außenanlagen. Als wachsendes
-              Unternehmen bieten wir dir nicht nur einen Job, sondern eine echte Perspektive.
-              Bei uns arbeitest du in einem motivierten Team, an spannenden Projekten und mit
-              modernster Technik. Kurze Entscheidungswege und ein familiäres Arbeitsklima sind
-              bei uns selbstverständlich – auch Bailey freut sich auf dich! <span aria-hidden="true">🐕</span>
+              Unternehmen bieten wir nicht nur einen Arbeitsplatz, sondern eine echte Perspektive.
+              Sie arbeiten in einem motivierten Team an abwechslungsreichen Projekten mit
+              moderner Technik. Kurze Entscheidungswege und ein familiäres Arbeitsklima sind
+              bei uns selbstverständlich.
             </p>
           </motion.div>
 
-          {/* Benefits */}
           <div className="benefits-section">
-            <h2>Deine Vorteile</h2>
+            <h2>Ihre Vorteile</h2>
             <div className="benefits-grid">
-              {benefits.map((benefit, index) => (
-                <motion.div
-                  key={index}
-                  className="benefit-card"
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  whileHover={{ y: -5 }}
-                >
-                  <div className="benefit-icon" aria-hidden="true">{benefit.icon}</div>
-                  <h3>{benefit.title}</h3>
-                  <p>{benefit.description}</p>
-                </motion.div>
-              ))}
+              {benefits.map((benefit, index) => {
+                const { Icon } = benefit
+                return (
+                  <motion.div
+                    key={benefit.title}
+                    className="benefit-card"
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.45, delay: index * 0.06 }}
+                    whileHover={{ y: -3 }}
+                  >
+                    <div className="benefit-icon" aria-hidden>
+                      <Icon />
+                    </div>
+                    <h3>{benefit.title}</h3>
+                    <p>{benefit.description}</p>
+                  </motion.div>
+                )
+              })}
             </div>
           </div>
 
-          {/* Offene Stellen – Platzhalter */}
           <motion.div
             className="jobs-section"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
@@ -122,33 +186,32 @@ function Karriere() {
             <h2>Offene Stellen</h2>
             <div className="jobs-coming-soon">
               <p className="jobs-coming-soon-text">
-                Aktuell sind keine Stellen ausgeschrieben – bleiben Sie gespannt!
-                Wir wachsen kontinuierlich und werden neue Positionen in Kürze veröffentlichen.
+                Aktuell sind keine Stellen ausgeschrieben – bleiben Sie gespannt.
+                Wir wachsen kontinuierlich und veröffentlichen neue Positionen, sobald sie feststehen.
               </p>
             </div>
           </motion.div>
 
-          {/* Initiativbewerbung */}
           <motion.div
             className="application-section"
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
             <h2>Initiativbewerbung</h2>
             <p className="application-intro">
-              Auch wenn gerade keine Stelle ausgeschrieben ist – wir freuen uns jederzeit
-              über eine Initiativbewerbung! Schicken Sie uns einfach Ihre Unterlagen per E-Mail
-              und wir melden uns bei Ihnen.
+              Auch wenn gerade keine Stelle ausgeschrieben ist, freuen wir uns über eine Initiativbewerbung.
+              Senden Sie uns Ihre Unterlagen per E-Mail – wir melden uns bei Ihnen.
             </p>
             <motion.a
               href="mailto:info@lauffer-bau.de?subject=Initiativbewerbung bei Lauffer Bau"
               className="email-apply-btn"
-              whileHover={{ scale: 1.03, boxShadow: '0 8px 25px rgba(140, 198, 63, 0.3)' }}
-              whileTap={{ scale: 0.97 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <span aria-hidden="true">✉️</span> Initiativbewerbung senden
+              <IconMail />
+              Initiativbewerbung senden
             </motion.a>
             <p className="application-hint">
               Bitte fügen Sie Ihrer E-Mail einen Lebenslauf und relevante Zeugnisse bei.

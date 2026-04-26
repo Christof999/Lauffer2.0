@@ -118,7 +118,9 @@ function Contact() {
           >
             <div className="info-card">
               <div className="info-header">
-                <div className="info-icon" aria-hidden="true">🏢</div>
+                <div className="info-icon" aria-hidden="true">
+                  <span className="info-icon-mark">LB</span>
+                </div>
                 <h2>Lauffer Bau</h2>
                 <p className="info-subtitle">Gartenbau · Erdbau · Natursteinhandel</p>
               </div>
@@ -129,7 +131,7 @@ function Contact() {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="method-icon" aria-hidden="true">✉️</div>
+                  <div className="method-icon method-icon--mail" aria-hidden="true" />
                   <div className="method-content">
                     <h4>E-Mail</h4>
                     <p><a href="mailto:info@lauffer-bau.de">info@lauffer-bau.de</a></p>
@@ -141,7 +143,7 @@ function Contact() {
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="method-icon" aria-hidden="true">📞</div>
+                  <div className="method-icon method-icon--phone" aria-hidden="true" />
                   <div className="method-content">
                     <h4>Telefon</h4>
                     <p><a href="tel:098758129006">09875/8129006</a></p>
@@ -150,7 +152,7 @@ function Contact() {
               </div>
 
               <div className="contact-hours">
-                <h4><span aria-hidden="true">📅</span> Öffnungszeiten</h4>
+                <h4>Öffnungszeiten</h4>
                 <div className="hours-list">
                   <div className="hours-item">
                     <span>Mo - Fr:</span>
@@ -178,7 +180,7 @@ function Contact() {
           >
             <div className="form-card">
               <div className="form-header">
-                <h2><span aria-hidden="true">💬</span> Nachricht senden</h2>
+                <h2>Nachricht senden</h2>
                 <p>Senden Sie uns eine Nachricht und wir melden uns schnellstmöglich bei Ihnen zurück.</p>
               </div>
               
@@ -232,12 +234,12 @@ function Contact() {
                       disabled={formStatus === 'sending'}
                     >
                       <option value="">Bitte wählen</option>
-                      <option value="🌱 Gartenbau">🌱 Gartenbau</option>
-                      <option value="🚜 Erdbau">🚜 Erdbau</option>
-                      <option value="🪨 Natursteinhandel">🪨 Natursteinhandel</option>
-                      <option value="💡 Beratung">💡 Beratung</option>
-                      <option value="💰 Angebot anfordern">💰 Angebot anfordern</option>
-                      <option value="❓ Sonstiges">❓ Sonstiges</option>
+                      <option value="Gartenbau">Gartenbau</option>
+                      <option value="Erdbau">Erdbau</option>
+                      <option value="Natursteinhandel">Natursteinhandel</option>
+                      <option value="Beratung">Beratung</option>
+                      <option value="Angebot anfordern">Angebot anfordern</option>
+                      <option value="Sonstiges">Sonstiges</option>
                     </select>
                   </div>
                 </div>
@@ -264,7 +266,7 @@ function Contact() {
                       animate={{ opacity: 1, y: 0 }}
                       role="status"
                     >
-                      <span aria-hidden="true">✅</span> Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns schnellstmöglich bei Ihnen.
+                      Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns schnellstmöglich bei Ihnen.
                     </motion.div>
                   )}
 
@@ -275,7 +277,7 @@ function Contact() {
                       animate={{ opacity: 1, y: 0 }}
                       role="alert"
                     >
-                      <span aria-hidden="true">❌</span> Entschuldigung, es gab einen Fehler beim Senden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns telefonisch.
+                      Entschuldigung, es gab einen Fehler beim Senden. Bitte versuchen Sie es erneut oder kontaktieren Sie uns telefonisch.
                     </motion.div>
                   )}
                 </div>
@@ -292,11 +294,7 @@ function Contact() {
                   aria-busy={formStatus === 'sending'}
                 >
                   <span>
-                    {formStatus === 'sending' ? (
-                      <><span aria-hidden="true">⏳</span> Wird gesendet...</>
-                    ) : (
-                      <><span aria-hidden="true">📤</span> Nachricht senden</>
-                    )}
+                    {formStatus === 'sending' ? 'Wird gesendet…' : 'Nachricht senden'}
                   </span>
                   {formStatus === 'idle' && <div className="btn-arrow" aria-hidden="true">→</div>}
                 </motion.button>
