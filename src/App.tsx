@@ -12,6 +12,7 @@ import Karriere from './pages/Karriere'
 import Contact from './pages/Contact'
 import Impressum from './pages/Impressum'
 import Datenschutz from './pages/Datenschutz'
+import ServiceLanding from './pages/ServiceLanding'
 import './App.css'
 
 function App() {
@@ -27,6 +28,9 @@ function App() {
         <main id="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/gartenbau" element={<ServiceLanding />} />
+            <Route path="/erdbau" element={<ServiceLanding />} />
+            <Route path="/natursteine" element={<ServiceLanding />} />
             <Route path="/uber-uns" element={<About />} />
             <Route path="/projekte" element={<Projects />} />
             <Route path="/team" element={<Team />} />

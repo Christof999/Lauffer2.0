@@ -1,0 +1,172 @@
+{
+  "routes": [
+    {
+      "urlPath": "/",
+      "title": "Lauffer Bau – Gartenbau, Erdbau & Natursteinhandel in Mittelfranken",
+      "description": "Lauffer Bau aus Wolframs-Eschenbach: Spezialist für Gartenbau, Erdbau und Natursteinhandel in Mittelfranken. Gartengestaltung, Pflasterarbeiten und Natursteinprojekte.",
+      "sections": [
+        {
+          "heading": "Lauffer Bau – Ihr Partner in Mittelfranken",
+          "paragraphs": [
+            "Wir sind Ihr kompetenter Partner für professionelle Gartengestaltung, zuverlässige Erdbauarbeiten und hochwertigen Natursteinhandel – ästhetisch, funktional und zeitlos.",
+            "Standort: Wolframs-Eschenbach, Bayern. Telefon: 09875/8129006. E-Mail: info@lauffer-bau.de."
+          ]
+        },
+        {
+          "heading": "Leistungen",
+          "paragraphs": [
+            "Gartenbau: Planung, Gestaltung und Pflege von Außenanlagen.",
+            "Erdbau: Aushub, Modellierung, Unterbau für Wege und Terrassen, Drainage.",
+            "Natursteinhandel: Beratung, Materialauswahl, Natursteinmauern, Pflaster- und Plattenbeläge."
+          ]
+        }
+      ]
+    },
+    {
+      "urlPath": "/gartenbau",
+      "title": "Gartenbau – Lauffer Bau | Planung & Gartengestaltung Mittelfranken",
+      "description": "Gartenbau von Lauffer Bau: Planung, Gestaltung und Pflege in Wolframs-Eschenbach und Mittelfranken. Terrassen, Wege, Pflanzarbeiten und Bewässerung.",
+      "sections": [
+        {
+          "heading": "Gartenbau",
+          "paragraphs": [
+            "Von der ersten Idee bis zur fertigen Außenanlage planen und realisieren wir Gartenprojekte mit hohem Anspruch an Ästhetik, Funktion und Langlebigkeit.",
+            "Leistungen: Gartenplanung und Konzeptentwicklung, Pflanzarbeiten und Rasenflächen, Terrassen, Wege und Einfassungen, Bewässerung und Entwässerung, Pflege- und Instandhaltungskonzepte."
+          ]
+        }
+      ]
+    },
+    {
+      "urlPath": "/erdbau",
+      "title": "Erdbau – Lauffer Bau | Aushub & Fundament Mittelfranken",
+      "description": "Erdbau von Lauffer Bau in Mittelfranken: Aushub, Planierung, Unterbau für Wege und Terrassen, Drainage und Materiallogistik.",
+      "sections": [
+        {
+          "heading": "Erdbau",
+          "paragraphs": [
+            "Erdbau ist die Basis für jedes Projekt. Wir schaffen präzise Höhen, stabile Untergründe und eine saubere Vorbereitung für die weitere Ausführung.",
+            "Leistungen: Aushub- und Erdbewegungsarbeiten, Planierung und Modellierung, Unterbau für Wege, Terrassen und Einfahrten, Drainage und Versickerung, Abtransport und Materiallogistik."
+          ]
+        }
+      ]
+    },
+    {
+      "urlPath": "/natursteine",
+      "title": "Natursteinhandel – Lauffer Bau | Naturstein & Pflaster Mittelfranken",
+      "description": "Natursteinhandel Lauffer Bau: Beratung, Lieferung und fachgerechte Verarbeitung von Naturstein in Wolframs-Eschenbach und Mittelfranken.",
+      "sections": [
+        {
+          "heading": "Natursteinhandel",
+          "paragraphs": [
+            "Naturstein bringt Charakter und Beständigkeit in jede Außenanlage. Wir beraten bei Auswahl und Einsatz und setzen Naturstein fachgerecht ein.",
+            "Leistungen: Beratung und Materialauswahl, Lieferung und Logistik, Natursteinmauern und Stufenanlagen, Pflaster- und Plattenbeläge, Sonderlösungen nach Maß."
+          ]
+        }
+      ]
+    },
+    {
+      "urlPath": "/uber-uns",
+      "title": "Über uns – Lauffer Bau | Gartenbau & Erdbau Mittelfranken",
+      "description": "Lernen Sie Lauffer Bau kennen: Tradition, Qualität und Teamgeist in Gartenbau, Erdbau und Natursteinhandel aus Wolframs-Eschenbach.",
+      "sections": [
+        {
+          "heading": "Über Lauffer Bau",
+          "paragraphs": [
+            "Willkommen bei Lauffer Bau – Ihrem Partner für Gartenbau, Erdbau und Natursteinhandel in Mittelfranken mit Sitz in Wolframs-Eschenbach."
+          ]
+        }
+      ]
+    },
+    {
+      "urlPath": "/projekte",
+      "title": "Projekte – Lauffer Bau | Referenzen Gartenbau & Erdbau",
+      "description": "Referenzen und abgeschlossene Projekte von Lauffer Bau: Gartenbau, Erdbau und Natursteinarbeiten in Mittelfranken.",
+      "sections": [
+        {
+          "heading": "Unsere Projekte",
+          "paragraphs": [
+            "Ausgewählte Referenzen aus Gartenbau, Erdbau und Naturstein – von Terrassen über Erdbau bis zu Natursteinanlagen."
+          ]
+        }
+      ]
+    },
+    {
+      "urlPath": "/team",
+      "title": "Unser Team – Lauffer Bau | Wolframs-Eschenbach",
+      "description": "Das Team von Lauffer Bau: erfahrene Fachkräfte für Gartenbau, Erdbau und Natursteinhandel.",
+      "sections": [
+        {
+          "heading": "Team",
+          "paragraphs": [
+            "Menschen, die Qualität möglich machen – kennen Sie die Gesichter hinter Lauffer Bau."
+          ]
+        }
+      ]
+    },
+    {
+      "urlPath": "/galerie",
+      "title": "Galerie – Lauffer Bau | Gartenbau & Natursteinarbeiten",
+      "description": "Impressionen aus Gartenbau, Erdbau und Natursteinprojekten von Lauffer Bau.",
+      "sections": [
+        {
+          "heading": "Galerie",
+          "paragraphs": [
+            "Bilder ausgewählter Arbeiten in Gartengestaltung, Erdbau und Naturstein."
+          ]
+        }
+      ]
+    },
+    {
+      "urlPath": "/karriere",
+      "title": "Karriere – Lauffer Bau | Gartenbau & Erdbau in Mittelfranken",
+      "description": "Karriere bei Lauffer Bau: Jobs in Gartenbau, Erdbau und Natursteinhandel. Faire Bezahlung, Weiterbildung und Teamspirit.",
+      "sections": [
+        {
+          "heading": "Karriere",
+          "paragraphs": [
+            "Werden Sie Teil des Teams – abwechslungsreiche Projekte in Gartenbau, Erdbau und Natursteinhandel."
+          ]
+        }
+      ]
+    },
+    {
+      "urlPath": "/kontakt",
+      "title": "Kontakt – Lauffer Bau | Gartenbau, Erdbau & Natursteinhandel",
+      "description": "Kontaktieren Sie Lauffer Bau in Wolframs-Eschenbach: Anfragen zu Gartenbau, Erdbau und Natursteinhandel.",
+      "sections": [
+        {
+          "heading": "Kontakt",
+          "paragraphs": [
+            "Telefon: 09875/8129006. E-Mail: info@lauffer-bau.de. Adresse: Waizendorfer Str. 6, 91639 Wolframs-Eschenbach."
+          ]
+        }
+      ]
+    },
+    {
+      "urlPath": "/impressum",
+      "title": "Impressum – Lauffer Bau | Wolframs-Eschenbach",
+      "description": "Impressum und rechtliche Angaben zu Lauffer Bau, Paul Lauffer, Wolframs-Eschenbach.",
+      "sections": [
+        {
+          "heading": "Impressum",
+          "paragraphs": [
+            "Angaben gemäß TMG: Lauffer Bau · Erdbau · Natursteinhandel, Paul Lauffer, Waizendorfer Str. 6, 91639 Wolframs-Eschenbach."
+          ]
+        }
+      ]
+    },
+    {
+      "urlPath": "/datenschutz",
+      "title": "Datenschutzerklärung – Lauffer Bau",
+      "description": "Datenschutzerklärung von Lauffer Bau gemäß DSGVO.",
+      "sections": [
+        {
+          "heading": "Datenschutz",
+          "paragraphs": [
+            "Informationen zur Verarbeitung personenbezogener Daten bei Lauffer Bau."
+          ]
+        }
+      ]
+    }
+  ]
+}

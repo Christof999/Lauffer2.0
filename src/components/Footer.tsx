@@ -20,6 +20,15 @@ function Footer() {
           </div>
 
           <div className="footer-section">
+            <h4>Leistungen</h4>
+            <ul>
+              <li><Link to="/gartenbau">Gartenbau</Link></li>
+              <li><Link to="/erdbau">Erdbau</Link></li>
+              <li><Link to="/natursteine">Natursteinhandel</Link></li>
+            </ul>
+          </div>
+
+          <div className="footer-section">
             <h4>Rechtliches</h4>
             <ul>
               <li><Link to="/impressum">Impressum</Link></li>
