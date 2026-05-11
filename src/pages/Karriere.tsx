@@ -1,44 +1,8 @@
 import { motion } from 'framer-motion'
+import { Helmet } from 'react-helmet-async'
 import './Karriere.css'
 
 function Karriere() {
-  const jobOpenings = [
-    {
-      title: 'Facharbeiter Gartenbau (m/w/d)',
-      type: 'Vollzeit',
-      description: 'Wir suchen einen erfahrenen Facharbeiter für Gartenbau, der unser Team bei der Realisierung anspruchsvoller Projekte unterstützt.',
-      requirements: [
-        'Abgeschlossene Ausbildung zum Gärtner oder vergleichbare Qualifikation',
-        'Mehrjährige Berufserfahrung im Garten- und Landschaftsbau',
-        'Führerschein Klasse B, idealerweise auch BE',
-        'Teamfähigkeit und selbstständige Arbeitsweise'
-      ]
-    },
-    {
-      title: 'Auszubildender Garten- und Landschaftsbau (m/w/d)',
-      type: 'Ausbildung',
-      description: 'Starte deine Karriere im Grünen! Wir bieten eine fundierte Ausbildung in einem modernen Betrieb mit vielseitigen Projekten.',
-      requirements: [
-        'Guter Schulabschluss',
-        'Interesse an Pflanzen und Natursteinen',
-        'Handwerkliches Geschick',
-        'Motivation und Lernbereitschaft',
-        'Körperliche Belastbarkeit'
-      ]
-    },
-    {
-      title: 'Maschinenführer Erdbau (m/w/d)',
-      type: 'Vollzeit',
-      description: 'Für unsere Erdbau-Projekte suchen wir einen erfahrenen Maschinenführer mit Expertise im Umgang mit Baggern und anderen Baumaschinen.',
-      requirements: [
-        'Erfahrung im Führen von Baumaschinen (Bagger, Radlader, etc.)',
-        'Idealerweise Ausbildung im Tiefbau oder vergleichbare Qualifikation',
-        'Führerschein Klasse C/CE wünschenswert',
-        'Zuverlässigkeit und Verantwortungsbewusstsein'
-      ]
-    }
-  ]
-
   const benefits = [
     {
       icon: '💰',
@@ -74,6 +38,12 @@ function Karriere() {
 
   return (
     <div className="karriere">
+      <Helmet>
+        <title>Karriere – Lauffer Bau | Gartenbau &amp; Erdbau in Mittelfranken</title>
+        <meta name="description" content="Karriere bei Lauffer Bau in Wolframs-Eschenbach. Werden Sie Teil unseres Teams – wir freuen uns auf Ihre Initiativbewerbung." />
+        <link rel="canonical" href="https://lauffer-bau.de/karriere" />
+      </Helmet>
+
       <motion.section
         className="karriere-hero"
         initial={{ opacity: 0 }}
@@ -100,7 +70,8 @@ function Karriere() {
 
       <section className="karriere-content">
         <div className="karriere-container">
-          {/* Why Work With Us */}
+
+          {/* Warum Lauffer Bau */}
           <motion.div
             className="karriere-intro"
             initial={{ opacity: 0, y: 30 }}
@@ -110,15 +81,15 @@ function Karriere() {
           >
             <h2>Warum Lauffer Bau?</h2>
             <p>
-              Wir schaffen grüne Oasen und beeindruckende Außenanlagen. Als wachsendes 
-              Unternehmen bieten wir dir nicht nur einen Job, sondern eine echte Perspektive. 
-              Bei uns arbeitest du in einem motivierten Team, an spannenden Projekten und mit 
-              modernster Technik. Kurze Entscheidungswege und ein familiäres Arbeitsklima sind 
-              bei uns selbstverständlich – auch Bailey freut sich auf dich! 🐕
+              Wir schaffen grüne Oasen und beeindruckende Außenanlagen. Als wachsendes
+              Unternehmen bieten wir dir nicht nur einen Job, sondern eine echte Perspektive.
+              Bei uns arbeitest du in einem motivierten Team, an spannenden Projekten und mit
+              modernster Technik. Kurze Entscheidungswege und ein familiäres Arbeitsklima sind
+              bei uns selbstverständlich – auch Bailey freut sich auf dich! <span aria-hidden="true">🐕</span>
             </p>
           </motion.div>
 
-          {/* Benefits Grid */}
+          {/* Benefits */}
           <div className="benefits-section">
             <h2>Deine Vorteile</h2>
             <div className="benefits-grid">
@@ -132,7 +103,7 @@ function Karriere() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ y: -5 }}
                 >
-                  <div className="benefit-icon">{benefit.icon}</div>
+                  <div className="benefit-icon" aria-hidden="true">{benefit.icon}</div>
                   <h3>{benefit.title}</h3>
                   <p>{benefit.description}</p>
                 </motion.div>
@@ -140,45 +111,24 @@ function Karriere() {
             </div>
           </div>
 
-          {/* Job Openings */}
-          <div className="jobs-section">
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              Offene Stellen
-            </motion.h2>
-            <div className="jobs-list">
-              {jobOpenings.map((job, index) => (
-                <motion.div
-                  key={index}
-                  className="job-card"
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.2 }}
-                >
-                  <div className="job-header">
-                    <h3>{job.title}</h3>
-                    <span className="job-type">{job.type}</span>
-                  </div>
-                  <p className="job-description">{job.description}</p>
-                  <div className="job-requirements">
-                    <strong>Das bringst du mit:</strong>
-                    <ul>
-                      {job.requirements.map((req, i) => (
-                        <li key={i}>{req}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </motion.div>
-              ))}
+          {/* Offene Stellen – Platzhalter */}
+          <motion.div
+            className="jobs-section"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2>Offene Stellen</h2>
+            <div className="jobs-coming-soon">
+              <p className="jobs-coming-soon-text">
+                Aktuell sind keine Stellen ausgeschrieben – bleiben Sie gespannt!
+                Wir wachsen kontinuierlich und werden neue Positionen in Kürze veröffentlichen.
+              </p>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Application Form */}
+          {/* Initiativbewerbung */}
           <motion.div
             className="application-section"
             initial={{ opacity: 0, y: 30 }}
@@ -186,85 +136,25 @@ function Karriere() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2>Bewirb dich jetzt!</h2>
+            <h2>Initiativbewerbung</h2>
             <p className="application-intro">
-              Du findest dich in einer der Stellen wieder oder möchtest dich initiativ bewerben? 
-              Schick uns deine Unterlagen – wir freuen uns auf dich!
+              Auch wenn gerade keine Stelle ausgeschrieben ist – wir freuen uns jederzeit
+              über eine Initiativbewerbung! Schicken Sie uns einfach Ihre Unterlagen per E-Mail
+              und wir melden uns bei Ihnen.
             </p>
-
-            <form className="application-form">
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="name">Name *</label>
-                  <input type="text" id="name" required />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="email">E-Mail *</label>
-                  <input type="email" id="email" required />
-                </div>
-              </div>
-
-              <div className="form-row">
-                <div className="form-group">
-                  <label htmlFor="phone">Telefon</label>
-                  <input type="tel" id="phone" />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="position">Gewünschte Position *</label>
-                  <select id="position" required>
-                    <option value="">Bitte wählen...</option>
-                    <option value="facharbeiter-gartenbau">Facharbeiter Gartenbau</option>
-                    <option value="azubi">Auszubildender</option>
-                    <option value="maschinenfuehrer">Maschinenführer Erdbau</option>
-                    <option value="initiativ">Initiativbewerbung</option>
-                  </select>
-                </div>
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="message">Deine Nachricht *</label>
-                <textarea id="message" rows={6} required placeholder="Erzähl uns etwas über dich und warum du zu Lauffer Bau möchtest..."></textarea>
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="cv" className="file-label">
-                  <span>📎 Lebenslauf & Zeugnisse hochladen</span>
-                  <input type="file" id="cv" multiple accept=".pdf,.doc,.docx" />
-                </label>
-                <small>Erlaubte Formate: PDF, DOC, DOCX (max. 10 MB pro Datei)</small>
-              </div>
-
-              <div className="form-group checkbox-group">
-                <label>
-                  <input type="checkbox" required />
-                  <span>Ich habe die <a href="/datenschutz">Datenschutzerklärung</a> gelesen und akzeptiere diese. *</span>
-                </label>
-              </div>
-
-              <motion.button
-                type="submit"
-                className="submit-button"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-              >
-                Bewerbung absenden
-              </motion.button>
-            </form>
+            <motion.a
+              href="mailto:info@lauffer-bau.de?subject=Initiativbewerbung bei Lauffer Bau"
+              className="email-apply-btn"
+              whileHover={{ scale: 1.03, boxShadow: '0 8px 25px rgba(140, 198, 63, 0.3)' }}
+              whileTap={{ scale: 0.97 }}
+            >
+              <span aria-hidden="true">✉️</span> Initiativbewerbung senden
+            </motion.a>
+            <p className="application-hint">
+              Bitte fügen Sie Ihrer E-Mail einen Lebenslauf und relevante Zeugnisse bei.
+            </p>
           </motion.div>
 
-          {/* Alternative Contact */}
-          <motion.div
-            className="alternative-contact"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h3>Oder schick uns deine Bewerbung per E-Mail:</h3>
-            <a href="mailto:info@lauffer-bau.de" className="email-link">
-              info@lauffer-bau.de
-            </a>
-          </motion.div>
         </div>
       </section>
     </div>
@@ -272,4 +162,3 @@ function Karriere() {
 }
 
 export default Karriere
-
