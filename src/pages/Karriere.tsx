@@ -56,6 +56,82 @@ const IconMail: FC = () => (
   </svg>
 )
 
+const SITE_URL = 'https://lauffer-bau.de'
+
+const job = {
+  title: 'Handwerklicher Allrounder (m/w/d)',
+  subtitle: 'Garten- & Landschaftsbau · Vollzeit',
+  type: 'Vollzeit',
+  location: 'Wolframs-Eschenbach, Mittelfranken',
+  intro:
+    'Sie sind handwerklich geschickt und haben Lust, sich immer wieder neuen Aufgaben zu stellen? Dann werden Sie unser Allrounder im Garten- und Landschaftsbau. Bei uns erwartet Sie ein abwechslungsreicher Arbeitsalltag rund um Gartenbau, Erdbau und Natursteinarbeiten – an der frischen Luft und in einem eingespielten Team.',
+  tasks: [
+    'Anlage und Gestaltung von Außenanlagen: Terrassen, Wege und Einfassungen',
+    'Pflaster-, Platten- und Natursteinarbeiten, z. B. Mauern und Stufenanlagen',
+    'Erdarbeiten wie Aushub, Planierung und Unterbau für Wege und Terrassen',
+    'Pflanzarbeiten, Rasenflächen sowie Bewässerung und Entwässerung',
+    'Pflege- und Instandhaltungsarbeiten an bestehenden Anlagen',
+  ],
+  requirements: [
+    'Handwerkliches Geschick und Freude an abwechslungsreicher Arbeit im Freien',
+    'Idealerweise erste Erfahrung im Garten- und Landschaftsbau, Tiefbau oder Handwerk',
+    'Lust, sich in neue Aufgabenbereiche einzuarbeiten',
+    'Zuverlässigkeit, Teamfähigkeit und selbstständige Arbeitsweise',
+    'Führerschein Klasse B von Vorteil',
+  ],
+}
+
+const jobApplyHref = `mailto:info@lauffer-bau.de?subject=${encodeURIComponent(
+  `Bewerbung: ${job.title}`,
+)}`
+
+// JSON-LD für Google for Jobs (Rich Result) – Beschreibung aus denselben Daten erzeugt
+const jobDescriptionHtml = [
+  `<p>${job.intro}</p>`,
+  '<p><strong>Ihre Aufgaben:</strong></p>',
+  `<ul>${job.tasks.map((t) => `<li>${t}</li>`).join('')}</ul>`,
+  '<p><strong>Das bringen Sie mit:</strong></p>',
+  `<ul>${job.requirements.map((r) => `<li>${r}</li>`).join('')}</ul>`,
+].join('')
+
+const jobPostingLd = {
+  '@context': 'https://schema.org',
+  '@type': 'JobPosting',
+  title: job.title,
+  description: jobDescriptionHtml,
+  datePosted: '2026-06-05',
+  validThrough: '2026-12-31',
+  employmentType: 'FULL_TIME',
+  hiringOrganization: {
+    '@type': 'Organization',
+    '@id': `${SITE_URL}/#organization`,
+    name: 'Lauffer Bau · Erdbau · Natursteinhandel',
+    sameAs: SITE_URL,
+    logo: `${SITE_URL}/Logo_Lauffer_RGB.png`,
+  },
+  jobLocation: {
+    '@type': 'Place',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Waizendorfer Str. 6',
+      postalCode: '91639',
+      addressLocality: 'Wolframs-Eschenbach',
+      addressRegion: 'Bayern',
+      addressCountry: 'DE',
+    },
+  },
+  applicantLocationRequirements: {
+    '@type': 'Country',
+    name: 'Deutschland',
+  },
+  directApply: true,
+  identifier: {
+    '@type': 'PropertyValue',
+    name: 'Lauffer Bau',
+    value: 'allrounder-galabau-2026',
+  },
+}
+
 function Karriere() {
   const benefits: { title: string; description: string; Icon: FC }[] = [
     {
@@ -93,9 +169,10 @@ function Karriere() {
   return (
     <div className="karriere">
       <Helmet>
-        <title>Karriere – Lauffer Bau | Gartenbau &amp; Erdbau in Mittelfranken</title>
-        <meta name="description" content="Karriere bei Lauffer Bau in Wolframs-Eschenbach. Werden Sie Teil unseres Teams – wir freuen uns auf Ihre Initiativbewerbung." />
+        <title>Karriere – Lauffer Bau | Handwerklicher Allrounder (m/w/d) gesucht</title>
+        <meta name="description" content="Jetzt bewerben bei Lauffer Bau in Wolframs-Eschenbach: Wir suchen einen handwerklichen Allrounder (m/w/d) für Gartenbau, Erdbau und Natursteinarbeiten in Mittelfranken." />
         <link rel="canonical" href="https://lauffer-bau.de/karriere" />
+        <script type="application/ld+json">{JSON.stringify(jobPostingLd)}</script>
       </Helmet>
 
       <motion.section
@@ -184,12 +261,49 @@ function Karriere() {
             transition={{ duration: 0.6 }}
           >
             <h2>Offene Stellen</h2>
-            <div className="jobs-coming-soon">
-              <p className="jobs-coming-soon-text">
-                Aktuell sind keine Stellen ausgeschrieben – bleiben Sie gespannt.
-                Wir wachsen kontinuierlich und veröffentlichen neue Positionen, sobald sie feststehen.
-              </p>
-            </div>
+            <article className="job-card">
+              <div className="job-card-header">
+                <div>
+                  <h3 className="job-title">{job.title}</h3>
+                  <p className="job-subtitle">{job.subtitle}</p>
+                </div>
+                <ul className="job-tags" aria-label="Eckdaten">
+                  <li>{job.type}</li>
+                  <li>{job.location}</li>
+                </ul>
+              </div>
+
+              <p className="job-description">{job.intro}</p>
+
+              <div className="job-columns">
+                <div className="job-block">
+                  <h4>Ihre Aufgaben</h4>
+                  <ul>
+                    {job.tasks.map((task) => (
+                      <li key={task}>{task}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="job-block">
+                  <h4>Das bringen Sie mit</h4>
+                  <ul>
+                    {job.requirements.map((req) => (
+                      <li key={req}>{req}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <motion.a
+                href={jobApplyHref}
+                className="job-apply-btn"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <IconMail />
+                Jetzt bewerben
+              </motion.a>
+            </article>
           </motion.div>
 
           <motion.div
@@ -201,7 +315,8 @@ function Karriere() {
           >
             <h2>Initiativbewerbung</h2>
             <p className="application-intro">
-              Auch wenn gerade keine Stelle ausgeschrieben ist, freuen wir uns über eine Initiativbewerbung.
+              Sie passen nicht genau auf die ausgeschriebene Stelle, möchten aber trotzdem Teil
+              des Teams werden? Auch über eine Initiativbewerbung freuen wir uns.
               Senden Sie uns Ihre Unterlagen per E-Mail – wir melden uns bei Ihnen.
             </p>
             <motion.a
