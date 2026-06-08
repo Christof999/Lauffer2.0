@@ -95,3 +95,35 @@
   color: var(--brown-primary);
   border: 1px solid var(--brown-primary);
 }
+
+.service-landing-faq {
+  padding: 0 1.5rem 4rem;
+  background: var(--white);
+}
+
+.service-landing-faq h2 {
+  font-size: 1.35rem;
+  color: var(--coal-grey);
+  margin: 0 0 1.5rem;
+}
+
+.service-faq-list {
+  margin: 0;
+}
+
+.service-faq-item {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 1.25rem 0;
+}
+
+.service-faq-item dt {
+  font-weight: 600;
+  color: var(--coal-grey);
+  margin-bottom: 0.5rem;
+}
+
+.service-faq-item dd {
+  margin: 0;
+  color: var(--coal-grey);
+  line-height: 1.7;
+}

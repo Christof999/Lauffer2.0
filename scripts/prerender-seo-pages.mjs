@@ -27,7 +27,28 @@ function replaceFirst(html, pattern, replacement) {
 }
 
 const outline = JSON.parse(readFileSync(outlinePath, 'utf8'))
+const services = JSON.parse(readFileSync(join(root, 'src', 'data', 'servicesData.json'), 'utf8'))
+const faqData = JSON.parse(readFileSync(join(root, 'src', 'data', 'faqData.json'), 'utf8'))
+const galleryData = JSON.parse(readFileSync(join(root, 'src', 'data', 'galleryData.json'), 'utf8'))
 let template = readFileSync(distIndex, 'utf8')
+
+const BASE_URL = 'https://lauffer-bau.de'
+const AREA_SERVED = [
+  'Wolframs-Eschenbach',
+  'Ansbach',
+  'Gunzenhausen',
+  'Merkendorf',
+  'Windsbach',
+  'Heilsbronn',
+  'Mittelfranken',
+]
+
+/* urlPath -> Verknüpfung zu servicesData (serviceId) und faqData (faqKey) */
+const SERVICE_BY_PATH = {
+  '/gartenbau': { serviceId: 'gartenbau', faqKey: 'gartenbau' },
+  '/erdbau': { serviceId: 'erdbau', faqKey: 'erdbau' },
+  '/natursteine': { serviceId: 'naturstein', faqKey: 'natursteine' },
+}
 
 for (const route of outline.routes) {
   const { urlPath, title, description, sections } = route
@@ -125,7 +146,69 @@ for (const route of outline.routes) {
     inLanguage: 'de-DE',
   }
 
-  const extraLd = `\n    <script type="application/ld+json">\n    ${JSON.stringify(webPageLd, null, 2)}\n    </script>\n    <script type="application/ld+json">\n    ${JSON.stringify(breadcrumbLd, null, 2)}\n    </script>`
+  /* Service-, FAQPage- und ImageGallery-Schema je nach Route (für SEO/GEO/AEO). */
+  const serviceMap = SERVICE_BY_PATH[urlPath]
+  const faqList = serviceMap ? faqData[serviceMap.faqKey] ?? [] : []
+  const ldBlocks = [webPageLd, breadcrumbLd]
+
+  if (serviceMap) {
+    const svc = services.find((s) => s.id === serviceMap.serviceId)
+    if (svc) {
+      ldBlocks.push({
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: svc.title,
+        serviceType: svc.title,
+        description: svc.description,
+        url: canonical,
+        provider: { '@id': `${BASE_URL}/#localbusiness` },
+        areaServed: AREA_SERVED.map((name) => ({ '@type': 'Place', name })),
+        ...(svc.scope?.length
+          ? {
+              hasOfferCatalog: {
+                '@type': 'OfferCatalog',
+                name: `${svc.title} – Leistungen`,
+                itemListElement: svc.scope.map((line) => ({
+                  '@type': 'Offer',
+                  itemOffered: { '@type': 'Service', name: line },
+                })),
+              },
+            }
+          : {}),
+      })
+    }
+  }
+
+  if (faqList.length) {
+    ldBlocks.push({
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faqList.map((f) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: { '@type': 'Answer', text: f.answer },
+      })),
+    })
+  }
+
+  if (urlPath === '/galerie') {
+    ldBlocks.push({
+      '@context': 'https://schema.org',
+      '@type': 'ImageGallery',
+      name: title,
+      description,
+      url: canonical,
+      image: galleryData.map((img) => ({
+        '@type': 'ImageObject',
+        contentUrl: `${BASE_URL}${img.src}`,
+        caption: img.alt,
+      })),
+    })
+  }
+
+  const extraLd = ldBlocks
+    .map((ld) => `\n    <script type="application/ld+json">\n    ${JSON.stringify(ld, null, 2)}\n    </script>`)
+    .join('')
 
   html = replaceFirst(
     html,
@@ -143,6 +226,19 @@ for (const route of outline.routes) {
     )
     .join('')
 
+  const faqHtml = faqList.length
+    ? `
+      <section class="crawl-faq">
+        <h2>Häufige Fragen</h2>
+        ${faqList
+          .map(
+            (f) => `<h3>${escapeHtml(f.question)}</h3>
+        <p>${escapeHtml(f.answer)}</p>`,
+          )
+          .join('\n        ')}
+      </section>`
+    : ''
+
   const crawlArticle = `
     <article id="crawl-content" class="crawl-fallback" data-for="search-engines">
       <header>
@@ -150,6 +246,7 @@ for (const route of outline.routes) {
         <p class="crawl-lead">${escapeHtml(description)}</p>
       </header>
       ${sectionHtml}
+      ${faqHtml}
       <nav class="crawl-nav" aria-label="Wichtige Seiten">
         <p><a href="/">Zur Startseite</a> · <a href="/kontakt">Kontakt</a> · <a href="/gartenbau">Gartenbau</a> · <a href="/erdbau">Erdbau</a> · <a href="/natursteine">Natursteinhandel</a></p>
       </nav>

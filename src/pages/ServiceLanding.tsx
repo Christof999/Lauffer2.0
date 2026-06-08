@@ -2,8 +2,11 @@ import { motion } from 'framer-motion'
 import { Link, useLocation } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import servicesData from '../data/servicesData.json'
+import faqData from '../data/faqData.json'
 import type { Service } from '../components/ServiceModal'
 import './ServiceLanding.css'
+
+type Faq = { question: string; answer: string }
 
 const slugToId: Record<string, string> = {
   gartenbau: 'gartenbau',
@@ -40,6 +43,7 @@ function ServiceLanding() {
     )
   }
 
+  const faqs: Faq[] = slug ? ((faqData as Record<string, Faq[]>)[slug] ?? []) : []
   const path = slug === 'natursteine' ? '/natursteine' : `/${slug}`
   const canonical = `${CANONICAL_BASE}${path}`
   const title =
@@ -100,6 +104,22 @@ function ServiceLanding() {
           </p>
         </div>
       </section>
+
+      {faqs.length ? (
+        <section className="service-landing-faq" aria-labelledby="faq-heading">
+          <div className="service-landing-inner">
+            <h2 id="faq-heading">Häufige Fragen</h2>
+            <dl className="service-faq-list">
+              {faqs.map((faq) => (
+                <div key={faq.question} className="service-faq-item">
+                  <dt>{faq.question}</dt>
+                  <dd>{faq.answer}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </section>
+      ) : null}
     </div>
   )
 }

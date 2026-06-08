@@ -1,0 +1,56 @@
+{
+  "gartenbau": [
+    {
+      "question": "Welche Leistungen umfasst der Gartenbau von Lauffer Bau?",
+      "answer": "Wir übernehmen den kompletten Gartenbau von der Planung bis zur Umsetzung: Gartenplanung und Konzeptentwicklung, Pflanzarbeiten und Rasenflächen, Terrassen, Wege und Einfassungen, Bewässerung und Entwässerung sowie Pflege- und Instandhaltungskonzepte."
+    },
+    {
+      "question": "In welchen Regionen ist Lauffer Bau im Gartenbau tätig?",
+      "answer": "Wir arbeiten von Wolframs-Eschenbach aus in ganz Mittelfranken, unter anderem im Raum Ansbach, Gunzenhausen, Merkendorf, Windsbach und Heilsbronn."
+    },
+    {
+      "question": "Wie läuft ein Gartenbau-Projekt bei Lauffer Bau ab?",
+      "answer": "Am Anfang steht ein unverbindliches Beratungsgespräch vor Ort. Anschließend entwickeln wir Planung und Konzept, setzen die Außenanlage fachgerecht um und beraten auf Wunsch zu Pflege und Instandhaltung."
+    },
+    {
+      "question": "Wie kann ich ein Angebot für mein Gartenprojekt anfragen?",
+      "answer": "Sie erreichen uns telefonisch unter 09875 8129006 oder per E-Mail an info@lauffer-bau.de. Über unsere Kontaktseite können Sie Ihr Projekt unverbindlich schildern."
+    }
+  ],
+  "erdbau": [
+    {
+      "question": "Welche Erdbauarbeiten übernimmt Lauffer Bau?",
+      "answer": "Wir führen Aushub- und Erdbewegungsarbeiten, Planierung und Modellierung, den Unterbau für Wege, Terrassen und Einfahrten, Drainage und Versickerung sowie Abtransport und Materiallogistik aus."
+    },
+    {
+      "question": "In welchem Gebiet ist Lauffer Bau im Erdbau tätig?",
+      "answer": "Unser Einsatzgebiet ist Mittelfranken rund um Wolframs-Eschenbach, darunter Ansbach, Gunzenhausen, Merkendorf, Windsbach und Heilsbronn."
+    },
+    {
+      "question": "Übernimmt Lauffer Bau auch den Unterbau für Pflaster und Terrassen?",
+      "answer": "Ja. Wir erstellen den fachgerechten, frostsicheren Unterbau für Wege, Einfahrten und Terrassen und stimmen Erdbau und anschließende Pflaster- oder Natursteinarbeiten aus einer Hand ab."
+    },
+    {
+      "question": "Wie erhalte ich ein Angebot für Erdbauarbeiten?",
+      "answer": "Schildern Sie uns Ihr Vorhaben telefonisch unter 09875 8129006, per E-Mail an info@lauffer-bau.de oder über unsere Kontaktseite – wir melden uns zeitnah zurück."
+    }
+  ],
+  "natursteine": [
+    {
+      "question": "Was bietet der Natursteinhandel von Lauffer Bau?",
+      "answer": "Wir bieten Beratung und Materialauswahl, Lieferung und Logistik, Natursteinmauern und Stufenanlagen, Pflaster- und Plattenbeläge sowie Sonderlösungen nach Maß."
+    },
+    {
+      "question": "Liefert und verlegt Lauffer Bau Natursteine auch selbst?",
+      "answer": "Ja. Auf Wunsch übernehmen wir neben Beratung und Lieferung auch die fachgerechte Verarbeitung – von Natursteinmauern und Stufen bis zu Pflaster- und Plattenbelägen."
+    },
+    {
+      "question": "In welcher Region liefert Lauffer Bau Naturstein?",
+      "answer": "Wir liefern und verarbeiten Naturstein in Wolframs-Eschenbach und Mittelfranken, unter anderem im Raum Ansbach, Gunzenhausen, Merkendorf, Windsbach und Heilsbronn."
+    },
+    {
+      "question": "Wie kann ich Naturstein anfragen oder beraten werden?",
+      "answer": "Kontaktieren Sie uns telefonisch unter 09875 8129006, per E-Mail an info@lauffer-bau.de oder über unsere Kontaktseite – wir beraten Sie gern zur passenden Materialauswahl."
+    }
+  ]
+}
