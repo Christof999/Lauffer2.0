@@ -65,7 +65,7 @@ function CookieBanner() {
         >
           <div className="cookie-content">
             <div className="cookie-header">
-              <h3>🍪 Cookie-Einstellungen</h3>
+              <h3>Cookie-Einstellungen</h3>
             </div>
 
             {!showSettings ? (
@@ -76,8 +76,8 @@ function CookieBanner() {
                   Cookies für statistische Zwecke und zur Verbesserung unserer Dienste.
                 </p>
                 <p className="location-notice">
-                  📍 <strong>Standort-Berechtigung:</strong> Für eine personalisierte Route zu unserem Standort 
-                  benötigen wir Ihre Erlaubnis, Ihren aktuellen Standort zu ermitteln. Dies hilft uns, 
+                  <strong>Standort-Berechtigung:</strong> Für eine personalisierte Route zu unserem Standort
+                  benötigen wir Ihre Erlaubnis, Ihren aktuellen Standort zu ermitteln. Dies hilft uns,
                   Ihnen die beste Anfahrtsroute zu zeigen.
                 </p>
                 <div className="cookie-buttons">

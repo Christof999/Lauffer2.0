@@ -14,8 +14,17 @@ function Footer() {
           <div className="footer-section">
             <h4>Kontakt</h4>
             <ul>
-              <li>📞 09875/8129006</li>
-              <li>✉️ info(@)lauffer-bau.de</li>
+              <li>09875/8129006</li>
+              <li>info(@)lauffer-bau.de</li>
+            </ul>
+          </div>
+
+          <div className="footer-section">
+            <h4>Leistungen</h4>
+            <ul>
+              <li><Link to="/gartenbau">Gartenbau</Link></li>
+              <li><Link to="/erdbau">Erdbau</Link></li>
+              <li><Link to="/natursteine">Natursteinhandel</Link></li>
             </ul>
           </div>
 

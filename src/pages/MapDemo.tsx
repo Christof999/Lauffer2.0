@@ -76,8 +76,8 @@ const MapDemo: React.FC = () => {
             Waizendorfer Str. 6<br />
             91639 Wolframs-Eschenbach</p>
             <div className="contact-info">
-              <p>📞 {LOCATIONS.destination.phone}</p>
-              <p>✉️ {LOCATIONS.destination.email}</p>
+              <p>Tel. {LOCATIONS.destination.phone}</p>
+              <p>{LOCATIONS.destination.email}</p>
             </div>
           </div>
         </motion.div>
