@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
+import { canonicalUrl } from '../seo/siteConfig'
 import CounterBox from '../components/CounterBox'
 import ProjectModal from '../components/ProjectModal'
 import projectsData from '../data/projectsData.json'
@@ -54,7 +55,7 @@ function Home() {
         <meta name="description" content="Lauffer Bau aus Wolframs-Eschenbach: Ihr Spezialist für professionelle Gartengestaltung, Erdbauarbeiten und hochwertigen Natursteinhandel in Mittelfranken." />
         <meta property="og:title" content="Lauffer Bau – Gartenbau, Erdbau &amp; Natursteinhandel" />
         <meta property="og:description" content="Ihr Spezialist für Gartengestaltung, Erdbau und Natursteinhandel in Wolframs-Eschenbach, Mittelfranken." />
-        <link rel="canonical" href="https://lauffer-bau.de/" />
+        <link rel="canonical" href={canonicalUrl('/')} />
       </Helmet>
       {/* Hero Section */}
       <motion.section className="hero" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }}>

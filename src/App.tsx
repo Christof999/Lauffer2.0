@@ -13,6 +13,7 @@ import Contact from './pages/Contact'
 import Impressum from './pages/Impressum'
 import Datenschutz from './pages/Datenschutz'
 import ServiceLanding from './pages/ServiceLanding'
+import NotFound from './pages/NotFound'
 import './App.css'
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
             <Route path="/kontakt" element={<Contact />} />
             <Route path="/impressum" element={<Impressum />} />
             <Route path="/datenschutz" element={<Datenschutz />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />

@@ -1,4 +1,17 @@
 {
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/ueber-uns",
+      "destination": "/uber-uns",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/uber-uns",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

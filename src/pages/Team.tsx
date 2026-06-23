@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
+import { canonicalUrl } from '../seo/siteConfig'
 import './Team.css'
 
 function Team() {
@@ -9,7 +10,7 @@ function Team() {
       <Helmet>
         <title>Unser Team – Lauffer Bau | Wolframs-Eschenbach</title>
         <meta name="description" content="Das Team hinter Lauffer Bau: Paul Lauffer und sein engagiertes Team aus Wolframs-Eschenbach setzen Ihren Garten- und Erdbau-Wunsch professionell um." />
-        <link rel="canonical" href="https://lauffer-bau.de/team" />
+        <link rel="canonical" href={canonicalUrl('/team')} />
       </Helmet>
       <motion.section
         className="team-hero"
