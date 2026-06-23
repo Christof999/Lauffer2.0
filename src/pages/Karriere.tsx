@@ -1,6 +1,7 @@
 import type { FC } from 'react'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
+import { canonicalUrl, SITE_ORIGIN } from '../seo/siteConfig'
 import './Karriere.css'
 
 const IconPayment: FC = () => (
@@ -49,7 +50,7 @@ const IconMail: FC = () => (
   </svg>
 )
 
-const SITE_URL = 'https://lauffer-bau.de'
+const SITE_URL = SITE_ORIGIN
 
 const job = {
   title: 'Handwerklicher Allrounder (m/w/d)',
@@ -159,7 +160,7 @@ function Karriere() {
       <Helmet>
         <title>Karriere – Lauffer Bau | Handwerklicher Allrounder (m/w/d) gesucht</title>
         <meta name="description" content="Jetzt bewerben bei Lauffer Bau in Wolframs-Eschenbach: Wir suchen einen handwerklichen Allrounder (m/w/d) für Gartenbau, Erdbau und Natursteinarbeiten in Mittelfranken." />
-        <link rel="canonical" href="https://lauffer-bau.de/karriere" />
+        <link rel="canonical" href={canonicalUrl('/karriere')} />
         <script type="application/ld+json">{JSON.stringify(jobPostingLd)}</script>
       </Helmet>
 

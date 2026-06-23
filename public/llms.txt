@@ -8,22 +8,22 @@ Einsatzgebiet: Wolframs-Eschenbach, Ansbach, Gunzenhausen, Merkendorf, Windsbach
 
 ## Leistungen
 
-- [Gartenbau](https://lauffer-bau.de/gartenbau): Gartenplanung, Pflanzarbeiten, Rasenflächen, Terrassen, Wege, Einfassungen, Bewässerung und Pflege.
-- [Erdbau](https://lauffer-bau.de/erdbau): Aushub, Planierung, Unterbau für Wege und Terrassen, Drainage, Versickerung und Materiallogistik.
-- [Natursteinhandel](https://lauffer-bau.de/natursteine): Beratung, Lieferung und Verarbeitung von Naturstein – Mauern, Stufen, Pflaster- und Plattenbeläge, Sonderlösungen nach Maß.
+- [Gartenbau](https://www.lauffer-bau.de/gartenbau): Gartenplanung, Pflanzarbeiten, Rasenflächen, Terrassen, Wege, Einfassungen, Bewässerung und Pflege.
+- [Erdbau](https://www.lauffer-bau.de/erdbau): Aushub, Planierung, Unterbau für Wege und Terrassen, Drainage, Versickerung und Materiallogistik.
+- [Natursteinhandel](https://www.lauffer-bau.de/natursteine): Beratung, Lieferung und Verarbeitung von Naturstein – Mauern, Stufen, Pflaster- und Plattenbeläge, Sonderlösungen nach Maß.
 
 ## Unternehmen
 
-- [Startseite](https://lauffer-bau.de/)
-- [Über uns](https://lauffer-bau.de/uber-uns)
-- [Unser Team](https://lauffer-bau.de/team)
-- [Projekte](https://lauffer-bau.de/projekte): Referenzen aus Gartenbau, Erdbau und Natursteinarbeiten.
-- [Galerie](https://lauffer-bau.de/galerie): Bildimpressionen abgeschlossener Projekte.
-- [Karriere](https://lauffer-bau.de/karriere): Offene Stellen und Bewerbung.
-- [Kontakt](https://lauffer-bau.de/kontakt)
+- [Startseite](https://www.lauffer-bau.de/)
+- [Über uns](https://www.lauffer-bau.de/uber-uns)
+- [Unser Team](https://www.lauffer-bau.de/team)
+- [Projekte](https://www.lauffer-bau.de/projekte): Referenzen aus Gartenbau, Erdbau und Natursteinarbeiten.
+- [Galerie](https://www.lauffer-bau.de/galerie): Bildimpressionen abgeschlossener Projekte.
+- [Karriere](https://www.lauffer-bau.de/karriere): Offene Stellen und Bewerbung.
+- [Kontakt](https://www.lauffer-bau.de/kontakt)
 
 ## Weitere Quellen
 
-- [Sitemap](https://lauffer-bau.de/sitemap.xml)
-- [Impressum](https://lauffer-bau.de/impressum)
-- [Datenschutz](https://lauffer-bau.de/datenschutz)
+- [Sitemap](https://www.lauffer-bau.de/sitemap.xml)
+- [Impressum](https://www.lauffer-bau.de/impressum)
+- [Datenschutz](https://www.lauffer-bau.de/datenschutz)

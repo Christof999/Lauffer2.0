@@ -28,13 +28,13 @@ const logoBase64 = `data:image/png;base64,${logoData.toString('base64')}`
 const targets = [
   {
     file: 'lauffer-bau-website',
-    url: 'https://lauffer-bau.de/',
+    url: 'https://www.lauffer-bau.de/',
     label: 'Unsere Website',
     caption: 'lauffer-bau.de',
   },
   {
     file: 'lauffer-bau-karriere',
-    url: 'https://lauffer-bau.de/karriere',
+    url: 'https://www.lauffer-bau.de/karriere',
     label: 'Jobs & Karriere',
     caption: 'lauffer-bau.de/karriere',
   },

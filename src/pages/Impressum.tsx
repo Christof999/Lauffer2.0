@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
+import { canonicalUrl } from '../seo/siteConfig'
 import './Legal.css'
 
 function Impressum() {
@@ -9,7 +10,7 @@ function Impressum() {
         <title>Impressum – Lauffer Bau | Wolframs-Eschenbach</title>
         <meta name="description" content="Impressum von Lauffer Bau, Paul Lauffer, Waizendorfer Str. 6, 91639 Wolframs-Eschenbach. Angaben gemäß § 5 TMG." />
         <meta name="robots" content="noindex,follow" />
-        <link rel="canonical" href="https://lauffer-bau.de/impressum" />
+        <link rel="canonical" href={canonicalUrl('/impressum')} />
       </Helmet>
       <motion.section
         className="legal-hero"

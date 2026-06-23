@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async'
 import servicesData from '../data/servicesData.json'
 import faqData from '../data/faqData.json'
 import type { Service } from '../components/ServiceModal'
+import { canonicalUrl } from '../seo/siteConfig'
 import './ServiceLanding.css'
 
 type Faq = { question: string; answer: string }
@@ -13,8 +14,6 @@ const slugToId: Record<string, string> = {
   erdbau: 'erdbau',
   natursteine: 'naturstein',
 }
-
-const CANONICAL_BASE = 'https://lauffer-bau.de'
 
 function pathToSlug(pathname: string): string | undefined {
   const p = pathname.replace(/\/$/, '') || '/'
@@ -45,7 +44,7 @@ function ServiceLanding() {
 
   const faqs: Faq[] = slug ? ((faqData as Record<string, Faq[]>)[slug] ?? []) : []
   const path = slug === 'natursteine' ? '/natursteine' : `/${slug}`
-  const canonical = `${CANONICAL_BASE}${path}`
+  const canonical = canonicalUrl(path)
   const title =
     service.id === 'gartenbau'
       ? 'Gartenbau – Lauffer Bau | Planung & Gartengestaltung Mittelfranken'

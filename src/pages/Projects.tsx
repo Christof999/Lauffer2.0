@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
+import { canonicalUrl } from '../seo/siteConfig'
 import ProjectModal from '../components/ProjectModal'
 import projectsData from '../data/projectsData.json'
 import './Projects.css'
@@ -36,7 +37,7 @@ function Projects() {
       <Helmet>
         <title>Projekte – Lauffer Bau | Referenzen Gartenbau &amp; Erdbau</title>
         <meta name="description" content="Referenzprojekte von Lauffer Bau: Gartengestaltung, Pflasterarbeiten, Erdbau und Natursteinarbeiten in Mittelfranken. Lassen Sie sich von unseren Arbeiten inspirieren." />
-        <link rel="canonical" href="https://lauffer-bau.de/projekte" />
+        <link rel="canonical" href={canonicalUrl('/projekte')} />
       </Helmet>
       <motion.section
         className="projects-hero"

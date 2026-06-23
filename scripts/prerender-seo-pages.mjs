@@ -32,7 +32,9 @@ const faqData = JSON.parse(readFileSync(join(root, 'src', 'data', 'faqData.json'
 const galleryData = JSON.parse(readFileSync(join(root, 'src', 'data', 'galleryData.json'), 'utf8'))
 let template = readFileSync(distIndex, 'utf8')
 
-const BASE_URL = 'https://lauffer-bau.de'
+const { siteOrigin: BASE_URL } = JSON.parse(
+  readFileSync(join(root, 'src', 'seo', 'siteConfig.json'), 'utf8'),
+)
 const AREA_SERVED = [
   'Wolframs-Eschenbach',
   'Ansbach',
@@ -52,7 +54,7 @@ const SERVICE_BY_PATH = {
 
 for (const route of outline.routes) {
   const { urlPath, title, description, sections } = route
-  const baseUrl = 'https://lauffer-bau.de'
+  const baseUrl = BASE_URL
   const canonical = `${baseUrl}${urlPath === '/' ? '/' : urlPath}`
   const isLegal = urlPath === '/impressum' || urlPath === '/datenschutz'
   const robotsContent = isLegal ? 'noindex,follow' : 'index,follow'

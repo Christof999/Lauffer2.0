@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
+import { canonicalUrl } from '../seo/siteConfig'
 import './Legal.css'
 
 function Datenschutz() {
@@ -9,7 +10,7 @@ function Datenschutz() {
         <title>Datenschutzerklärung – Lauffer Bau</title>
         <meta name="description" content="Datenschutzerklärung von Lauffer Bau. Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO." />
         <meta name="robots" content="noindex,follow" />
-        <link rel="canonical" href="https://lauffer-bau.de/datenschutz" />
+        <link rel="canonical" href={canonicalUrl('/datenschutz')} />
       </Helmet>
       <motion.section
         className="legal-hero"
