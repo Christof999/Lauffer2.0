@@ -2,17 +2,19 @@ import type { FC } from 'react'
 import { motion } from 'framer-motion'
 import { Helmet } from 'react-helmet-async'
 import { canonicalUrl, SITE_ORIGIN } from '../seo/siteConfig'
+import { CONTACT } from '../seo/business'
+import { IconMail } from '../components/Icons'
 import './Karriere.css'
 
 const IconPayment: FC = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden focusable="false">
     <rect x="2" y="5" width="20" height="14" rx="2" />
     <path d="M2 10h20" />
   </svg>
 )
 
 const IconVehicle: FC = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden focusable="false">
     <path d="M5 17h14v-5l-2-4H7L5 12v5z" />
     <circle cx="7.5" cy="17" r="1.5" />
     <circle cx="16.5" cy="17" r="1.5" />
@@ -20,14 +22,14 @@ const IconVehicle: FC = () => (
 )
 
 const IconEducation: FC = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden focusable="false">
     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
     <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
   </svg>
 )
 
 const IconTeam: FC = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden focusable="false">
     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
     <circle cx="9" cy="7" r="4" />
     <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
@@ -36,17 +38,10 @@ const IconTeam: FC = () => (
 )
 
 const IconVariety: FC = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden focusable="false">
     <circle cx="12" cy="12" r="10" />
     <circle cx="12" cy="12" r="3" />
     <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
-  </svg>
-)
-
-const IconMail: FC = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-    <polyline points="22,6 12,13 2,6" />
   </svg>
 )
 
@@ -171,14 +166,6 @@ function Karriere() {
         transition={{ duration: 0.8 }}
       >
         <div className="karriere-hero-content">
-          <motion.p
-            className="karriere-kicker"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            Karriere
-          </motion.p>
           <motion.h1
             initial={{ y: 24, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
@@ -231,10 +218,12 @@ function Karriere() {
                     transition={{ duration: 0.45, delay: index * 0.06 }}
                     whileHover={{ y: -3 }}
                   >
-                    <div className="benefit-icon" aria-hidden>
-                      <Icon />
-                    </div>
-                    <h3>{benefit.title}</h3>
+                    <h3>
+                      <span className="benefit-icon" aria-hidden="true">
+                        <Icon />
+                      </span>
+                      {benefit.title}
+                    </h3>
                     <p>{benefit.description}</p>
                   </motion.div>
                 )
@@ -309,7 +298,7 @@ function Karriere() {
               Senden Sie uns Ihre Unterlagen per E-Mail – wir melden uns bei Ihnen.
             </p>
             <motion.a
-              href="mailto:info@lauffer-bau.de?subject=Initiativbewerbung bei Lauffer Bau"
+              href={`mailto:${CONTACT.email}?subject=Initiativbewerbung bei Lauffer Bau`}
               className="email-apply-btn"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
@@ -318,7 +307,9 @@ function Karriere() {
               Initiativbewerbung senden
             </motion.a>
             <p className="application-hint">
-              Bitte fügen Sie Ihrer E-Mail einen Lebenslauf und relevante Zeugnisse bei.
+              Bitte fügen Sie Ihrer E-Mail einen Lebenslauf und relevante Zeugnisse bei. Fragen
+              vorab? Rufen Sie an unter{' '}
+              <a href={`tel:${CONTACT.telephoneHref}`}>{CONTACT.telephoneDisplay}</a>.
             </p>
           </motion.div>
 

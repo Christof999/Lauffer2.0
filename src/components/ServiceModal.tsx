@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { optimized } from './imageSources'
 import './ServiceModal.css'
 
 export interface Service {
@@ -93,7 +94,12 @@ export default function ServiceModal({ isOpen, onClose, service }: Props) {
                 <div className="service-modal-media">
                   {activeSrc ? (
                     <>
-                      <img className="service-modal-image" src={activeSrc} alt={service.title} />
+                      <img
+                        className="service-modal-image"
+                        src={optimized(activeSrc, 1600)}
+                        alt={`${service.title} – Referenzbild von Lauffer Bau`}
+                        decoding="async"
+                      />
                       {images.length > 1 && (
                         <>
                           <button
@@ -130,7 +136,7 @@ export default function ServiceModal({ isOpen, onClose, service }: Props) {
                         onClick={() => setActiveIndex(idx)}
                         aria-label={`Bild ${idx + 1}`}
                       >
-                        <img src={src} alt="" />
+                        <img src={optimized(src, 400)} alt="" loading="lazy" decoding="async" />
                       </button>
                     ))}
                   </div>

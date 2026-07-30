@@ -25,16 +25,6 @@
   gap: 2rem;
 }
 
-.hero-subtitle {
-  font-family: 'Manrope', sans-serif;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.3em;
-  color: var(--accent);
-  margin-bottom: 1rem;
-  opacity: 0.9;
-}
-
 .hero h1 {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(3.5rem, 8vw, 7rem);
@@ -52,6 +42,18 @@
   /* Kein Shadow/Glow mehr für pure Eleganz */
 }
 
+/* Leistungstrias als Teil der H1 statt als getracktes Kicker-Label darüber */
+.hero-title-line {
+  display: block;
+  margin-top: 1.25rem;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
 .hero-description {
   font-family: 'Manrope', sans-serif;
   font-size: 1.1rem;
@@ -63,40 +65,90 @@
 }
 
 .hero-actions {
-  margin-top: 3rem;
+  margin-top: 2.5rem;
   display: flex;
-  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 1.25rem;
 }
 
+/* Echte Buttons statt 24px hoher Textlinks: min. 48px Höhe (WCAG 2.5.5) */
 .hero-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 48px;
+  padding: 0.85rem 1.75rem;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+  text-decoration: none;
+  border: 1px solid var(--border-light);
+  color: var(--text-main);
+  background: transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.hero-link:hover,
+.hero-link:focus-visible {
+  border-color: rgba(var(--primary-rgb), 0.55);
+  background: rgba(var(--primary-rgb), 0.08);
+}
+
+.hero-link--primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--bg-dark);
+  font-weight: 600;
+}
+
+.hero-link--primary:hover,
+.hero-link--primary:focus-visible {
+  background: var(--primary-light);
+  border-color: var(--primary-light);
+  color: var(--bg-dark);
+}
+
+.hero-link--phone {
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-link svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* Sichtbare Entsprechung zum aggregateRating im JSON-LD */
+.hero-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: var(--tap-target);
+  margin-top: 1.5rem;
   font-family: 'Manrope', sans-serif;
   font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--text-main);
+  color: var(--text-muted);
   text-decoration: none;
-  position: relative;
-  padding-bottom: 0.5rem;
   transition: color 0.3s ease;
 }
 
-.hero-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0%;
-  height: 1px;
-  background-color: var(--accent);
-  transition: width 0.4s ease;
+.hero-rating:hover,
+.hero-rating:focus-visible {
+  color: var(--text-main);
 }
 
-.hero-link:hover {
-  color: var(--accent);
+.hero-rating-stars {
+  color: var(--primary);
+  letter-spacing: 0.1em;
 }
 
-.hero-link:hover::after {
-  width: 100%;
+.hero-rating-value {
+  color: var(--text-main);
+  font-weight: 600;
 }
 
 .scroll-indicator {
@@ -105,7 +157,8 @@
   left: 50%;
   transform: translateX(-50%);
   opacity: 0.5;
-  animation: fadeBounce 3s infinite;
+  /* Ruhiges Aus-/Einblenden mit ease-out-quart statt Bounce-Easing */
+  animation: scrollHint 3.6s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
 }
 
 .scroll-line {
@@ -114,9 +167,9 @@
   background: linear-gradient(to bottom, var(--text-muted), transparent);
 }
 
-@keyframes fadeBounce {
-  0%, 100% { opacity: 0.3; transform: translateX(-50%) translateY(0); }
-  50% { opacity: 0.6; transform: translateX(-50%) translateY(10px); }
+@keyframes scrollHint {
+  0%, 100% { opacity: 0.25; transform: translateX(-50%) translateY(0); }
+  50% { opacity: 0.6; transform: translateX(-50%) translateY(8px); }
 }
 
 /* --- STATS SECTION --- */
@@ -150,33 +203,37 @@
   align-items: flex-start;
 }
 
-.section-label {
-  font-family: 'Manrope', sans-serif;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--accent);
-  margin-bottom: 1rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-/* Dezente, aber sichtbare Lauffer-Akzentlinie */
-.section-label::before {
-  content: '';
-  width: 28px;
-  height: 1px;
-  background: linear-gradient(to right, var(--primary), transparent);
-  opacity: 0.9;
-}
-
+/* Die getrackten Kicker-Labels über den Überschriften sind entfernt – die
+   Überschrift trägt sich selbst. Stattdessen eine Akzentlinie an der
+   Überschrift und eine erklärende Zeile darunter, wo sie inhaltlich hilft. */
 .section-title {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
   color: var(--text-main);
   font-weight: 300;
   margin: 0;
+  padding-top: 1.25rem;
+  position: relative;
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 56px;
+  height: 1px;
+  background: linear-gradient(to right, var(--primary), transparent);
+}
+
+.section-intro {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  font-weight: 300;
+  color: var(--text-muted);
+  max-width: 62ch;
+  margin: 1.25rem 0 0;
 }
 
 .services-list {
@@ -191,24 +248,34 @@
   --service-accent: var(--primary);
   --service-accent-rgb: var(--primary-rgb);
 
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 22rem) auto;
   align-items: baseline;
+  gap: 1rem 2.5rem;
   padding: 3rem 0;
   border-top: 1px solid var(--border-light);
-  transition: all 0.4s ease;
+  /* Nur nicht-layoutende Eigenschaften animieren (kein `all`, kein padding) */
+  transition: background-color 0.4s ease, transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   cursor: default;
+  text-align: left;
+  width: 100%;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
 }
 
 .service-item--erdbau {
   /* Erdbau = Braun */
-  --service-accent: var(--lauffer-brown);
+  --service-accent: var(--lauffer-brown-on-dark);
   --service-accent-rgb: var(--brown-rgb);
 }
 
 .service-item--naturstein {
   /* Natursteinhandel = kühles Grau */
-  --service-accent: var(--lauffer-stone-grey);
+  --service-accent: var(--lauffer-stone-on-dark);
   --service-accent-rgb: var(--stone-rgb);
 }
 
@@ -217,17 +284,15 @@
 }
 
 .service-item-left {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  flex: 1;
   min-width: 0;
 }
 
 .service-item-right {
   display: flex;
   align-items: center;
-  margin-left: 2rem;
+  justify-content: flex-end;
+  min-width: var(--tap-target);
+  min-height: var(--tap-target);
 }
 
 .service-item-arrow {
@@ -241,12 +306,15 @@
   border-bottom: 1px solid var(--border-light);
 }
 
-.service-item:hover {
-  background-color: rgba(var(--service-accent-rgb), 0.03);
-  padding-left: 2rem;
+/* Verschiebung per transform statt padding – kein Reflow im Hover */
+.service-item-clickable:hover,
+.service-item-clickable:focus-visible {
+  background-color: rgba(var(--service-accent-rgb), 0.04);
+  transform: translateX(0.75rem);
 }
 
-.service-item-clickable:hover .service-item-arrow {
+.service-item-clickable:hover .service-item-arrow,
+.service-item-clickable:focus-visible .service-item-arrow {
   transform: translateX(6px);
   color: var(--service-accent);
 }
@@ -259,13 +327,111 @@
   margin: 0;
 }
 
+/* Beschreibung sitzt in der zweiten Spalte, linksbündig zum eigenen Raster */
 .service-item p {
   font-family: 'Manrope', sans-serif;
   font-size: 1rem;
+  line-height: 1.65;
   color: var(--text-muted);
-  max-width: 400px;
-  text-align: right;
+  text-align: left;
   font-weight: 300;
+  margin: 0;
+}
+
+.service-item-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem 1.25rem;
+}
+
+.service-item-detail,
+.service-item-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: var(--tap-target);
+  padding: 0 0.25rem;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.service-item-detail:hover,
+.service-item-detail:focus-visible,
+.service-item-link:hover,
+.service-item-link:focus-visible {
+  color: var(--service-accent);
+}
+
+.service-item-arrow {
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.service-item-link:hover .service-item-arrow,
+.service-item-link:focus-visible .service-item-arrow {
+  transform: translateX(4px);
+}
+
+/* --- FAQ (AEO: sichtbare Antworten zu den häufigsten Fragen) --- */
+.home-faq-section {
+  padding: 8rem 2rem 10rem;
+  background-color: var(--bg-surface);
+}
+
+.home-faq-list {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home-faq-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 1rem 3rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border-light);
+}
+
+.home-faq-item:last-child {
+  border-bottom: 1px solid var(--border-light);
+}
+
+.home-faq-item dt {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--text-main);
+}
+
+.home-faq-item dd {
+  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--text-muted);
+  max-width: 68ch;
+}
+
+.section-intro a {
+  color: var(--text-main);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(var(--primary-rgb), 0.6);
+}
+
+.section-intro a:hover {
+  color: var(--primary);
 }
 
 /* --- GALLERY PREVIEW --- */
@@ -274,72 +440,121 @@
   background-color: var(--bg-dark);
 }
 
-.gallery-grid {
+/* Eigener Namespace: `.gallery-*` war doppelt mit Gallery.css belegt und hat
+   dort das Masonry der Galerie-Seite ausgehebelt (globales CSS-Bundle). */
+.home-gallery-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 2rem;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.gallery-item {
+.home-gallery-item {
   position: relative;
   overflow: hidden;
   aspect-ratio: 4/5;
+  border: 0;
+  padding: 0;
+  background: none;
+  cursor: pointer;
   filter: grayscale(100%);
   transition: filter 0.5s ease, transform 0.5s ease;
 }
 
-.gallery-item:hover {
+.home-gallery-item:hover,
+.home-gallery-item:focus-visible {
   filter: grayscale(0%);
   transform: scale(1.02);
   z-index: 2;
 }
 
-.gallery-item img {
+.home-gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
+}
+
+.home-gallery-caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 1.25rem 1rem 1rem;
+  background: linear-gradient(to top, rgba(15, 17, 16, 0.85), transparent);
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-main);
+  text-align: left;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.home-gallery-item:hover .home-gallery-caption,
+.home-gallery-item:focus-visible .home-gallery-caption {
+  opacity: 1;
 }
 
 /* Grid Layout für interessante Optik */
-.gallery-item:nth-child(1) { grid-column: 1 / 5; }
-.gallery-item:nth-child(2) { grid-column: 5 / 9; margin-top: 4rem; }
-.gallery-item:nth-child(3) { grid-column: 9 / 13; }
+.home-gallery-item:nth-child(1) { grid-column: 1 / 5; }
+.home-gallery-item:nth-child(2) { grid-column: 5 / 9; margin-top: 4rem; }
+.home-gallery-item:nth-child(3) { grid-column: 9 / 13; }
 
 /* Responsive */
 @media (max-width: 768px) {
   .hero-actions {
     flex-direction: column;
-    gap: 1.5rem;
+    align-self: stretch;
+    gap: 0.75rem;
   }
-  
+
+  .hero-link {
+    width: 100%;
+  }
+
   .stats-grid {
     grid-template-columns: 1fr;
     gap: 4rem;
     text-align: center;
   }
-  
+
   .service-item {
-    flex-direction: column;
-    gap: 1rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.75rem 1rem;
   }
-  
-  .service-item p {
-    text-align: left;
-    max-width: 100%;
+
+  .service-item-left {
+    grid-column: 1;
   }
 
   .service-item-right {
-    margin-left: 0;
+    grid-column: 2;
+    grid-row: 1;
   }
-  
-  .gallery-grid {
+
+  .service-item p {
+    grid-column: 1 / -1;
+  }
+
+  .service-item-actions {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
+
+  .home-faq-item {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .home-faq-section {
+    padding: 5rem 1.5rem 6rem;
+  }
+
+  .home-gallery-grid {
     display: flex;
     flex-direction: column;
   }
-  
-  .gallery-item {
-    margin-top: 0 !important;
+
+  .home-gallery-item {
+    margin-top: 0;
   }
 }

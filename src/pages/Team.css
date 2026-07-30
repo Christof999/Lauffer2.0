@@ -14,13 +14,20 @@
   padding: 0 2rem;
 }
 
-.team-kicker {
-  font-family: 'Manrope', sans-serif;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.28em;
-  color: var(--accent);
-  margin: 0 0 1rem 0;
+/* Akzentlinie an der Überschrift statt getracktem Kicker-Label darüber */
+.team-title {
+  padding-top: 1.25rem;
+  position: relative;
+}
+
+.team-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 56px;
+  height: 1px;
+  background: linear-gradient(to right, var(--primary), transparent);
 }
 
 .team-title {
@@ -75,6 +82,7 @@
 }
 
 .team-intro p {
+  max-width: 68ch;
   font-family: 'Manrope', sans-serif;
   color: var(--text-muted);
   font-size: 1.05rem;
@@ -170,6 +178,7 @@
 }
 
 .leader-info p {
+  max-width: 66ch;
   font-family: 'Manrope', sans-serif;
   color: var(--text-muted);
   line-height: 1.9;
@@ -191,11 +200,12 @@
   display: flex;
   align-items: center;
   gap: 0.8rem;
+  min-height: var(--tap-target);
   color: rgba(240, 242, 240, 0.88);
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.3s ease;
-  padding: 0.5rem;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  padding: 0.5rem 0.75rem;
   border-radius: 8px;
 }
 

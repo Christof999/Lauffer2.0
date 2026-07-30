@@ -10,7 +10,6 @@ public/images/
 
 src/data/
 ├── galleryData.json   # Galerie-Daten
-├── teamData.json      # Team-Daten
 └── projectsData.json  # Projekt-Daten
 ```
 
@@ -32,7 +31,6 @@ src/data/
 
 ### 2. Team-Mitarbeiter
 1. Foto in `public/images/team/` hochladen
-2. `src/data/teamData.json` bearbeiten:
 ```json
 {
   "id": 4,

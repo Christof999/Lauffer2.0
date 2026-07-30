@@ -1,129 +1,310 @@
+/* Die Leistungsseiten laufen im gleichen dunklen System wie der Rest der
+   Seite: Cormorant Garamond für Überschriften, Manrope für Text, Tokens für
+   Farben. Die Akzentfarbe kommt pro Leistung aus --service-accent (Gartenbau
+   grün, Erdbau braun, Naturstein steingrau) – dieselbe Logik wie auf der
+   Startseite. */
 .service-landing {
   flex: 1;
+  --service-accent: var(--primary);
+  --service-accent-rgb: var(--primary-rgb);
+}
+
+.service-landing--gartenbau {
+  --service-accent: var(--primary);
+  --service-accent-rgb: var(--primary-rgb);
+}
+
+.service-landing--erdbau {
+  --service-accent: var(--lauffer-brown-on-dark);
+  --service-accent-rgb: var(--brown-rgb);
+}
+
+.service-landing--naturstein {
+  --service-accent: var(--lauffer-stone-on-dark);
+  --service-accent-rgb: var(--stone-rgb);
 }
 
 .service-landing--missing {
   max-width: 640px;
-  margin: 4rem auto;
+  margin: 6rem auto;
   padding: 0 1.5rem;
-  text-align: center;
+  font-family: 'Manrope', sans-serif;
+  color: var(--text-muted);
 }
 
+/* --- HERO --- */
 .service-landing-hero {
-  background: linear-gradient(135deg, var(--grey-primary) 0%, var(--brown-primary) 100%);
-  padding: 4rem 1.5rem 3rem;
-  text-align: center;
-  color: var(--white);
+  background: var(--bg-dark);
+  padding: 8rem 2rem 5rem;
+  border-bottom: 1px solid var(--border-light);
 }
 
-.service-landing-kicker {
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: 0.75rem;
-  opacity: 0.9;
-  margin-bottom: 0.75rem;
+.service-landing-hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .service-landing-hero h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 600;
-  margin: 0 0 0.5rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.75rem, 6vw, 5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+  margin: 0;
+  padding-top: 1.25rem;
+  position: relative;
+}
+
+.service-landing-hero h1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 56px;
+  height: 1px;
+  background: linear-gradient(to right, var(--service-accent), transparent);
+}
+
+.service-landing-hero h1 em {
+  font-style: italic;
+  color: var(--service-accent);
 }
 
 .service-landing-sub {
-  font-size: 1.15rem;
-  opacity: 0.95;
-  margin: 0;
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 62ch;
+  margin: 1.5rem 0 0;
 }
 
+/* --- BODY --- */
 .service-landing-body {
-  padding: 3rem 1.5rem 4rem;
-  background: var(--white);
+  padding: 6rem 2rem;
+  background: var(--bg-surface);
 }
 
 .service-landing-inner {
-  max-width: 720px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 .service-landing-lead {
-  font-size: 1.1rem;
-  line-height: 1.65;
-  color: var(--coal-grey);
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  font-weight: 300;
+  color: var(--text-main);
+  /* 65–70 Zeichen pro Zeile statt 90 */
+  max-width: 68ch;
+  margin: 0 0 3.5rem;
+}
+
+.service-landing-body h2,
+.service-landing-faq h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.9rem, 3.5vw, 2.75rem);
+  font-weight: 300;
+  color: var(--text-main);
   margin: 0 0 2rem;
 }
 
-.service-landing-body h2 {
-  font-size: 1.35rem;
-  color: var(--coal-grey);
-  margin: 2rem 0 1rem;
+.service-scope {
+  list-style: none;
+  margin: 0 0 3rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: 0;
+  max-width: 1000px;
 }
 
-.service-landing-body ul {
-  margin: 0;
-  padding-left: 1.25rem;
-  color: var(--coal-grey);
-  line-height: 1.7;
+.service-scope li {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--text-muted);
+  padding: 1.15rem 0;
+  border-top: 1px solid var(--border-light);
+}
+
+.service-scope li::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 1px;
+  margin-right: 0.9rem;
+  vertical-align: middle;
+  background: var(--service-accent);
 }
 
 .service-landing-cta {
-  margin-top: 2.5rem;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   align-items: center;
+  margin: 0;
 }
 
 .service-landing-link {
-  display: inline-block;
-  padding: 0.65rem 1.25rem;
-  background: var(--brown-primary);
-  color: var(--white);
-  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 48px;
+  padding: 0.85rem 1.75rem;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
   border-radius: 2px;
-  font-weight: 500;
-  transition: opacity 0.2s;
+  text-decoration: none;
+  /* Dunkle Schrift auf hellem Akzent – Grün 9,26:1, Braun/Grau ebenfalls AA */
+  background: var(--service-accent);
+  color: var(--bg-dark);
+  border: 1px solid var(--service-accent);
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
 
-.service-landing-link:hover {
-  opacity: 0.9;
+.service-landing-link:hover,
+.service-landing-link:focus-visible {
+  background: rgba(var(--service-accent-rgb), 0.85);
 }
 
 .service-landing-link--muted {
   background: transparent;
-  color: var(--brown-primary);
-  border: 1px solid var(--brown-primary);
+  color: var(--text-main);
+  border-color: var(--border-light);
+  font-weight: 500;
 }
 
+.service-landing-link--muted:hover,
+.service-landing-link--muted:focus-visible {
+  background: rgba(var(--service-accent-rgb), 0.1);
+  border-color: rgba(var(--service-accent-rgb), 0.5);
+  color: var(--text-main);
+}
+
+.service-landing-link svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* --- FAQ --- */
 .service-landing-faq {
-  padding: 0 1.5rem 4rem;
-  background: var(--white);
-}
-
-.service-landing-faq h2 {
-  font-size: 1.35rem;
-  color: var(--coal-grey);
-  margin: 0 0 1.5rem;
+  padding: 6rem 2rem 8rem;
+  background: var(--bg-dark);
 }
 
 .service-faq-list {
   margin: 0;
+  max-width: 1000px;
 }
 
 .service-faq-item {
-  border-top: 1px solid rgba(0, 0, 0, 0.08);
-  padding: 1.25rem 0;
+  border-top: 1px solid var(--border-light);
+  padding: 2rem 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: 1rem 3rem;
+}
+
+.service-faq-item:last-child {
+  border-bottom: 1px solid var(--border-light);
 }
 
 .service-faq-item dt {
-  font-weight: 600;
-  color: var(--coal-grey);
-  margin-bottom: 0.5rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 1.35;
+  color: var(--text-main);
+  margin: 0;
 }
 
 .service-faq-item dd {
+  font-family: 'Manrope', sans-serif;
   margin: 0;
-  color: var(--coal-grey);
-  line-height: 1.7;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 68ch;
+}
+
+/* Interne Verlinkung zu den anderen Leistungen */
+.service-landing-related {
+  padding: 0 2rem 6rem;
+  background: var(--bg-dark);
+}
+
+.service-landing-related h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.75rem;
+  font-weight: 300;
+  color: var(--text-main);
+  margin: 0 0 1.5rem;
+}
+
+.service-landing-related-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-landing-related-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
+  padding: 0.65rem 1.25rem;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  text-decoration: none;
+  border: 1px solid var(--border-light);
+  border-radius: 2px;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.service-landing-related-list a:hover,
+.service-landing-related-list a:focus-visible {
+  border-color: rgba(var(--primary-rgb), 0.5);
+  background: rgba(var(--primary-rgb), 0.08);
+}
+
+@media (max-width: 768px) {
+  .service-landing-hero {
+    padding: 6rem 1.5rem 3.5rem;
+  }
+
+  .service-landing-body,
+  .service-landing-faq {
+    padding-inline: 1.5rem;
+  }
+
+  .service-landing-faq {
+    padding-block: 4rem 5rem;
+  }
+
+  .service-faq-item {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .service-landing-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .service-landing-link {
+    width: 100%;
+  }
 }

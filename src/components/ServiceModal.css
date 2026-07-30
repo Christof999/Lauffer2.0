@@ -27,13 +27,13 @@
 
 .service-modal--erdbau {
   /* Erdbau = Braun */
-  --service-accent: var(--lauffer-brown);
+  --service-accent: var(--lauffer-brown-on-dark);
   --service-accent-rgb: var(--brown-rgb);
 }
 
 .service-modal--naturstein {
   /* Natursteinhandel = kühles Grau */
-  --service-accent: var(--lauffer-stone-grey);
+  --service-accent: var(--lauffer-stone-on-dark);
   --service-accent-rgb: var(--stone-rgb);
 }
 

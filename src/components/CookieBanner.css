@@ -1,12 +1,15 @@
+/* Der Banner läuft im gleichen dunklen System wie der Rest der Seite –
+   vorher war er die einzige hell-weiße Insel und hat dort drei
+   AA-Kontrastfehler produziert. */
 .cookie-banner {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: var(--white);
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  background-color: var(--bg-surface);
+  box-shadow: 0 -18px 40px rgba(0, 0, 0, 0.45);
   z-index: 10000;
-  border-top: 3px solid var(--forest-green);
+  border-top: 1px solid rgba(var(--primary-rgb), 0.35);
 }
 
 .cookie-content {
@@ -16,79 +19,89 @@
 }
 
 .cookie-header h3 {
-  color: var(--grey-primary);
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--text-main);
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 0.75rem;
 }
 
 .cookie-content p {
-  color: var(--grey-primary);
-  line-height: 1.6;
+  font-family: 'Manrope', sans-serif;
+  color: var(--text-muted);
+  line-height: 1.7;
   margin-bottom: 1.5rem;
   font-size: 0.95rem;
+  max-width: 70ch;
 }
 
 .location-notice {
-  background: rgba(var(--primary-rgb), 0.1);
-  border: 1px solid rgba(var(--primary-rgb), 0.3);
+  background: rgba(var(--primary-rgb), 0.08);
+  border: 1px solid rgba(var(--primary-rgb), 0.28);
   border-radius: 8px;
-  padding: 12px;
-  margin: 15px 0;
+  padding: 0.85rem 1rem;
+  margin: 1rem 0 1.5rem;
   font-size: 0.9rem;
-  color: #555;
+  color: var(--text-muted);
 }
 
 .location-notice strong {
-  color: var(--forest-green);
+  color: var(--primary);
 }
 
 .cookie-buttons {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .cookie-btn {
-  padding: 0.8rem 1.8rem;
-  border-radius: 8px;
-  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tap-target);
+  padding: 0.8rem 1.75rem;
+  border-radius: 2px;
+  font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  border: none;
-  font-family: inherit;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  border: 1px solid transparent;
+  font-family: 'Manrope', sans-serif;
 }
 
+/* Dunkle Schrift auf dem hellen Marken-Grün: 9,26:1 */
 .cookie-btn-primary {
-  background-color: var(--forest-green);
-  color: var(--white);
+  background-color: var(--primary);
+  color: var(--bg-dark);
 }
 
 .cookie-btn-primary:hover {
-  background-color: var(--forest-green-dark);
-  transform: translateY(-2px);
+  background-color: var(--primary-light);
 }
 
 .cookie-btn-secondary {
-  background-color: var(--grey-light);
-  color: var(--grey-primary);
-  border: 2px solid var(--grey-primary);
+  background-color: transparent;
+  color: var(--text-main);
+  border-color: var(--border-light);
 }
 
 .cookie-btn-secondary:hover {
-  background-color: var(--grey-primary);
-  color: var(--white);
+  border-color: rgba(var(--primary-rgb), 0.55);
+  background-color: rgba(var(--primary-rgb), 0.08);
 }
 
 .cookie-btn-text {
   background: none;
-  color: var(--grey-primary);
+  color: var(--text-muted);
   text-decoration: underline;
+  text-underline-offset: 3px;
+  padding-inline: 0.5rem;
 }
 
 .cookie-btn-text:hover {
-  color: var(--forest-green);
+  color: var(--text-main);
 }
 
 .cookie-settings {
@@ -96,9 +109,10 @@
 }
 
 .cookie-option {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
   padding: 1rem;
-  background-color: var(--grey-light);
+  background-color: rgba(240, 242, 240, 0.04);
+  border: 1px solid var(--border-light);
   border-radius: 8px;
 }
 
@@ -114,6 +128,7 @@
   width: 20px;
   height: 20px;
   cursor: pointer;
+  accent-color: var(--primary);
 }
 
 .cookie-option input[type="checkbox"]:disabled {
@@ -121,16 +136,16 @@
 }
 
 .cookie-option strong {
-  color: var(--grey-primary);
+  color: var(--text-main);
   display: block;
   margin-bottom: 0.3rem;
 }
 
 .cookie-option p {
-  color: var(--grey-primary);
+  color: var(--text-muted);
   font-size: 0.9rem;
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 @media (max-width: 768px) {
@@ -139,16 +154,15 @@
   }
 
   .cookie-header h3 {
-    font-size: 1.3rem;
+    font-size: 1.35rem;
   }
 
   .cookie-buttons {
     flex-direction: column;
+    align-items: stretch;
   }
 
   .cookie-btn {
     width: 100%;
-    text-align: center;
   }
 }
-

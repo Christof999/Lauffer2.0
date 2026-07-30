@@ -3,8 +3,9 @@
 Design- und Technik-Review der Website mit [Impeccable](https://impeccable.style) v3.5.0 /
 Skill v4.0.4 (`/impeccable audit` + `/impeccable critique`).
 
-- **Datum:** 30.07.2026
-- **Stand:** Branch `claude/impeccable-style-check-hep257`, Commit `5c868e2`
+- **Datum:** 30.07.2026 (Befunde), 30.07.2026 (Umsetzung)
+- **Stand:** Branch `claude/impeccable-style-check-hep257`
+- **Status:** Alle Empfehlungen umgesetzt – siehe [Abschnitt 9: Umsetzung](#9-umsetzung-und-nachmessung)
 - **Geprüft:** lokaler Production-Build (`npm run build` + `vite preview`), Chromium,
   Viewports 1440×900 und 390×844
 - **Routen:** `/`, `/uber-uns`, `/projekte`, `/galerie`, `/team`, `/karriere`, `/kontakt`,
@@ -372,3 +373,125 @@ Die Impeccable-Skills liegen in `.claude/skills/impeccable/` (Apache 2.0), damit
 Für den URL-Scan wird Puppeteer benötigt (`npm i -D puppeteer`); in der Session-Umgebung
 lief es mit `PUPPETEER_EXECUTABLE_PATH=/opt/pw-browsers/chromium` und `CI=1`
 (setzt `--no-sandbox`).
+
+---
+
+## 9. Umsetzung und Nachmessung
+
+Alle Empfehlungen aus Abschnitt 7 sind umgesetzt. Drei Punkte wurden vorab mit dem Auftraggeber
+entschieden: **Quick Audit** für den SEO-Teil, **Originalfotos bleiben liegen** (es werden nur
+optimierte Varianten ausgeliefert) und beim Hero **nur die CTAs** verbessern – die schwarze
+Bühne bleibt bewusst wie sie war.
+
+### Vorher / Nachher
+
+| Messgröße | Vorher | Nachher |
+|---|---|---|
+| Impeccable-Detektor (10 Routen) | 78 Befunde auf 4 Routen | **4 Befunde**, alle als False Positive nachgewiesen |
+| Kontrastfehler unter WCAG AA | 3 reale (Badge, Cookie-Banner ×2) | **0** über 10 Routen × 2 Viewports |
+| Übersprungene Überschriftenebenen | 3 (`/`, `/projekte`, `/kontakt`) | **0** |
+| Bildgewicht `/projekte` | 27,89 MB | **0,50 MB** (−98 %) |
+| Bildgewicht `/galerie` | 10,68 MB | **1,95 MB** (−82 %) |
+| Bildgewicht `/` | 5,71 MB | **0,55 MB** (−90 %) |
+| Größtes Einzelbild | 12,15 MB (`IMG_6200.PNG`) | 400/800/1600-px-WebP, größte Variante < 250 KB |
+| `<img>` mit `loading="lazy"` | 1 von 12 | alle über `ResponsiveImage` bzw. explizit |
+| Tap-Ziele < 44 px | Footer 17 px, Hero 24 px, Burger 40 px, Telefon 22 px | nur noch Inline-Links im Fließtext (nach WCAG 2.5.5 ausgenommen) |
+| Schriftsystem | System-Stack als Body-Schrift, Landingpages ohne Markenschrift | Manrope als Body-Schrift, Cormorant für Überschriften, überall |
+| SEO / GEO / AEO | 7 / 7 / 6 von 10 | **8 / 8 / 8** von 10 |
+
+### Was konkret geändert wurde
+
+**P0 – Galerie**
+`.gallery-grid` / `.gallery-item` in `Home.css` heißen jetzt `.home-gallery-*`. Damit greift das
+`column-count: 4`-Masonry aus `Gallery.css` wieder, die Bilder sind nicht mehr 98 px breit und
+erben kein Zwangs-Grayscale.
+
+**P0 – Bild-Pipeline**
+Neu: `scripts/optimize-images.mjs` (läuft als erster Schritt von `npm run build`) erzeugt aus
+115 referenzierten Quellbildern 400/800/1600-px-WebP-Varianten nach `public/images-opt`
+(gitignored, 31 MB) und schreibt `src/data/imageManifest.json`. Die neue Komponente
+`src/components/ResponsiveImage.tsx` liefert daraus `srcset`/`sizes` samt `width`/`height`
+gegen Layout-Shift; `src/components/imageSources.ts` stellt `optimized()` für Modals und
+Lightbox bereit, die keine Komponente einsetzen können. Zusätzlich entsteht ein
+1200×630-`og-default.jpg` für Social Previews. Die Originale bleiben unangetastet.
+
+**P1 – Leistungsseiten**
+`ServiceLanding.css` ist neu geschrieben: dunkle Bühne, Cormorant/Manrope, Tokens, Akzentfarbe
+pro Leistung über `--service-accent`, Zeilenlänge 68ch, `text-shadow` entfernt, Kicker weg,
+CTA-Reihe mit Click-to-Call, Abschnitt „Weitere Leistungen" für interne Verlinkung.
+
+**P1 – Barrierefreiheit**
+`<MotionConfig reducedMotion="user">` in `App.tsx`; der globale `0.01ms`-Kill in `index.css` ist
+durch gezielte Regeln ersetzt, die Bewegung entfernen und Farb-/Opacity-Feedback erhalten.
+`CounterBox` zeigt bei reduzierter Bewegung direkt den Endwert und nutzt statt `<h3>` ein
+`<p>` (das war der `h1→h3`-Sprung). Burger-Button mit `aria-expanded`/`aria-controls` und
+44 × 44 px. Badge-Kontrast über dunkle Schrift auf hellem Grün (9,26:1); Cookie-Banner läuft im
+dunklen System statt als helle Insel. Braun und Steingrau haben aufgehellte Varianten für
+dunkle Flächen (`--lauffer-brown-on-dark` 6,49:1, `--lauffer-stone-on-dark` 8,45:1).
+
+**P1 – Icon-Bug und Hero**
+`.email-apply-btn svg` bekommt 20 × 20 px (rendern vorher 212 × 212 px); alle Icons liegen jetzt
+in `src/components/Icons.tsx` und bringen intrinsische Maße mit. Der Hero hat drei echte
+Buttons ab 48 px Höhe – „Projekt anfragen", Click-to-Call und „Unsere Arbeiten" – sowie das
+sichtbare Google-Rating.
+
+**P2/P3**
+Kicker auf allen sechs Seiten entfernt und durch eine Akzentlinie an der Überschrift ersetzt.
+Beschreibungsspalte der Expertise-Liste sitzt im eigenen Rasterfeld statt rechtsbündig in einer
+400-px-Box. Hover verschiebt per `transform` statt `padding` (kein Reflow, kein
+`transition: all`). Formularfelder erben Manrope (die Textarea rendelte in Monospace).
+Footer-E-Mail ist ein echter `mailto:`-Link statt „info(@)lauffer-bau.de", dazu Adresse und
+Öffnungszeiten. Zentrierter Fließtext auf `/karriere` linksbündig, Vorteilsraster ohne
+Waisenkarte, Projektkarten gleich hoch, `side-tab`-Kanten und `gradient-text` entfernt,
+Bounce-Easing durch ease-out-quart ersetzt.
+
+**Aufgeräumt**
+`src/data/teamData.json` enthielt drei Platzhalter-Personen („Max Mustermann", „Anna Schmidt",
+„Thomas Weber") mit erfundenen E-Mail-Adressen und war nirgends eingebunden – gelöscht.
+`public/sitemap.xml` ebenfalls gelöscht, weil die Sitemap jetzt beim Build generiert wird.
+
+### SEO / GEO / AEO
+
+Der Quick Audit steckt vollständig in `docs/seo-audit-lauffer-bau-de-2026-07-30.pdf` (und als
+`.docx`). Umgesetzt wurden:
+
+- **`aggregateRating` sichtbar gemacht** – die Bewertung stand nur im Markup, nicht auf der
+  Seite. Das verstößt gegen die Google-Richtlinie für Rezensions-Rich-Results. Jetzt steht
+  „4,8 von 5 aus 16 Google-Bewertungen" im Hero und verlinkt auf das Google-Profil.
+- **FAQ auf der Startseite** (`faqData.allgemein`) sichtbar und als `FAQPage`-Schema.
+- **`speakable`** (SpeakableSpecification) auf H1, Lead und FAQ.
+- **Präzisere Seitentypen:** `ContactPage`, `AboutPage`, `CollectionPage` statt durchgängig
+  `WebPage`; neu `Person`-Schema auf `/team` (E-E-A-T).
+- **`Organization` angereichert:** `legalName`, `knowsAbout`, `contactPoint`.
+- **H1 im Prerender:** stand vorher der komplette SEO-Title; jetzt eine natürliche Überschrift
+  aus dem neuen Feld `h1` in `crawlOutline.json`.
+- **Sitemap** wird beim Build erzeugt, mit `lastmod`, ohne die `noindex`-Seiten.
+- **`robots.txt`** erlaubt GPTBot, OAI-SearchBot, ChatGPT-User, PerplexityBot, ClaudeBot und
+  Google-Extended ausdrücklich.
+- **`llms.txt`** um Öffnungszeiten, FAQ-Antworten und Bewertungsangabe ergänzt.
+- **NAP aus einer Quelle:** `src/seo/business.ts` versorgt Seiten, Footer und Schema – vorher
+  gab es zwei Telefon-Schreibweisen.
+- **Interne Verlinkung:** Projektkarte → Leistungsseite, Leistungsseite → andere Leistungen,
+  Startseite → Projektseite, Footer um Projekte und Karriere erweitert.
+- **`og:image`** ist ein eigens erzeugtes 1200×630-Bild (vorher ein 4:3-Foto mit falsch
+  deklarierten Maßen).
+
+### Verbleibende 4 Detektor-Meldungen – alle geprüft
+
+| Meldung | Prüfung |
+|---|---|
+| `low-contrast` „Standort-Berechtigung" und der Folgesatz im Cookie-Banner (1,0:1 / 1,5:1) | **False Positive.** Real gemessen mit Alpha-Komposition über allen Vorfahren: 7,79:1 und 6,59:1. Der Detektor kann `rgba()`-Text über getönten Flächen nicht auflösen. |
+| `low-contrast` „Projekte" auf `/` (pixel 1,6:1, median 5,1:1) | **False Positive.** Gemessen während der Einblend-Animation der CounterBox; im Endzustand liegt der Wert deutlich über 4,5:1. |
+| `line-length` `/karriere` ~149 Zeichen | **False Positive.** Gemessen wird die zentrierte Copyright-Zeile im Footer – der Text darin hat 60 Zeichen in einem 1216 px breiten Kasten. |
+
+### Was bewusst offen bleibt
+
+- **Der leere Hero und die unkuratierte Fotografie.** Auf Wunsch wurde nur die CTA-Ebene
+  verbessert. Eingebrannte „LAUFFER"-Wasserzeichen, Selfies und wechselnde Belichtungen
+  bleiben der größte Wirkungshebel – das ist eine inhaltliche Entscheidung, keine technische.
+- **Externe Sichtbarkeit.** Google-Unternehmensprofil, Branchenverzeichnisse und Backlinks
+  liegen außerhalb der Website und sind laut SEO-Report der größte verbleibende Hebel.
+- **Core Web Vitals** lassen sich erst nach dem Deployment real messen: `pagespeed.web.dev`.
+- **242 MB Originalfotos** bleiben nach Absprache in `public/images` liegen. Sie werden nicht
+  mehr ausgeliefert, vergrößern aber weiterhin das Deployment. Ein späteres Verschieben in
+  einen Ordner außerhalb des Builds wäre der nächste Schritt.

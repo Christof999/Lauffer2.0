@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion'
+import { optimized } from './imageSources'
 import { useState, useEffect, useCallback, useRef } from 'react'
 import './ProjectModal.css'
 
@@ -142,8 +143,8 @@ function ProjectModal({ isOpen, onClose, project }: ProjectModalProps) {
                     ) : (
                       <motion.img
                         key={currentMedia}
-                        src={currentMedia}
-                        alt={`${project.title} - Bild ${currentImageIndex + 1}`}
+                        src={optimized(currentMedia, 1600)}
+                        alt={`${project.title} – ${project.category} in ${project.location}, Bild ${currentImageIndex + 1}`}
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
@@ -203,7 +204,13 @@ function ProjectModal({ isOpen, onClose, project }: ProjectModalProps) {
                             <div className="video-play-icon" aria-hidden="true">▶</div>
                           </div>
                         ) : (
-                          <img src={image} alt="" aria-hidden="true" />
+                          <img
+                            src={optimized(image, 400)}
+                            alt=""
+                            aria-hidden="true"
+                            loading="lazy"
+                            decoding="async"
+                          />
                         )}
                       </motion.div>
                     ))}

@@ -3,6 +3,8 @@ import { useState, useEffect, useCallback } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { canonicalUrl } from '../seo/siteConfig'
 import galleryData from '../data/galleryData.json'
+import ResponsiveImage from '../components/ResponsiveImage'
+import { optimized } from '../components/imageSources'
 import './Gallery.css'
 
 function Gallery() {
@@ -39,14 +41,6 @@ function Gallery() {
         transition={{ duration: 0.8 }}
       >
         <div className="gallery-hero-inner">
-          <motion.p
-            className="gallery-kicker"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            Galerie
-          </motion.p>
           <motion.h1
             className="gallery-title"
             initial={{ opacity: 0, y: 18 }}
@@ -101,11 +95,10 @@ function Gallery() {
                 aria-label={`${image.alt} - Klicken zum Vergrößern`}
               >
                 <div className="gallery-image">
-                  <img
+                  <ResponsiveImage
                     src={image.src}
                     alt={image.alt}
-                    loading="lazy"
-                    decoding="async"
+                    sizes="(max-width: 600px) 46vw, (max-width: 1024px) 31vw, 23vw"
                   />
                 </div>
               </motion.div>
@@ -142,7 +135,12 @@ function Gallery() {
               >
                 <span aria-hidden="true">✕</span>
               </button>
-              <img key={selectedImage} src={selectedImage} alt="Vergrößerte Ansicht" />
+              <img
+                key={selectedImage}
+                src={optimized(selectedImage, 1600)}
+                alt={galleryData.find((g) => g.src === selectedImage)?.alt ?? 'Vergrößerte Ansicht'}
+                decoding="async"
+              />
             </motion.div>
           </motion.div>
         )}

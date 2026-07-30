@@ -14,13 +14,20 @@
   padding: 0 2rem;
 }
 
-.gallery-kicker {
-  font-family: 'Manrope', sans-serif;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.28em;
-  color: var(--accent);
-  margin: 0 0 1rem 0;
+/* Akzentlinie an der Überschrift statt getracktem Kicker-Label darüber */
+.gallery-title {
+  padding-top: 1.25rem;
+  position: relative;
+}
+
+.gallery-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 56px;
+  height: 1px;
+  background: linear-gradient(to right, var(--primary), transparent);
 }
 
 .gallery-title {

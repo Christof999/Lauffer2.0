@@ -52,8 +52,20 @@ const SERVICE_BY_PATH = {
   '/natursteine': { serviceId: 'naturstein', faqKey: 'natursteine' },
 }
 
+/* Team-Daten für Person-Schema (E-E-A-T-Signale). */
+const TEAM = [
+  {
+    name: 'Paul Lauffer',
+    jobTitle: 'Geschäftsführer',
+    description:
+      'Gründer und Geschäftsführer von Lauffer Bau, verantwortlich für Planung, Kalkulation und Ausführung.',
+  },
+]
+
+const sitemapEntries = []
+
 for (const route of outline.routes) {
-  const { urlPath, title, description, sections } = route
+  const { urlPath, title, description, sections, h1, pageType } = route
   const baseUrl = BASE_URL
   const canonical = `${baseUrl}${urlPath === '/' ? '/' : urlPath}`
   const isLegal = urlPath === '/impressum' || urlPath === '/datenschutz'
@@ -140,18 +152,43 @@ for (const route of outline.routes) {
 
   const webPageLd = {
     '@context': 'https://schema.org',
-    '@type': 'WebPage',
-    name: title,
+    '@type': pageType ?? 'WebPage',
+    name: h1 ?? title,
+    headline: h1 ?? title,
     description,
     url: canonical,
     isPartOf: { '@id': `${baseUrl}/#website` },
+    about: { '@id': `${baseUrl}/#organization` },
     inLanguage: 'de-DE',
+    /* AEO: markiert die Passagen, die Sprachassistenten vorlesen sollen. */
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', '.crawl-lead', '.crawl-faq dt', '.crawl-faq dd'],
+    },
   }
 
   /* Service-, FAQPage- und ImageGallery-Schema je nach Route (für SEO/GEO/AEO). */
   const serviceMap = SERVICE_BY_PATH[urlPath]
-  const faqList = serviceMap ? faqData[serviceMap.faqKey] ?? [] : []
+  const faqList = serviceMap
+    ? faqData[serviceMap.faqKey] ?? []
+    : urlPath === '/'
+      ? faqData.allgemein ?? []
+      : []
   const ldBlocks = [webPageLd, breadcrumbLd]
+
+  if (urlPath === '/team') {
+    for (const person of TEAM) {
+      ldBlocks.push({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: person.name,
+        jobTitle: person.jobTitle,
+        description: person.description,
+        worksFor: { '@id': `${baseUrl}/#organization` },
+        url: canonical,
+      })
+    }
+  }
 
   if (serviceMap) {
     const svc = services.find((s) => s.id === serviceMap.serviceId)
@@ -228,29 +265,32 @@ for (const route of outline.routes) {
     )
     .join('')
 
+  /* Frage/Antwort als dl – identische Struktur wie im FAQPage-Schema (AEO). */
   const faqHtml = faqList.length
     ? `
       <section class="crawl-faq">
         <h2>Häufige Fragen</h2>
+        <dl>
         ${faqList
           .map(
-            (f) => `<h3>${escapeHtml(f.question)}</h3>
-        <p>${escapeHtml(f.answer)}</p>`,
+            (f) => `<dt>${escapeHtml(f.question)}</dt>
+        <dd>${escapeHtml(f.answer)}</dd>`,
           )
           .join('\n        ')}
+        </dl>
       </section>`
     : ''
 
   const crawlArticle = `
     <article id="crawl-content" class="crawl-fallback" data-for="search-engines">
       <header>
-        <h1>${escapeHtml(title)}</h1>
+        <h1>${escapeHtml(h1 ?? title)}</h1>
         <p class="crawl-lead">${escapeHtml(description)}</p>
       </header>
       ${sectionHtml}
       ${faqHtml}
       <nav class="crawl-nav" aria-label="Wichtige Seiten">
-        <p><a href="/">Zur Startseite</a> · <a href="/kontakt">Kontakt</a> · <a href="/gartenbau">Gartenbau</a> · <a href="/erdbau">Erdbau</a> · <a href="/natursteine">Natursteinhandel</a></p>
+        <p><a href="/">Zur Startseite</a> · <a href="/kontakt">Kontakt</a> · <a href="/gartenbau">Gartenbau</a> · <a href="/erdbau">Erdbau</a> · <a href="/natursteine">Natursteinhandel</a> · <a href="/projekte">Projekte</a> · <a href="/galerie">Galerie</a> · <a href="/team">Team</a> · <a href="/karriere">Karriere</a></p>
       </nav>
     </article>`
 
@@ -263,6 +303,44 @@ for (const route of outline.routes) {
   }
   const outFile = urlPath === '/' ? distIndex : join(outDir, 'index.html')
   writeFileSync(outFile, html, 'utf8')
+
+  if (!isLegal) {
+    sitemapEntries.push({ canonical, urlPath })
+  }
 }
 
-console.log(`Prerender: ${outline.routes.length} HTML-Dateien mit Crawl-Inhalt geschrieben.`)
+/* Sitemap aus derselben Quelle wie die Seiten – inkl. <lastmod>, damit Crawler
+   Änderungen erkennen. noindex-Seiten (Impressum, Datenschutz) bleiben außen. */
+const lastmod = new Date().toISOString().slice(0, 10)
+const PRIORITY = {
+  '/': '1.0',
+  '/gartenbau': '0.9',
+  '/erdbau': '0.9',
+  '/natursteine': '0.9',
+  '/kontakt': '0.85',
+  '/projekte': '0.85',
+  '/galerie': '0.75',
+  '/uber-uns': '0.8',
+  '/team': '0.7',
+  '/karriere': '0.7',
+}
+const CHANGEFREQ = { '/': 'weekly', '/projekte': 'weekly', '/galerie': 'monthly' }
+
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapEntries
+  .map(
+    ({ canonical, urlPath }) =>
+      `  <url><loc>${canonical}</loc><lastmod>${lastmod}</lastmod>` +
+      `<changefreq>${CHANGEFREQ[urlPath] ?? 'monthly'}</changefreq>` +
+      `<priority>${PRIORITY[urlPath] ?? '0.7'}</priority></url>`,
+  )
+  .join('\n')}
+</urlset>
+`
+writeFileSync(join(root, 'dist', 'sitemap.xml'), sitemap, 'utf8')
+
+console.log(
+  `Prerender: ${outline.routes.length} HTML-Dateien mit Crawl-Inhalt, ` +
+    `sitemap.xml mit ${sitemapEntries.length} URLs (lastmod ${lastmod}) geschrieben.`,
+)

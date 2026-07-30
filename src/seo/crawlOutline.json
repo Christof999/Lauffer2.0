@@ -3,6 +3,8 @@
     {
       "urlPath": "/",
       "title": "Lauffer Bau – Gartenbau, Erdbau & Natursteinhandel in Mittelfranken",
+      "h1": "Lauffer Bau – Gartenbau, Erdbau und Natursteinhandel in Mittelfranken",
+      "pageType": "WebPage",
       "description": "Lauffer Bau aus Wolframs-Eschenbach: Spezialist für Gartenbau, Erdbau und Natursteinhandel in Mittelfranken. Gartengestaltung, Pflasterarbeiten und Natursteinprojekte.",
       "sections": [
         {
@@ -25,6 +27,8 @@
     {
       "urlPath": "/gartenbau",
       "title": "Gartenbau – Lauffer Bau | Planung & Gartengestaltung Mittelfranken",
+      "h1": "Gartenbau in Mittelfranken",
+      "pageType": "WebPage",
       "description": "Gartenbau von Lauffer Bau: Planung, Gestaltung und Pflege in Wolframs-Eschenbach und Mittelfranken. Terrassen, Wege, Pflanzarbeiten und Bewässerung.",
       "sections": [
         {
@@ -39,6 +43,8 @@
     {
       "urlPath": "/erdbau",
       "title": "Erdbau – Lauffer Bau | Aushub & Fundament Mittelfranken",
+      "h1": "Erdbau in Mittelfranken",
+      "pageType": "WebPage",
       "description": "Erdbau von Lauffer Bau in Mittelfranken: Aushub, Planierung, Unterbau für Wege und Terrassen, Drainage und Materiallogistik.",
       "sections": [
         {
@@ -53,6 +59,8 @@
     {
       "urlPath": "/natursteine",
       "title": "Natursteinhandel – Lauffer Bau | Naturstein & Pflaster Mittelfranken",
+      "h1": "Natursteinhandel in Mittelfranken",
+      "pageType": "WebPage",
       "description": "Natursteinhandel Lauffer Bau: Beratung, Lieferung und fachgerechte Verarbeitung von Naturstein in Wolframs-Eschenbach und Mittelfranken.",
       "sections": [
         {
@@ -67,6 +75,8 @@
     {
       "urlPath": "/uber-uns",
       "title": "Über uns – Lauffer Bau | Gartenbau & Erdbau Mittelfranken",
+      "h1": "Über Lauffer Bau",
+      "pageType": "AboutPage",
       "description": "Lernen Sie Lauffer Bau kennen: Tradition, Qualität und Teamgeist in Gartenbau, Erdbau und Natursteinhandel aus Wolframs-Eschenbach.",
       "sections": [
         {
@@ -80,6 +90,8 @@
     {
       "urlPath": "/projekte",
       "title": "Projekte – Lauffer Bau | Referenzen Gartenbau & Erdbau",
+      "h1": "Unsere Projekte",
+      "pageType": "CollectionPage",
       "description": "Referenzen und abgeschlossene Projekte von Lauffer Bau: Gartenbau, Erdbau und Natursteinarbeiten in Mittelfranken.",
       "sections": [
         {
@@ -93,6 +105,8 @@
     {
       "urlPath": "/team",
       "title": "Unser Team – Lauffer Bau | Wolframs-Eschenbach",
+      "h1": "Menschen, die Qualität möglich machen",
+      "pageType": "AboutPage",
       "description": "Das Team von Lauffer Bau: erfahrene Fachkräfte für Gartenbau, Erdbau und Natursteinhandel.",
       "sections": [
         {
@@ -106,6 +120,8 @@
     {
       "urlPath": "/galerie",
       "title": "Galerie – Lauffer Bau | Gartenbau & Natursteinarbeiten",
+      "h1": "Impressionen unserer Arbeit",
+      "pageType": "CollectionPage",
       "description": "Impressionen aus Gartenbau, Erdbau und Natursteinprojekten von Lauffer Bau.",
       "sections": [
         {
@@ -119,6 +135,8 @@
     {
       "urlPath": "/karriere",
       "title": "Karriere – Lauffer Bau | Handwerklicher Allrounder (m/w/d) gesucht",
+      "h1": "Karriere bei Lauffer Bau",
+      "pageType": "WebPage",
       "description": "Jetzt bewerben bei Lauffer Bau in Wolframs-Eschenbach: Wir suchen einen handwerklichen Allrounder (m/w/d) für Gartenbau, Erdbau und Natursteinarbeiten in Mittelfranken.",
       "sections": [
         {
@@ -135,6 +153,8 @@
     {
       "urlPath": "/kontakt",
       "title": "Kontakt – Lauffer Bau | Gartenbau, Erdbau & Natursteinhandel",
+      "h1": "Lassen Sie uns sprechen",
+      "pageType": "ContactPage",
       "description": "Kontaktieren Sie Lauffer Bau in Wolframs-Eschenbach: Anfragen zu Gartenbau, Erdbau und Natursteinhandel.",
       "sections": [
         {
@@ -148,6 +168,8 @@
     {
       "urlPath": "/impressum",
       "title": "Impressum – Lauffer Bau | Wolframs-Eschenbach",
+      "h1": "Impressum",
+      "pageType": "WebPage",
       "description": "Impressum und rechtliche Angaben zu Lauffer Bau, Paul Lauffer, Wolframs-Eschenbach.",
       "sections": [
         {
@@ -161,6 +183,8 @@
     {
       "urlPath": "/datenschutz",
       "title": "Datenschutzerklärung – Lauffer Bau",
+      "h1": "Datenschutzerklärung",
+      "pageType": "WebPage",
       "description": "Datenschutzerklärung von Lauffer Bau gemäß DSGVO.",
       "sections": [
         {

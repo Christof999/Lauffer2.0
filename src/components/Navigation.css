@@ -35,6 +35,9 @@
   z-index: 1001;
   display: flex;
   align-items: center;
+  min-height: var(--tap-target);
+  min-width: var(--tap-target);
+  justify-content: center;
 }
 
 .logo-right {
@@ -66,6 +69,10 @@
 }
 
 .desktop-nav a {
+  /* 44px hoch, damit auch Touch-Geräte ab Tablet-Breite treffen (WCAG 2.5.5) */
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-target);
   text-decoration: none;
   color: rgba(240, 242, 240, 0.72);
   font-family: 'Manrope', sans-serif;
@@ -75,7 +82,6 @@
   font-weight: 500;
   transition: color 0.3s ease;
   position: relative;
-  padding: 0.5rem 0;
 }
 
 .desktop-nav a:hover {
@@ -101,8 +107,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
+  /* WCAG 2.5.5: mindestens 44x44px */
+  width: var(--tap-target);
+  height: var(--tap-target);
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid var(--border-light);
   border-radius: 10px;

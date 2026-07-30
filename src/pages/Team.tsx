@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { canonicalUrl } from '../seo/siteConfig'
+import ResponsiveImage from '../components/ResponsiveImage'
 import './Team.css'
 
 function Team() {
@@ -19,14 +20,6 @@ function Team() {
         transition={{ duration: 0.8 }}
       >
         <div className="team-hero-inner">
-          <motion.p
-            className="team-kicker"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            Team
-          </motion.p>
           <motion.h1
             className="team-title"
             initial={{ opacity: 0, y: 18 }}
@@ -74,7 +67,11 @@ function Team() {
               transition={{ duration: 0.6 }}
             >
               <div className="leader-image">
-                <img src="/images/team/Paul_Headshot.JPG" alt="Paul - Geschäftsführer" />
+                <ResponsiveImage
+                  src="/images/team/Paul_Headshot.JPG"
+                  alt="Paul, Geschäftsführer von Lauffer Bau in Wolframs-Eschenbach"
+                  sizes="(max-width: 768px) 92vw, 30vw"
+                />
               </div>
               <div className="leader-info">
                 <h3>Paul</h3>
@@ -105,7 +102,11 @@ function Team() {
               transition={{ duration: 0.6 }}
             >
               <div className="leader-image">
-                <img src="/images/team/Baily_Headshot.PNG" alt="Bailey - Chief Happiness Officer" />
+                <ResponsiveImage
+                  src="/images/team/Baily_Headshot.PNG"
+                  alt="Bailey, Hund und Chief Happiness Officer bei Lauffer Bau"
+                  sizes="(max-width: 768px) 92vw, 30vw"
+                />
               </div>
               <div className="leader-info">
                 <h3>Bailey</h3>
@@ -137,7 +138,11 @@ function Team() {
               Gemeinsam stark - Unser eingespieltes Team bei der Arbeit
             </p>
             <div className="team-photo">
-              <img src="/images/team/Team_fav.JPG" alt="Das gesamte Lauffer Bau Team" />
+              <ResponsiveImage
+                src="/images/team/Team_fav.JPG"
+                alt="Das Team von Lauffer Bau bei Gartenbau- und Erdbauarbeiten in Mittelfranken"
+                sizes="(max-width: 1024px) 92vw, 900px"
+              />
             </div>
           </motion.div>
 

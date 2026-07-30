@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { useRef } from 'react'
 import './CounterBox.css'
 
@@ -14,9 +14,16 @@ function CounterBox({ title, targetValue, unit = '', delay = 0 }: CounterBoxProp
   const [count, setCount] = useState(0)
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
+  const prefersReducedMotion = useReducedMotion()
 
   useEffect(() => {
     if (!isInView) return
+
+    /* Bei reduzierter Bewegung direkt den Endwert zeigen (WCAG 2.3.3) */
+    if (prefersReducedMotion) {
+      setCount(targetValue)
+      return
+    }
 
     const duration = 2000 // 2 seconds
     const steps = 60
@@ -39,7 +46,7 @@ function CounterBox({ title, targetValue, unit = '', delay = 0 }: CounterBoxProp
     }, delay)
 
     return () => clearTimeout(timer)
-  }, [isInView, targetValue, delay])
+  }, [isInView, targetValue, delay, prefersReducedMotion])
 
   return (
     <motion.div
@@ -49,7 +56,8 @@ function CounterBox({ title, targetValue, unit = '', delay = 0 }: CounterBoxProp
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.6, delay: delay / 1000 }}
     >
-      <h3 className="counter-title">{title}</h3>
+      {/* Label, keine Überschrift – vorher entstand hier ein h1→h3-Sprung */}
+      <p className="counter-title">{title}</p>
       <div className="counter-value">
         <span className="counter-number">{count.toLocaleString('de-DE')}</span>
         {unit && <span className="counter-unit">{unit}</span>}

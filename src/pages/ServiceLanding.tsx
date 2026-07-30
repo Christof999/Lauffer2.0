@@ -5,6 +5,8 @@ import servicesData from '../data/servicesData.json'
 import faqData from '../data/faqData.json'
 import type { Service } from '../components/ServiceModal'
 import { canonicalUrl } from '../seo/siteConfig'
+import { AREA_SERVED, CONTACT } from '../seo/business'
+import { IconPhone } from '../components/Icons'
 import './ServiceLanding.css'
 
 type Faq = { question: string; answer: string }
@@ -13,6 +15,12 @@ const slugToId: Record<string, string> = {
   gartenbau: 'gartenbau',
   erdbau: 'erdbau',
   natursteine: 'naturstein',
+}
+
+const ID_TO_PATH: Record<string, string> = {
+  gartenbau: '/gartenbau',
+  erdbau: '/erdbau',
+  naturstein: '/natursteine',
 }
 
 function pathToSlug(pathname: string): string | undefined {
@@ -59,7 +67,7 @@ function ServiceLanding() {
         : 'Natursteinhandel Lauffer Bau: Beratung, Lieferung und fachgerechte Verarbeitung von Naturstein in Wolframs-Eschenbach und Mittelfranken.'
 
   return (
-    <div className="service-landing">
+    <div className={`service-landing service-landing--${service.id}`}>
       <Helmet>
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -75,9 +83,19 @@ function ServiceLanding() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
       >
-        <p className="service-landing-kicker">Leistung</p>
-        <h1>{service.title}</h1>
-        {service.subtitle ? <p className="service-landing-sub">{service.subtitle}</p> : null}
+        <div className="service-landing-hero-inner">
+          {/* Kein Kicker-Label mehr über der H1 – die Leistung steht in der
+              Überschrift, der Ort macht sie lokal auffindbar. */}
+          <h1>
+            {service.title} <em>in Mittelfranken</em>
+          </h1>
+          {service.subtitle ? (
+            <p className="service-landing-sub">
+              {service.subtitle} – aus Wolframs-Eschenbach für {AREA_SERVED.slice(0, 4).join(', ')} und
+              Umgebung.
+            </p>
+          ) : null}
+        </div>
       </motion.section>
 
       <section className="service-landing-body">
@@ -86,28 +104,32 @@ function ServiceLanding() {
           {service.scope?.length ? (
             <>
               <h2>Leistungsumfang</h2>
-              <ul>
+              <ul className="service-scope">
                 {service.scope.map((line) => (
                   <li key={line}>{line}</li>
                 ))}
               </ul>
             </>
           ) : null}
-          <p className="service-landing-cta">
+          <div className="service-landing-cta">
             <Link to="/kontakt" className="service-landing-link">
-              Jetzt anfragen
+              Projekt anfragen
             </Link>
-            <Link to="/" className="service-landing-link service-landing-link--muted">
-              Zur Startseite
+            <a href={`tel:${CONTACT.telephoneHref}`} className="service-landing-link service-landing-link--muted">
+              <IconPhone />
+              {CONTACT.telephoneDisplay}
+            </a>
+            <Link to="/projekte" className="service-landing-link service-landing-link--muted">
+              Referenzen ansehen
             </Link>
-          </p>
+          </div>
         </div>
       </section>
 
       {faqs.length ? (
         <section className="service-landing-faq" aria-labelledby="faq-heading">
           <div className="service-landing-inner">
-            <h2 id="faq-heading">Häufige Fragen</h2>
+            <h2 id="faq-heading">Häufige Fragen zu {service.title}</h2>
             <dl className="service-faq-list">
               {faqs.map((faq) => (
                 <div key={faq.question} className="service-faq-item">
@@ -119,6 +141,28 @@ function ServiceLanding() {
           </div>
         </section>
       ) : null}
+
+      {/* Interne Verlinkung zwischen den Leistungsseiten */}
+      <section className="service-landing-related">
+        <div className="service-landing-inner">
+          <h2>Weitere Leistungen</h2>
+          <ul className="service-landing-related-list">
+            {(servicesData as Service[])
+              .filter((s) => s.id !== service.id)
+              .map((s) => (
+                <li key={s.id}>
+                  <Link to={ID_TO_PATH[s.id] ?? '/'}>{s.title}</Link>
+                </li>
+              ))}
+            <li>
+              <Link to="/galerie">Galerie</Link>
+            </li>
+            <li>
+              <Link to="/uber-uns">Über Lauffer Bau</Link>
+            </li>
+          </ul>
+        </div>
+      </section>
     </div>
   )
 }

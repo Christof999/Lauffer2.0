@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
+import { optimized } from './imageSources'
 import './Navigation.css'
 
 function Navigation() {
@@ -56,7 +57,15 @@ function Navigation() {
         <div className="nav-right">
           {/* Logo (Desktop + Mobile) */}
           <Link to="/" className="logo-link-right" onClick={closeMobileMenu}>
-            <img src="/Logo_Lauffer_RGB.png" alt="Lauffer Bau Logo" className="logo-right" />
+            <img
+              src={optimized('/Logo_Lauffer_RGB.png', 200)}
+              srcSet={`${optimized('/Logo_Lauffer_RGB.png', 200)} 200w, ${optimized('/Logo_Lauffer_RGB.png', 400)} 400w`}
+              sizes="90px"
+              width={200}
+              height={76}
+              alt="Lauffer Bau – Gartenbau, Erdbau und Natursteinhandel"
+              className="logo-right"
+            />
           </Link>
 
           {/* Mobile Burger Button */}
@@ -64,7 +73,9 @@ function Navigation() {
             className="burger-button"
             onClick={toggleMobileMenu}
             whileTap={{ scale: 0.95 }}
-            aria-label="Toggle mobile menu"
+            aria-label={isMobileMenuOpen ? 'Menü schließen' : 'Menü öffnen'}
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             <motion.span
               className="burger-line"
@@ -108,6 +119,7 @@ function Navigation() {
             
             <motion.div
               className="mobile-menu"
+              id="mobile-menu"
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}

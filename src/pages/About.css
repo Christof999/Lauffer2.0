@@ -15,13 +15,20 @@
   border-bottom: 1px solid var(--border-light);
 }
 
-.about-kicker {
-  font-family: 'Manrope', sans-serif;
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.28em;
-  color: var(--accent);
-  margin: 0 0 1rem 0;
+/* Akzentlinie an der Überschrift statt getracktem Kicker-Label darüber */
+.about-title {
+  padding-top: 1.25rem;
+  position: relative;
+}
+
+.about-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 56px;
+  height: 1px;
+  background: linear-gradient(to right, var(--primary), transparent);
 }
 
 .about-title {
@@ -79,7 +86,8 @@
   line-height: 1.9;
   font-weight: 300;
   margin: 0 0 1.25rem 0;
-  max-width: 80ch;
+  /* 65–70 Zeichen pro Zeile: 80ch ergab in der Praxis ~89 Zeichen */
+  max-width: 66ch;
 }
 
 /* Values */

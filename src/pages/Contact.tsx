@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { useState, FormEvent } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { canonicalUrl } from '../seo/siteConfig'
+import { CONTACT, OPENING_HOURS } from '../seo/business'
 import emailjs from '@emailjs/browser'
 import './Contact.css'
 
@@ -81,14 +82,6 @@ function Contact() {
         transition={{ duration: 0.8 }}
       >
         <div className="contact-hero-inner">
-          <motion.p
-            className="contact-kicker"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            Kontakt
-          </motion.p>
           <motion.h1
             className="contact-title"
             initial={{ opacity: 0, y: 18 }}
@@ -124,6 +117,11 @@ function Contact() {
                 </div>
                 <h2>Lauffer Bau</h2>
                 <p className="info-subtitle">Gartenbau · Erdbau · Natursteinhandel</p>
+                <address className="info-address">
+                  {CONTACT.street}
+                  <br />
+                  {CONTACT.postalCode} {CONTACT.city}
+                </address>
               </div>
 
               <div className="contact-methods">
@@ -134,8 +132,8 @@ function Contact() {
                 >
                   <div className="method-icon method-icon--mail" aria-hidden="true" />
                   <div className="method-content">
-                    <h4>E-Mail</h4>
-                    <p><a href="mailto:info@lauffer-bau.de">info@lauffer-bau.de</a></p>
+                    <h3>E-Mail</h3>
+                    <p><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></p>
                   </div>
                 </motion.div>
 
@@ -146,27 +144,21 @@ function Contact() {
                 >
                   <div className="method-icon method-icon--phone" aria-hidden="true" />
                   <div className="method-content">
-                    <h4>Telefon</h4>
-                    <p><a href="tel:098758129006">09875/8129006</a></p>
+                    <h3>Telefon</h3>
+                    <p><a href={`tel:${CONTACT.telephoneHref}`}>{CONTACT.telephoneDisplay}</a></p>
                   </div>
                 </motion.div>
               </div>
 
               <div className="contact-hours">
-                <h4>Öffnungszeiten</h4>
+                <h3>Öffnungszeiten</h3>
                 <div className="hours-list">
-                  <div className="hours-item">
-                    <span>Mo - Fr:</span>
-                    <span>7:00 - 17:00</span>
-                  </div>
-                  <div className="hours-item">
-                    <span>Sa:</span>
-                    <span>8:00 - 12:00</span>
-                  </div>
-                  <div className="hours-item">
-                    <span>So:</span>
-                    <span>Geschlossen</span>
-                  </div>
+                  {OPENING_HOURS.map((slot) => (
+                    <div className="hours-item" key={slot.label}>
+                      <span>{slot.label}</span>
+                      <span>{slot.value}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

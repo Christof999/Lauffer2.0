@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { MotionConfig } from 'framer-motion'
 import Navigation from './components/Navigation'
 import Footer from './components/Footer'
 import CookieBanner from './components/CookieBanner'
@@ -18,6 +19,10 @@ import './App.css'
 
 function App() {
   return (
+    /* reducedMotion="user" respektiert prefers-reduced-motion für alle
+       Framer-Motion-Animationen: Transforms werden übersprungen, Opacity
+       bleibt als Feedback erhalten (WCAG 2.3.3). */
+    <MotionConfig reducedMotion="user">
     <Router>
       <ScrollToTop />
       <div className="app">
@@ -47,6 +52,7 @@ function App() {
         <CookieBanner />
       </div>
     </Router>
+    </MotionConfig>
   )
 }
 

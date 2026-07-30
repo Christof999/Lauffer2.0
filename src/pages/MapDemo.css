@@ -37,10 +37,8 @@
   font-size: 4rem;
   font-weight: 700;
   margin-bottom: 20px;
-  background: linear-gradient(135deg, var(--coal-grey) 0%, var(--coal-grey-dark) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  /* gradient-text entfernt: einfarbige Überschrift, verlässlicher Kontrast */
+  color: var(--text-main);
 }
 
 .hero-content p {

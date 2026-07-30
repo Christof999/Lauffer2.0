@@ -52,5 +52,23 @@
       "question": "Wie kann ich Naturstein anfragen oder beraten werden?",
       "answer": "Kontaktieren Sie uns telefonisch unter 09875 8129006, per E-Mail an info@lauffer-bau.de oder über unsere Kontaktseite – wir beraten Sie gern zur passenden Materialauswahl."
     }
+  ],
+  "allgemein": [
+    {
+      "question": "Welche Leistungen bietet Lauffer Bau an?",
+      "answer": "Lauffer Bau deckt drei Gewerke ab: Gartenbau (Planung, Gestaltung und Pflege von Außenanlagen), Erdbau (Aushub, Planierung, Unterbau und Drainage) und Natursteinhandel (Beratung, Lieferung und Verarbeitung von Naturstein). Alle drei Bereiche kommen aus einer Hand, sodass Planung und Ausführung nicht zwischen mehreren Betrieben aufgeteilt werden müssen."
+    },
+    {
+      "question": "In welchen Orten arbeitet Lauffer Bau?",
+      "answer": "Der Betrieb sitzt in der Waizendorfer Str. 6 in 91639 Wolframs-Eschenbach und arbeitet in ganz Mittelfranken, unter anderem in Ansbach, Gunzenhausen, Merkendorf, Windsbach und Heilsbronn."
+    },
+    {
+      "question": "Wie läuft eine Anfrage bei Lauffer Bau ab?",
+      "answer": "Am Anfang steht ein unverbindliches Beratungsgespräch vor Ort. Danach folgen Planung und Konzept, anschließend die fachgerechte Umsetzung. Auf Wunsch berät Lauffer Bau auch zu Pflege und Instandhaltung der fertigen Anlage."
+    },
+    {
+      "question": "Wie erreiche ich Lauffer Bau am schnellsten?",
+      "answer": "Telefonisch unter 09875 8129006 während der Öffnungszeiten (Mo–Fr 7:00–17:00 Uhr, Sa 8:00–12:00 Uhr), per E-Mail an info@lauffer-bau.de oder über das Kontaktformular auf der Kontaktseite."
+    }
   ]
 }

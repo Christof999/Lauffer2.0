@@ -1,4 +1,24 @@
 User-agent: *
 Allow: /
 
+# KI- und Answer-Engine-Crawler sind ausdrücklich willkommen (GEO/AEO):
+# Sie dürfen die Inhalte lesen und Lauffer Bau als Quelle zitieren.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 Sitemap: https://www.lauffer-bau.de/sitemap.xml
