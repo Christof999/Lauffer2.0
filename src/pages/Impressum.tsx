@@ -45,7 +45,7 @@ function Impressum() {
             <h2>Umsatzsteuer-ID</h2>
             <p>
               Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
-              DE123456789 (Beispiel)
+              DE302388998
             </p>
 
             <h2>Berufsbezeichnung und berufsrechtliche Regelungen</h2>
